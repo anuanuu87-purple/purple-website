@@ -1,8 +1,7 @@
 name: Daily Automated SEO Article Generator
 
 on:
-schedule:
-    # Runs twice daily: 6:00 AM IST (00:30 UTC) and 6:00 PM IST (12:30 UTC)
+  schedule:
     - cron: '30 0,12 * * *'
   workflow_dispatch:
 
@@ -12,10 +11,11 @@ permissions:
 jobs:
   generate-article:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit and Push New Article & Sitemap
         run: |
-          git config --global user.name "1into1 SEO Engine"
-          git config --global user.email "bot@1into1.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git pull origin main --rebase
           git add blog/ keywords.json sitemap.xml
-          # Commit only if changes exist
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate daily SEO guide & update sitemap [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generated SEO article & sitemap update [skip ci]" && git push origin main)
