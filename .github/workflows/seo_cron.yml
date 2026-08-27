@@ -1,10 +1,9 @@
 name: Daily Automated SEO Article Generator
 
 on:
-  schedule:
-    # Runs automatically every day at 00:00 UTC (5:30 AM IST)
-    - cron: '0 0 * * *'
-  # Allows you to also trigger it manually anytime from GitHub Actions tab for testing
+schedule:
+    # Runs twice daily: 6:00 AM IST (00:30 UTC) and 6:00 PM IST (12:30 UTC)
+    - cron: '30 0,12 * * *'
   workflow_dispatch:
 
 permissions:
