@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purple - The Autonomous OS AI</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7WZRVJE0Z');
+    </script>
+    
+    <style>
+        /* Apple San Francisco Native Font Stack */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+            background-color: #0f0a19; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            letter-spacing: -0.022em;
+        }
+        
+        .glow { 
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.45); 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glow:hover {
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.75), 0 0 80px rgba(124, 58, 237, 0.35);
+            transform: translateY(-2px) scale(1.02);
+        }
+        .glow-text { 
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.7), 0 0 30px rgba(124, 58, 237, 0.4); 
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            margin-left: 4px;
+            font-weight: 200;
+            animation: cursorBlink 0.8s infinite;
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Continuous Light Sweep / Shimmer Effect */
+        @keyframes shineSweep {
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            100% { transform: translateX(250%) skewX(-20deg); }
+        }
+        .shimmer-badge {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .shimmer-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shineSweep 2.5s infinite linear;
+        }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        #mouse-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(15, 10, 25, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        #custom-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: #c084fc;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.08s ease-out, background-color 0.2s ease;
+        }
+        #custom-cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(168, 85, 247, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, transform 0.15s ease-out;
+        }
+
+        body.cursor-active #custom-cursor-ring {
+            width: 54px;
+            height: 54px;
+            border-color: rgba(192, 132, 252, 0.9);
+            background: rgba(168, 85, 247, 0.08);
+        }
+        body.cursor-active #custom-cursor-dot {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: #ffffff;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        .floating-icon {
+            display: inline-block;
+            animation: floatSlow 4s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover .floating-icon {
+            transform: scale(1.2) rotate(-6deg);
+        }
+
+        .feature-card {
+            position: relative;
+            background: rgba(26, 16, 43, 0.45);
+            border: 1px solid rgba(168, 85, 247, 0.18);
+            border-radius: 1.25rem;
+            padding: 2rem 1.75rem;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+        }
+        .feature-card:hover {
+            border-color: rgba(168, 85, 247, 0.55);
+            background: rgba(35, 20, 58, 0.7);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -10px rgba(168, 85, 247, 0.25);
+        }
+
+        .prompt-pill {
+            background: rgba(26, 16, 43, 0.6);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+        }
+        .prompt-pill:hover {
+            border-color: rgba(192, 132, 252, 0.6);
+            background: rgba(38, 22, 64, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .pricing-card {
+            position: relative;
+            background: rgba(26, 16, 43, 0.5);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(12px);
+        }
+        .pricing-card.featured {
+            border-color: rgba(168, 85, 247, 0.85);
+            background: rgba(38, 22, 64, 0.65);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.25);
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(192, 132, 252, 0.95);
+            box-shadow: 0 20px 45px -10px rgba(168, 85, 247, 0.35);
+        }
+    </style>
+</head>
+<body class="text-white overflow-x-hidden bg-[#0f0a19]">
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Mouse Spotlight & Cursor -->
+    <div id="mouse-spotlight"></div>
+    <div id="custom-cursor-dot" class="hidden md:block"></div>
+    <div id="custom-cursor-ring" class="hidden md:block"></div>
+
+    <!-- Navbar with Custom Logo -->
+    <nav class="fixed w-full z-50 bg-[#0f0a19]/70 backdrop-blur-md transition-all duration-300 border-b border-purple-900/20">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
+            <a href="#" class="flex items-center space-x-3 transition-transform hover:scale-105 duration-200">
+                <img src="logo.png" alt="Purple Logo" class="h-9 w-auto drop-shadow-[0_0_12px_rgba(168,85,247,0.7)]">
+                <span class="text-2xl font-bold text-white tracking-tight">Purple</span>
+            </a>
+            <div class="hidden md:flex space-x-8 text-gray-300 font-normal text-[15px]">
+                <a href="#commands" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Voice In Action</a>
+                <a href="#features" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Capabilities</a>
+                <a href="#demo" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Live Demo</a>
+                <a href="#pricing" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Pricing</a>
+                <a href="#vision" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Vision</a>
+            </div>
+            <a href="#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition font-medium text-[15px] glow active:scale-95 transform duration-150">Get Purple</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative z-10 pt-24 pb-16">
+        <div class="animate-pulse mb-4 text-purple-400 font-semibold tracking-wider uppercase text-xs md:text-sm">1into1 Presents</div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-[1.08] tracking-[-0.03em] min-h-[140px] md:min-h-[180px] flex flex-col justify-center items-center">
+            <span id="type-line-1" class="inline-block"></span>
+            <span class="inline-block"><span id="type-line-2" class="text-purple-400 glow-text"></span><span id="type-cursor" class="typing-cursor text-purple-400 glow-text">|</span></span>
+        </h1>
+
+        <p class="max-w-3xl text-lg md:text-xl text-[#a1a1a6] mb-10 leading-relaxed font-normal tracking-[-0.01em] reveal-on-scroll is-visible" style="transition-delay: 150ms;">
+            Purple is a voice-controlled autonomous operating system AI for macOS. She controls your browser, analyzes local PDFs, scrapes the web, plays YouTube tracks, writes 1,200+ word Word documents, and automates your desktop hands-free.
+        </p>
+        
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 reveal-on-scroll is-visible" style="transition-delay: 300ms;">
+            <a href="#pricing" class="px-8 py-4 bg-purple-600 rounded-full hover:bg-purple-700 transition font-semibold text-lg glow flex items-center justify-center active:scale-95 transform tracking-tight">
+                Get Purple for Mac <span class="ml-2 transition-transform duration-200 group-hover:translate-y-1">↓</span>
+            </a>
+            <a href="#demo" class="px-8 py-4 border border-purple-600 rounded-full hover:bg-purple-900/50 transition font-semibold text-lg flex items-center justify-center hover:border-purple-400 hover:shadow-lg hover:shadow-purple-900/30 active:scale-95 transform tracking-tight">
+                Watch Demo
+            </a>
+        </div>
+    </section>
+
+    <!-- Voice In Action (Real-World Commands Showcase) -->
+    <section id="commands" class="py-16 px-6 relative z-10 bg-transparent">
+        <div class="max-w-6xl mx-auto reveal-on-scroll">
+            <div class="text-center mb-12">
+                <span class="text-purple-400 uppercase tracking-widest text-xs font-semibold">The Power of Direct Intent</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 tracking-tight">Speak Once. Watch It Execute.</h2>
+                <p class="text-[#a1a1a6] mt-3 max-w-2xl mx-auto text-[15px]">No menus, no clicking, no switching windows. Here is what you can ask Purple right now:</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>✈️</span><span>Travel & Flight Comparison</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Compare a 4-day trip to Goa vs Manali from Mumbai next month. Check flight costs and hotel budget ranges."</p>
+                </div>
+
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>📊</span><span>Document & Financial Inspection</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Open my Documents folder, read quarterly report PDF, and speak out our net profit and key metrics."</p>
+                </div>
+
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>📝</span><span>Deep Research & Word Docs</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Research latest battery breakthroughs of 2026 across 3 sources and synthesize a detailed Word report with diagrams."</p>
+                </div>
+
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>🎵</span><span>YouTube DJ & Media Control</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Play Bohemian Rhapsody on YouTube, or play Arijit Singh latest songs."</p>
+                </div>
+
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>🎡</span><span>Local Discovery & Nearby Events</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Find live comedy shows and amusement parks open near me this Saturday with timings and entry tickets."</p>
+                </div>
+
+                <div class="prompt-pill">
+                    <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
+                        <span>📁</span><span>Finder Batch Automation</span>
+                    </div>
+                    <p class="text-gray-200 text-sm font-medium leading-snug">"Create a folder called Client Assets, copy all downloaded files into it, and rename them sequentially."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Capabilities Grid -->
+    <section id="features" class="py-24 px-6 relative z-10 bg-transparent">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <span class="text-purple-400 uppercase tracking-widest text-xs font-semibold">Engine Architecture</span>
+                <h2 class="text-3xl md:text-5xl font-bold mt-2 tracking-tight">Everything Purple Can Do</h2>
+                <p class="text-[#a1a1a6] mt-3 max-w-2xl mx-auto text-base">Purple combines native macOS system APIs, real-time web scraping, multi-document synthesis, and Groq reasoning into one voice OS.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- 1. Voice Activation -->
+                <div class="feature-card reveal-on-scroll">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 0s;">🎙️</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Global Option+P Voice Engine</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Instant hands-free microphone capture from anywhere in macOS with live voice synthesis, intelligent pause detection, and multi-lingual voice prompts.</p>
+                </div>
+
+                <!-- 2. YouTube Automation -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 0.6s;">🎥</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Autonomous YouTube Control</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Directly navigates, searches, and clicks top video results. Understands Hindi and English queries like "play song", or specific artists without mouse input.</p>
+                </div>
+
+                <!-- 3. Travel & Flights -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 1.2s;">✈️</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Travel & Flight Comparison</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Queries Google Flights directly by IATA airport codes, navigates dates, filters budget options, and compares total multi-city vacation costs in spoken summaries.</p>
+                </div>
+
+                <!-- 4. Deep Document Synthesis -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 300ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 1.8s;">📝</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">1,200+ Word Word Doc Generator</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Scrapes multiple verified web pages, absorbs the research, fetches relevant Bing images, and formats complete publication-ready Word documents (.docx) automatically opened on your screen.</p>
+                </div>
+
+                <!-- 5. Local PDF/DOCX Inspection -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 400ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 2.4s;">📑</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Local File Metrics & Summary</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Visually opens local PDF, DOCX, and TXT files, extracts raw paragraphs, calculates financial metrics or profit analytics, and delivers a clean factual verdict.</p>
+                </div>
+
+                <!-- 6. Local Finder Automation -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 500ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 3.0s;">📂</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Finder File Automation</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Create folders, copy files to memory, paste into target directories, execute sequential batch renames (#1, #2, #3), search deep directories, and clean the trash.</p>
+                </div>
+
+                <!-- 7. Local Events & Directions -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 600ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 3.6s;">🎡</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Local Events & Live Directions</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Find amusement parks, weekend concerts, comedy clubs, and sports scores near you, or launch Google Maps directions with transit/cycling modes.</p>
+                </div>
+
+                <!-- 8. Native System Controls -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 700ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 4.2s;">🔌</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Protected macOS Controls</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Safety-gated confirmation for Shutdown, Restart, and Sleep. Instant hands-free screen lock, volume level adjustment (0–100), and auto-saved screenshots.</p>
+                </div>
+
+                <!-- 9. Communication & Music -->
+                <div class="feature-card reveal-on-scroll" style="transition-delay: 800ms;">
+                    <div class="text-4xl mb-4 floating-icon" style="animation-delay: 4.8s;">💬</div>
+                    <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Messaging & Spotify Control</h3>
+                    <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Send messages via Apple iMessage or WhatsApp directly to contacts by voice, and manage Spotify playback (play, pause, next track) seamlessly.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-24 px-6 relative z-10 bg-transparent">
+        <div class="max-w-5xl mx-auto text-center reveal-on-scroll">
+            <h2 class="text-3xl md:text-5xl font-bold mb-12 tracking-tight">See Purple in Action</h2>
+            <div class="aspect-video bg-gray-900/60 rounded-2xl overflow-hidden border border-purple-900/50 shadow-2xl glow flex items-center justify-center hover:border-purple-500/70 transition-all duration-300">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/2OpVnJMwZh0" title="Purple OS AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <p class="text-[#a1a1a6] mt-4 font-normal text-[15px]">Watch as Purple executes multi-domain desktop tasks using only voice commands.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section (3 Options: Free Trial, 6-Month Pass in center with Shimmer Badge, Monthly Pro) -->
+    <section id="pricing" class="py-24 px-6 relative z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto text-center reveal-on-scroll">
+            <div class="inline-block px-4 py-1.5 bg-purple-900/40 border border-purple-500/40 rounded-full text-purple-300 text-xs font-semibold uppercase tracking-wider mb-4">
+                Flexible Options
+            </div>
+            <h2 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">Simple, Transparent Pricing</h2>
+            <p class="text-lg text-[#a1a1a6] mb-16 max-w-3xl mx-auto font-normal">
+                Direct downloadable macOS bundle. Complete privacy with Bring-Your-Own-Key (BYOK) architecture so your data, private files, and API tokens remain 100% on your device.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left">
+                
+                <!-- 1. Free Trial Card -->
+                <div class="pricing-card flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-2xl font-bold text-white tracking-tight">Free Trial</h3>
+                            <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-gray-400 text-xs font-semibold rounded-full uppercase tracking-wider">No Card Needed</span>
+                        </div>
+                        <p class="text-[#a1a1a6] text-sm mb-5">Test Purple immediately on your Mac with no upfront payment.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-5xl font-extrabold text-white tracking-tight">$0</span>
+                            <span class="text-[#a1a1a6] ml-2 text-sm font-normal">for 3 commands (~₹0 INR)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-[14px] text-gray-200 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>3 Free Voice Commands:</strong> Test real system automation right away.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Global Option+P Engine:</strong> Experience hands-free macOS control.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>BYOK Architecture:</strong> Connect your own Groq key securely.</span>
+                            </li>
+                            <li class="flex items-start text-gray-500">
+                                <span class="text-gray-600 mr-2.5 font-bold">✕</span>
+                                <span>Unlimited executions (requires upgrade after trial)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="Purple.zip" download class="w-full py-4 border border-purple-500 rounded-xl hover:bg-purple-900/40 hover:border-purple-400 transition font-semibold text-center text-white block active:scale-98 transform tracking-tight">
+                        Download Free Trial (.zip)
+                    </a>
+                </div>
+
+                <!-- 2. 6-Month Pass Card (Featured & In Center with Shimmer Badge) -->
+                <div class="pricing-card featured flex flex-col justify-between reveal-on-scroll" style="transition-delay: 100ms;">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-2xl font-bold text-white tracking-tight">6-Month Premium</h3>
+                            <span class="px-3 py-1 bg-purple-500/20 border border-purple-400/50 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider shimmer-badge">Most Popular • Save 33%</span>
+                        </div>
+                        <p class="text-[#a1a1a6] text-sm mb-5">Full autonomous access billed semi-annually. Zero compute markup.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-5xl font-extrabold text-white tracking-tight">$19.99</span>
+                            <span class="text-[#a1a1a6] ml-2 text-sm font-normal">/ 6 months premium(~₹1,900 INR)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-[14px] text-gray-200 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Voice-Activated OS Engine:</strong> Option+P hands-free control across macOS.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Autonomous YouTube Control:</strong> Hands-free search, selection & music playback.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>1,200+ Word Document Synthesis:</strong> Formats verified research into Word (.docx) with auto-embedded images.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Local Document Summarizer:</strong> Visually inspects PDF, DOCX, & TXT files to extract metrics and profits.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Local Finder Automation:</strong> Create folders, copy, paste, batch-rename, search, and empty trash.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Travel, Flights & Event Discovery:</strong> Compares multi-city trip costs, flights, and nearby amusement parks/shows.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Protected System Controls:</strong> Verbal confirmation for Shutdown, Restart, Sleep, Lock Screen, and Volume.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Live Multi-Link Web Scraping:</strong> Real-time information extraction from active web pages.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>BYOK Architecture:</strong> Connect your API key directly via the macOS status bar.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Continuous Feature Updates:</strong> Full access to all new agent tools and enhancements.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://purple1into1.lemonsqueezy.com/checkout/buy/93992c7c-c4c6-4a6f-9690-1441b1e5fb75" target="_blank" class="w-full py-4 bg-purple-600 rounded-xl hover:bg-purple-700 transition font-semibold text-center text-white glow block active:scale-98 transform tracking-tight">
+                        Get 6-Month Premium ($19.99)
+                    </a>
+                </div>
+
+                <!-- 3. Monthly Pro Card -->
+                <div class="pricing-card flex flex-col justify-between reveal-on-scroll" style="transition-delay: 200ms;">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-2xl font-bold text-white tracking-tight">Monthly</h3>
+                            <span class="px-3 py-1 bg-gray-800 border border-gray-700 text-gray-400 text-xs font-semibold rounded-full uppercase tracking-wider">Flexible</span>
+                        </div>
+                        <p class="text-[#a1a1a6] text-sm mb-5">Full feature access on a month-to-month subscription. Cancel or pause anytime.</p>
+                        
+                        <div class="flex items-baseline mb-6">
+                            <span class="text-5xl font-extrabold text-white tracking-tight">$4.99</span>
+                            <span class="text-[#a1a1a6] ml-2 text-sm font-normal">/ month (~₹475 INR)</span>
+                        </div>
+
+                        <ul class="space-y-3 text-[14px] text-gray-200 mb-8">
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Voice-Activated OS Engine:</strong> Option+P hands-free control across macOS.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Autonomous YouTube Control:</strong> Hands-free search, selection & music playback.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>1,200+ Word Document Synthesis:</strong> Formats verified research into Word (.docx) with auto-embedded images.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Local Document Summarizer:</strong> Visually inspects PDF, DOCX, & TXT files to extract metrics and profits.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Local Finder Automation:</strong> Create folders, copy, paste, batch-rename, search, and empty trash.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Travel, Flights & Event Discovery:</strong> Compares multi-city trip costs, flights, and nearby amusement parks/shows.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Protected System Controls:</strong> Verbal confirmation for Shutdown, Restart, Sleep, Lock Screen, and Volume.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Live Multi-Link Web Scraping:</strong> Real-time information extraction from active web pages.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>BYOK Architecture:</strong> Connect your API key directly via the macOS status bar.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-400 mr-2.5 font-bold">✓</span>
+                                <span><strong>Cancel Anytime:</strong> 1-click self-serve subscription management with no questions asked.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://purple1into1.lemonsqueezy.com/checkout/buy/d34d8a8f-cc11-4d42-9b24-952c1cc1b9b8" target="_blank" class="w-full py-4 border border-purple-500 rounded-xl hover:bg-purple-900/40 hover:border-purple-400 transition font-semibold text-center text-white block active:scale-98 transform tracking-tight">
+                        Subscribe Monthly ($4.99/mo)
+                    </a>
+                </div>
+
+            </div>
+
+            <p class="text-xs text-[#6e6e73] mt-8">
+                🔒 100% Secure Checkout with 256-bit encryption. Accepts Apple Pay, Google Pay, and all major cards.
+            </p>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="py-24 px-6 relative z-10 bg-transparent">
+        <div class="max-w-4xl mx-auto text-center reveal-on-scroll">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight">The Future of Computing</h2>
+            <p class="text-lg text-[#a1a1a6] mb-6 leading-relaxed font-normal">
+                Science fiction promised us a future where we simply speak, and the machine obeys. Where we dictate our intent, and the digital world arranges itself around us. 
+            </p>
+            <p class="text-lg text-[#a1a1a6] mb-12 leading-relaxed font-normal">
+                Purple isn't a chatbot. She isn't an agent or a GPT. She is an Autonomous OS AI that bridges the gap between human thought and machine execution. We are bringing the sci-fi dream to your Mac today, and to every platform and devices tomorrow. Whatever you ask, she fulfills.
+            </p>
+            <a href="#pricing" class="px-10 py-5 bg-purple-600 rounded-full hover:bg-purple-700 transition font-semibold text-xl glow inline-block active:scale-95 transform tracking-tight">
+                Get Purple for Mac
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section with Custom Logo -->
+   <!-- Contact & Footer Section -->
+<footer id="contact" class="py-16 text-center text-[#86868b] relative z-10 bg-transparent">
+    <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
+        <h2 class="text-2xl font-bold text-white mb-8 tracking-tight">Get in Touch</h2>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-10">
+            <a href="mailto:info@1into1.com" class="text-purple-400 hover:text-purple-300 transition text-lg flex items-center hover:scale-105 transform duration-150 font-normal">
+                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                info@1into1.com
+            </a>
+
+        </div>
+            
+            <div class="mb-4 flex justify-center items-center space-x-3">
+                <img src="logo.png" alt="Purple Logo" class="h-8 w-auto drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]">
+                <span class="text-2xl font-bold text-white tracking-tight">Purple</span>
+            </div>
+            
+            <p class="text-[14px]">Built by 1into1. The Age of Intent is Here.</p>
+            <p class="mt-2 text-xs text-[#6e6e73]">© 2026 1into1. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Engine -->
+    <script>
+        // 1. Looping Typewriter
+        const line1 = "The Age of Typing is Over.";
+        const line2 = "The Age of Intent is Here.";
+        const line1Element = document.getElementById("type-line-1");
+        const line2Element = document.getElementById("type-line-2");
+        let charIndex1 = 0, charIndex2 = 0, isDeleting = false;
+
+        function typewriterLoop() {
+            if (!isDeleting) {
+                if (charIndex1 < line1.length) {
+                    line1Element.textContent = line1.substring(0, charIndex1 + 1);
+                    charIndex1++;
+                    setTimeout(typewriterLoop, 45);
+                } else if (charIndex2 < line2.length) {
+                    line2Element.textContent = line2.substring(0, charIndex2 + 1);
+                    charIndex2++;
+                    setTimeout(typewriterLoop, 45);
+                } else {
+                    isDeleting = true;
+                    setTimeout(typewriterLoop, 3200);
+                }
+            } else {
+                if (charIndex2 > 0) {
+                    line2Element.textContent = line2.substring(0, charIndex2 - 1);
+                    charIndex2--;
+                    setTimeout(typewriterLoop, 20);
+                } else if (charIndex1 > 0) {
+                    line1Element.textContent = line1.substring(0, charIndex1 - 1);
+                    charIndex1--;
+                    setTimeout(typewriterLoop, 20);
+                } else {
+                    isDeleting = false;
+                    setTimeout(typewriterLoop, 600);
+                }
+            }
+        }
+        window.addEventListener('DOMContentLoaded', () => setTimeout(typewriterLoop, 500));
+
+        // 2. Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // 3. Mouse Spotlight & Cursor
+        const dot = document.getElementById('custom-cursor-dot');
+        const ring = document.getElementById('custom-cursor-ring');
+        const spotlight = document.getElementById('mouse-spotlight');
+        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2, ringX = mouseX, ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            if (dot) { dot.style.left = `${mouseX}px`; dot.style.top = `${mouseY}px`; }
+            if (spotlight) { spotlight.style.left = `${mouseX}px`; spotlight.style.top = `${mouseY}px`; }
+        });
+
+        function renderCursor() {
+            ringX += (mouseX - ringX) * 0.2;
+            ringY += (mouseY - ringY) * 0.2;
+            if (ring) { ring.style.left = `${ringX}px`; ring.style.top = `${ringY}px`; }
+            requestAnimationFrame(renderCursor);
+        }
+        renderCursor();
+
+        document.querySelectorAll('a, button, iframe, .feature-card, .pricing-card, .prompt-pill').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+        });
+
+        // 4. Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+        }, { root: null, threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
+
+        // 5. Background Particle Canvas
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 50;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                const dx = mouseX - this.x, dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 120) {
+                    this.x -= (dx / dist) * 1.5;
+                    this.y -= (dy / dist) * 1.5;
+                }
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(168, 85, 247, ${this.alpha})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = '#a855f7';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(168, 85, 247, ${0.16 * (1 - dist / 130)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+            particles.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+name: Daily Automated SEO Article Generator
+
+on:
+  schedule:
+    # Runs automatically every day at 00:00 UTC (5:30 AM IST)
+    - cron: '0 0 * * *'
+  # Allows you to also trigger it manually anytime from GitHub Actions tab for testing
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run SEO Article Generator
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python scripts/generate_seo_blog.py
+
+      - name: Commit and Push New Article & Sitemap
+        run: |
+          git config --global user.name "1into1 SEO Engine"
+          git config --global user.email "bot@1into1.com"
+          git add blog/ keywords.json sitemap.xml
+          # Commit only if changes exist
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate daily SEO guide & update sitemap [skip ci]" && git push)
