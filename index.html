@@ -221,7 +221,7 @@
     <div id="custom-cursor-dot" class="hidden md:block"></div>
     <div id="custom-cursor-ring" class="hidden md:block"></div>
 
-    <!-- Navbar with Custom Logo -->
+    <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-[#0f0a19]/70 backdrop-blur-md transition-all duration-300 border-b border-purple-900/20">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center relative z-10">
             <!-- Logo -->
@@ -240,7 +240,7 @@
                 <a href="/blog/" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Blog</a>
             </div>
 
-            <!-- Header Action Button -->
+            <!-- Action Button -->
             <div class="flex items-center space-x-4">
                 <a href="#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition font-medium text-[15px] glow active:scale-95 transform duration-150">Get Purple</a>
             </div>
@@ -270,7 +270,7 @@
         </div>
     </section>
 
-    <!-- Voice In Action (Real-World Commands Showcase) -->
+    <!-- Voice In Action -->
     <section id="commands" class="py-16 px-6 relative z-10 bg-transparent">
         <div class="max-w-6xl mx-auto reveal-on-scroll">
             <div class="text-center mb-12">
@@ -280,7 +280,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                
                 <div class="prompt-pill">
                     <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-2">
                         <span>✈️</span><span>Travel & Flight Comparison</span>
@@ -322,7 +321,6 @@
                     </div>
                     <p class="text-gray-200 text-sm font-medium leading-snug">"Create a folder called Client Assets, copy all downloaded files into it, and rename them sequentially."</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -337,70 +335,59 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                
-                <!-- 1. Voice Activation -->
                 <div class="feature-card reveal-on-scroll">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 0s;">🎙️</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Global Option+P Voice Engine</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Instant hands-free microphone capture from anywhere in macOS with live voice synthesis, intelligent pause detection, and multi-lingual voice prompts.</p>
                 </div>
 
-                <!-- 2. YouTube Automation -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 100ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 0.6s;">🎥</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Autonomous YouTube Control</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Directly navigates, searches, and clicks top video results. Understands Hindi and English queries like "play song", or specific artists without mouse input.</p>
                 </div>
 
-                <!-- 3. Travel & Flights -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 200ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 1.2s;">✈️</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Travel & Flight Comparison</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Queries Google Flights directly by IATA airport codes, navigates dates, filters budget options, and compares total multi-city vacation costs in spoken summaries.</p>
                 </div>
 
-                <!-- 4. Deep Document Synthesis -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 300ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 1.8s;">📝</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">1,200+ Word Word Doc Generator</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Scrapes multiple verified web pages, absorbs the research, fetches relevant Bing images, and formats complete publication-ready Word documents (.docx) automatically opened on your screen.</p>
                 </div>
 
-                <!-- 5. Local PDF/DOCX Inspection -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 400ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 2.4s;">📑</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Local File Metrics & Summary</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Visually opens local PDF, DOCX, and TXT files, extracts raw paragraphs, calculates financial metrics or profit analytics, and delivers a clean factual verdict.</p>
                 </div>
 
-                <!-- 6. Local Finder Automation -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 500ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 3.0s;">📂</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Finder File Automation</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Create folders, copy files to memory, paste into target directories, execute sequential batch renames (#1, #2, #3), search deep directories, and clean the trash.</p>
                 </div>
 
-                <!-- 7. Local Events & Directions -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 600ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 3.6s;">🎡</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Local Events & Live Directions</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Find amusement parks, weekend concerts, comedy clubs, and sports scores near you, or launch Google Maps directions with transit/cycling modes.</p>
                 </div>
 
-                <!-- 8. Native System Controls -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 700ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 4.2s;">🔌</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Protected macOS Controls</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Safety-gated confirmation for Shutdown, Restart, and Sleep. Instant hands-free screen lock, volume level adjustment (0–100), and auto-saved screenshots.</p>
                 </div>
 
-                <!-- 9. Communication & Music -->
                 <div class="feature-card reveal-on-scroll" style="transition-delay: 800ms;">
                     <div class="text-4xl mb-4 floating-icon" style="animation-delay: 4.8s;">💬</div>
                     <h3 class="text-lg font-semibold mb-2 text-white tracking-tight">Messaging & Spotify Control</h3>
                     <p class="text-[#a1a1a6] leading-relaxed font-normal text-sm">Send messages via Apple iMessage or WhatsApp directly to contacts by voice, and manage Spotify playback (play, pause, next track) seamlessly.</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -428,8 +415,7 @@
             </p>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left">
-                
-                <!-- 1. Free Trial Card -->
+                <!-- Free Trial -->
                 <div class="pricing-card flex flex-col justify-between reveal-on-scroll">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -468,7 +454,7 @@
                     </a>
                 </div>
 
-                <!-- 2. 6-Month Pass Card -->
+                <!-- 6-Month Pass -->
                 <div class="pricing-card featured flex flex-col justify-between reveal-on-scroll" style="transition-delay: 100ms;">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -531,7 +517,7 @@
                     </a>
                 </div>
 
-                <!-- 3. Monthly Pro Card -->
+                <!-- Monthly Pro -->
                 <div class="pricing-card flex flex-col justify-between reveal-on-scroll" style="transition-delay: 200ms;">
                     <div>
                         <div class="flex justify-between items-center mb-3">
@@ -593,7 +579,6 @@
                         Subscribe Monthly ($4.99/mo)
                     </a>
                 </div>
-
             </div>
 
             <p class="text-xs text-[#6e6e73] mt-8">
@@ -618,7 +603,7 @@
         </div>
     </section>
 
-   <!-- Blogs Section -->
+    <!-- Blogs Section -->
     <section id="blog-preview" class="py-16 px-6 relative z-10 bg-transparent border-t border-purple-900/20">
         <div class="max-w-6xl mx-auto reveal-on-scroll">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
@@ -633,21 +618,21 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Blog 1 -->
-                <a href="/blog/how-to-automate-macos-with-voice-commands-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200">
+                <a href="/blog/how-to-automate-macos-with-voice-commands-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
                     <span class="px-2.5 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase">macOS</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">How to Automate macOS With Voice Commands in 2026</h3>
                     <p class="text-gray-400 text-sm line-clamp-2">Complete guide to running browser queries, file operations, and apps hands-free.</p>
                 </a>
 
                 <!-- Blog 2 -->
-                <a href="/blog/how-to-generate-1200-word-documents-hands-free-on-mac.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200">
+                <a href="/blog/how-to-generate-1200-word-documents-hands-free-on-mac.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
                     <span class="px-2.5 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase">Productivity</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">How to Generate 1,200+ Word Documents Hands-Free</h3>
                     <p class="text-gray-400 text-sm line-clamp-2">Synthesize multi-source research directly into formatted Word documents.</p>
                 </a>
 
                 <!-- Blog 3 -->
-                <a href="/blog/best-voice-controlled-ai-assistants-for-macos-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200">
+                <a href="/blog/best-voice-controlled-ai-assistants-for-macos-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
                     <span class="px-2.5 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase">Reviews</span>
                     <h3 class="text-lg font-bold text-white mt-3 mb-2">Best Voice-Controlled AI Assistants for macOS (2026)</h3>
                     <p class="text-gray-400 text-sm line-clamp-2">A side-by-side technical breakdown of native voice tools and autonomous agents.</p>
