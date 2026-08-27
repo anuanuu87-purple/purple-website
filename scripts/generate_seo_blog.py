@@ -59,13 +59,17 @@ payload = {
 
 data_bytes = json.dumps(payload).encode("utf-8")
 
+# Set standard User-Agent to prevent Cloudflare 1010 block
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+}
+
 req = urllib.request.Request(
     url="https://api.groq.com/openai/v1/chat/completions",
     data=data_bytes,
-    headers={
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {GROQ_API_KEY.strip()}"
-    },
+    headers=headers,
     method="POST"
 )
 
