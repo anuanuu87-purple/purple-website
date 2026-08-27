@@ -1,6 +1,7 @@
 import json
 import os
 import urllib.request
+import urllib.error
 from datetime import datetime
 
 # 1. Load keywords database
@@ -33,7 +34,7 @@ if not selected_topic:
 
 print(f"Generating article for: {selected_topic['title']}")
 
-# 2. Query Groq API to generate rich HTML article content
+# 2. Query Groq API
 prompt = f"""
 Write a comprehensive, highly actionable 1,200+ word blog article targeting the keyword: "{selected_topic['keyword']}".
 Title: "{selected_topic['title']}".
@@ -56,19 +57,26 @@ payload = {
     "max_tokens": 3500
 }
 
+data_bytes = json.dumps(payload).encode("utf-8")
+
 req = urllib.request.Request(
-    "https://api.groq.com/openai/v1/chat/completions",
-    data=json.dumps(payload).encode("utf-8"),
+    url="https://api.groq.com/openai/v1/chat/completions",
+    data=data_bytes,
     headers={
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "User-Agent": "1into1-SEO-Engine/1.0"
-    }
+        "Authorization": f"Bearer {GROQ_API_KEY.strip()}"
+    },
+    method="POST"
 )
 
-with urllib.request.urlopen(req) as response:
-    result = json.loads(response.read().decode("utf-8"))
-    article_body = result["choices"][0]["message"]["content"]
+try:
+    with urllib.request.urlopen(req) as response:
+        result = json.loads(response.read().decode("utf-8"))
+        article_body = result["choices"][0]["message"]["content"]
+except urllib.error.HTTPError as e:
+    error_body = e.read().decode("utf-8")
+    print(f"Groq API Error {e.code}: {error_body}")
+    exit(1)
 
 # 3. Assemble complete standalone HTML page
 today_str = datetime.now().strftime("%B %d, %Y")
@@ -103,7 +111,6 @@ full_html = f"""<!DOCTYPE html>
     </style>
 </head>
 <body class="bg-[#0f0a19] text-gray-100 min-h-screen">
-    <!-- Navbar -->
     <nav class="w-full bg-[#0f0a19]/80 backdrop-blur-md border-b border-purple-900/30 fixed top-0 left-0 z-50">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-3">
@@ -116,7 +123,6 @@ full_html = f"""<!DOCTYPE html>
         </div>
     </nav>
 
-    <!-- Article Container -->
     <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
         <div class="mb-8">
             <span class="px-3 py-1 bg-purple-900/50 border border-purple-500/40 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">
@@ -132,7 +138,6 @@ full_html = f"""<!DOCTYPE html>
             {article_body}
         </div>
 
-        <!-- CTA Box -->
         <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
             <h3 class="text-2xl font-bold text-white mb-3">Experience Hands-Free macOS Automation</h3>
             <p class="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
