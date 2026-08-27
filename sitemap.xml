@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://1into1.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://1into1.com/blog/</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
 <url><loc>https://1into1.com/blog/how-to-automate-macos-with-voice-commands.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 <url><loc>https://1into1.com/blog/generate-word-documents-hands-free-mac.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://1into1.com/blog/best-voice-controlled-ai-assistants-macos.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
 </urlset>
