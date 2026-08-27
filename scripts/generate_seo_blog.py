@@ -48,7 +48,7 @@ Requirements:
 """
 
 payload = {
-    "model": "llama-3.3-70b-versatile",
+    "model": "llama-3.1-8b-instant",
     "messages": [
         {"role": "system", "content": "You are an expert macOS systems architect and technical writer producing high-ranking, in-depth tech documentation and guides."},
         {"role": "user", "content": prompt}
