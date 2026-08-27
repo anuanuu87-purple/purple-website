@@ -4,7 +4,7 @@ import urllib.request
 import urllib.error
 from datetime import datetime
 
-# 1. Load keywords database
+# 1. Configuration & Key Verification
 KEYWORDS_FILE = "keywords.json"
 BLOG_DIR = "blog"
 SITEMAP_FILE = "sitemap.xml"
@@ -18,10 +18,52 @@ if not GROQ_API_KEY:
 
 os.makedirs(BLOG_DIR, exist_ok=True)
 
+# 2. Auto-Detect Active Groq Model
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+}
+
+try:
+    models_req = urllib.request.Request(
+        url="https://api.groq.com/openai/v1/models",
+        headers=headers,
+        method="GET"
+    )
+    with urllib.request.urlopen(models_req) as resp:
+        available_models = [m["id"] for m in json.loads(resp.read().decode("utf-8")).get("data", [])]
+        print(f"Available models in your Groq account: {available_models}")
+except Exception as e:
+    print(f"Could not query models list: {e}")
+    available_models = []
+
+# Choose the best active model automatically
+priority_models = [
+    "llama-3.3-70b-versatile",
+    "llama-3.1-8b-instant",
+    "gemma2-9b-it",
+    "mixtral-8x7b-32768",
+    "qwen/qwen3.8-27b"
+]
+
+selected_model = None
+for p in priority_models:
+    if p in available_models:
+        selected_model = p
+        break
+
+if not selected_model:
+    # Fallback to the first non-whisper model
+    chat_models = [m for m in available_models if "whisper" not in m and "guard" not in m]
+    selected_model = chat_models[0] if chat_models else "llama-3.1-8b-instant"
+
+print(f"--> Using active Groq model: {selected_model}")
+
+# 3. Load Keywords Database
 with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
     topics = json.load(f)
 
-# Find first unpublished topic
 selected_topic = None
 for item in topics:
     if not item.get("published", False):
@@ -34,7 +76,7 @@ if not selected_topic:
 
 print(f"Generating article for: {selected_topic['title']}")
 
-# 2. Query Groq API
+# 4. Generate Content
 prompt = f"""
 Write a comprehensive, highly actionable 1,200+ word blog article targeting the keyword: "{selected_topic['keyword']}".
 Title: "{selected_topic['title']}".
@@ -48,7 +90,7 @@ Requirements:
 """
 
 payload = {
-    "model": "llama3-8b-8192",
+    "model": selected_model,
     "messages": [
         {"role": "system", "content": "You are an expert macOS systems architect and technical writer producing high-ranking, in-depth tech documentation and guides."},
         {"role": "user", "content": prompt}
@@ -57,18 +99,9 @@ payload = {
     "max_tokens": 3500
 }
 
-data_bytes = json.dumps(payload).encode("utf-8")
-
-# Set standard User-Agent to prevent Cloudflare 1010 block
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-}
-
 req = urllib.request.Request(
     url="https://api.groq.com/openai/v1/chat/completions",
-    data=data_bytes,
+    data=json.dumps(payload).encode("utf-8"),
     headers=headers,
     method="POST"
 )
@@ -78,11 +111,10 @@ try:
         result = json.loads(response.read().decode("utf-8"))
         article_body = result["choices"][0]["message"]["content"]
 except urllib.error.HTTPError as e:
-    error_body = e.read().decode("utf-8")
-    print(f"Groq API Error {e.code}: {error_body}")
+    print(f"Groq API Error {e.code}: {e.read().decode('utf-8')}")
     exit(1)
 
-# 3. Assemble complete standalone HTML page
+# 5. Build HTML Page
 today_str = datetime.now().strftime("%B %d, %Y")
 slug = selected_topic["slug"]
 canonical_url = f"{BASE_URL}/blog/{slug}.html"
@@ -160,18 +192,16 @@ full_html = f"""<!DOCTYPE html>
 </html>
 """
 
-# 4. Save the generated article
+# 6. Save Article & Update Sitemap
 article_file_path = os.path.join(BLOG_DIR, f"{slug}.html")
 with open(article_file_path, "w", encoding="utf-8") as f:
     f.write(full_html)
 print(f"Saved: {article_file_path}")
 
-# 5. Mark topic as published
 selected_topic["published"] = True
 with open(KEYWORDS_FILE, "w", encoding="utf-8") as f:
     json.dump(topics, f, indent=2)
 
-# 6. Re-generate sitemap.xml
 urls = [
     f"<url><loc>{BASE_URL}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>"
 ]
