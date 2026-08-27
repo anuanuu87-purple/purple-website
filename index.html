@@ -240,9 +240,8 @@
                 <a href="/blog/" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform duration-150">Blog</a>
             </div>
 
-            <!-- Action Buttons (Mobile Blog Link + Get Purple Button) -->
+            <!-- Header Action Button -->
             <div class="flex items-center space-x-4">
-                <a href="/blog/" class="md:hidden text-gray-300 hover:text-white text-sm font-medium transition">Blog</a>
                 <a href="#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition font-medium text-[15px] glow active:scale-95 transform duration-150">Get Purple</a>
             </div>
         </div>
@@ -619,14 +618,69 @@
         </div>
     </section>
 
+    <!-- Latest Guides / Blog Section (Mobile & Desktop SEO Anchor) -->
+    <section id="blog-preview" class="py-20 px-6 relative z-10 bg-transparent border-t border-purple-900/20">
+        <div class="max-w-6xl mx-auto reveal-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-purple-400 uppercase tracking-widest text-xs font-semibold">Resources & Tutorials</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-2 tracking-tight">macOS Automation Guides</h2>
+                    <p class="text-[#a1a1a6] mt-2 text-sm md:text-base">Read in-depth breakdowns on autonomous agents and hands-free voice workflows.</p>
+                </div>
+                <a href="/blog/" class="text-purple-400 hover:text-purple-300 text-sm font-semibold mt-4 md:mt-0 flex items-center space-x-1 hover:underline">
+                    <span>Explore all guides</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Guide Card 1 -->
+                <a href="/blog/how-to-automate-macos-with-voice-commands-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
+                    <span class="px-3 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">macOS</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2 leading-snug">How to Automate macOS With Voice Commands in 2026</h3>
+                    <p class="text-gray-400 text-sm line-clamp-2 mb-4">Complete guide to running browser queries, file operations, and apps without touching a keyboard.</p>
+                    <div class="text-purple-400 text-xs font-semibold flex items-center space-x-1">
+                        <span>Read Tutorial</span>
+                        <span>&rarr;</span>
+                    </div>
+                </a>
+
+                <!-- Guide Card 2 -->
+                <a href="/blog/how-to-generate-1200-word-documents-hands-free-on-mac.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
+                    <span class="px-3 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">Productivity</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2 leading-snug">How to Generate 1,200+ Word Documents Hands-Free</h3>
+                    <p class="text-gray-400 text-sm line-clamp-2 mb-4">Synthesize multi-source research directly into formatted Word documents using intelligent agents.</p>
+                    <div class="text-purple-400 text-xs font-semibold flex items-center space-x-1">
+                        <span>Read Tutorial</span>
+                        <span>&rarr;</span>
+                    </div>
+                </a>
+
+                <!-- Guide Card 3 -->
+                <a href="/blog/best-voice-controlled-ai-assistants-for-macos-2026.html" class="block bg-[#1a102b]/60 border border-purple-900/40 hover:border-purple-500/60 rounded-2xl p-6 transition-all duration-200 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-900/30">
+                    <span class="px-3 py-0.5 bg-purple-900/50 border border-purple-500/30 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">Software Reviews</span>
+                    <h3 class="text-lg font-bold text-white mt-4 mb-2 leading-snug">Best Voice-Controlled AI Assistants for macOS (2026)</h3>
+                    <p class="text-gray-400 text-sm line-clamp-2 mb-4">A side-by-side technical breakdown of Siri, native tools, and autonomous agent platforms.</p>
+                    <div class="text-purple-400 text-xs font-semibold flex items-center space-x-1">
+                        <span>Read Tutorial</span>
+                        <span>&rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact & Footer Section -->
-    <footer id="contact" class="py-16 text-center text-[#86868b] relative z-10 bg-transparent">
+    <footer id="contact" class="py-16 text-center text-[#86868b] relative z-10 bg-transparent border-t border-purple-900/20">
         <div class="max-w-4xl mx-auto px-6 reveal-on-scroll">
             <h2 class="text-2xl font-bold text-white mb-8 tracking-tight">Get in Touch</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mb-10">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12 mb-10">
                 <a href="mailto:info@1into1.com" class="text-purple-400 hover:text-purple-300 transition text-lg flex items-center hover:scale-105 transform duration-150 font-normal">
                     <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     info@1into1.com
+                </a>
+                <a href="/blog/" class="text-gray-300 hover:text-purple-400 transition text-base font-normal">
+                    macOS Automation Blog
                 </a>
             </div>
             
