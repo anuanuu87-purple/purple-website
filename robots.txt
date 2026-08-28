@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://1into1.com/sitemap.xml
