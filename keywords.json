@@ -34,7 +34,8 @@
     "keyword": "summarize local pdf files by voice mac",
     "title": "How to Summarize and Extract Metrics From Local PDFs on Mac",
     "category": "Document Analysis",
-    "published": false
+    "published": true,
+    "published_date": "August 28, 2026"
   },
   {
     "slug": "batch-rename-files-macos-voice-command",
