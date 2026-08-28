@@ -2,6 +2,7 @@ name: Daily Automated SEO Article Generator
 
 on:
   schedule:
+    # 00:30 UTC = 6:00 AM IST | 12:30 UTC = 6:00 PM IST
     - cron: '30 0,12 * * *'
   workflow_dispatch:
 
@@ -12,7 +13,7 @@ jobs:
   generate-article:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -22,19 +23,20 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run SEO Article Generator
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install groq
+
+      - name: Run Article Generator
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: |
-          python scripts/generate_seo_blog.py
+          python3 scripts/generate_seo_blog.py
 
-      - name: Commit and Push New Article & Sitemap
+      - name: Commit and Push Generated Article
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "Auto-generated SEO article & sitemap update [skip ci]"
-            git pull --rebase origin main
-            git push origin main
-          fi
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-generate daily SEO blog article [skip ci]" && git pull --rebase origin main && git push origin main)
