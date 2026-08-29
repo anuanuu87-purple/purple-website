@@ -2,8 +2,8 @@ name: Daily Automated SEO Article Generator
 
 on:
   schedule:
-    # 00:30 UTC = 6:00 AM IST | 12:30 UTC = 6:00 PM IST
-    - cron: '30 0,12 * * *'
+    # 3:30 UTC = 9:00 AM IST | 12:30 UTC = 6:00 PM IST
+    - cron: '30 3,12 * * *'
   workflow_dispatch:
 
 permissions:
