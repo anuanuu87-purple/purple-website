@@ -19,20 +19,18 @@ if not GROQ_API_KEY:
 client = Groq(api_key=GROQ_API_KEY.strip())
 os.makedirs(BLOG_DIR, exist_ok=True)
 
-# 2. Dynamic Live Model Detection from Groq Account
+# 2. Dynamic Live Model Detection
 try:
     models_response = client.models.list()
     available_models = [m.id for m in models_response.data]
-    print(f"Active Groq models on account: {available_models}")
+    print(f"Active Groq models: {available_models}")
 except Exception as e:
-    print(f"Could not list models via SDK: {e}")
     available_models = []
 
 priority_preference = [
     "llama-3.1-70b-versatile",
     "llama3-70b-8192",
     "llama-3.2-90b-text-preview",
-    "llama-3.2-11b-text-preview",
     "llama-3.1-8b-instant",
     "llama3-8b-8192"
 ]
@@ -52,7 +50,7 @@ if not selected_model:
 
 print(f"--> Using live verified Groq model: {selected_model}")
 
-def call_groq(messages, temperature=0.6, max_tokens=3800):
+def call_groq(messages, temperature=0.5, max_tokens=5000):
     response = client.chat.completions.create(
         model=selected_model,
         messages=messages,
@@ -60,6 +58,18 @@ def call_groq(messages, temperature=0.6, max_tokens=3800):
         max_tokens=max_tokens
     )
     return response.choices[0].message.content
+
+def sanitize_html_output(raw_text):
+    """Strips all AI thinking traces, preambles, markdown artifacts, and fences."""
+    text = raw_text.strip()
+    # Remove <think>...</think> blocks
+    text = re.sub(r"<think>[\s\S]*?</think>", "", text, flags=re.IGNORECASE)
+    # Remove 'Here is a thinking process...' or markdown intros
+    text = re.sub(r"^.*?Here(?:'s| is) a thinking process:?[\s\S]*?(?=<h[1-6]|<p|<div|<article)", "", text, flags=re.IGNORECASE)
+    # Remove markdown code block fences
+    text = re.sub(r"^```(?:html)?\s*", "", text.strip())
+    text = re.sub(r"\s*```$", "", text.strip())
+    return text.strip()
 
 # 3. Load & Auto-Replenish Keywords
 with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
@@ -87,16 +97,16 @@ Focus on:
 
 Return STRICTLY a JSON array of 10 objects with keys: "slug", "keyword", "title", "category", "published".
 Set "published": false for all. Ensure slugs are URL-safe with hyphens only.
-Do not wrap in markdown or explanation. Raw JSON only.
+Output pure JSON only. No preamble, no thinking block, no markdown formatting.
 """
     try:
         raw_json = call_groq([
-            {"role": "system", "content": "You output only valid JSON."},
+            {"role": "system", "content": "You output only pure, raw JSON without any markdown formatting or commentary."},
             {"role": "user", "content": prompt_topics}
         ], temperature=0.7, max_tokens=2000)
         
-        raw_json = re.sub(r"^```(?:json)?\n", "", raw_json.strip())
-        raw_json = re.sub(r"\n```$", "", raw_json)
+        raw_json = re.sub(r"^```(?:json)?\s*", "", raw_json.strip())
+        raw_json = re.sub(r"\s*```$", "", raw_json.strip())
         new_topics = json.loads(raw_json)
         
         topics.extend(new_topics)
@@ -112,9 +122,9 @@ for item in topics:
         selected_topic = item
         break
 
-# 4. Generate 1,200+ Word SEO Guide
+# 4. Generate 1,200+ Word Clean SEO Guide
 if selected_topic:
-    print(f"Generating high-ranking SEO article for: {selected_topic['title']}")
+    print(f"Generating clean, high-ranking SEO article for: {selected_topic['title']}")
     today_str = datetime.now().strftime("%B %d, %Y")
     slug = selected_topic["slug"]
     canonical_url = f"{BASE_URL}/blog/{slug}.html"
@@ -124,26 +134,29 @@ Write an authoritative, highly comprehensive 1,200+ word technical guide and tut
 Title: "{selected_topic['title']}".
 Category: "{selected_topic['category']}".
 
-SEO & Structural Requirements for Google Top Ranking:
+SEO & Structural Requirements:
 1. Word Count: 1,200+ words of actionable content.
 2. Structure:
    - Compelling introduction explaining the core problem and workflow transition.
-   - At least 4 detailed <h2> sections with descriptive <h3> sub-headings targeting semantic sub-queries.
-   - Step-by-step practical implementation guide with real macOS terminal/voice commands.
+   - At least 4 detailed <h2> sections with descriptive <h3> sub-headings.
+   - Practical step-by-step implementation guide with real macOS terminal/voice commands.
    - A comparison breakdown or workflow pros/cons list.
    - A dedicated <h2>Frequently Asked Questions</h2> section answering 3 real user search questions.
 3. Natural Product Integration: Highlight "Purple" (https://1into1.com) as the native voice-driven autonomous OS AI for macOS that executes browser workflows, scrapes web data, drafts Word documents hands-free, summarizes PDFs, and automates Finder tasks securely with BYOK architecture.
-4. Output format: Return ONLY the inner semantic HTML content for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>). Do not include <html>, <head>, or <body> tags.
+4. CRITICAL OUTPUT FORMAT RULE:
+   - Output ONLY the raw semantic HTML for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>).
+   - DO NOT include <!DOCTYPE>, <html>, <head>, or <body> tags.
+   - DO NOT write any thought process, introduction, or "Here is...". Start directly with the first <h2> or <p> tag.
 """
 
-    article_body = call_groq([
-        {"role": "system", "content": "You are a senior macOS systems architect and lead technical SEO writer specializing in in-depth documentation and featured snippet optimization."},
+    raw_article = call_groq([
+        {"role": "system", "content": "You are a senior macOS systems architect and lead technical writer. You output ONLY valid inner semantic HTML. You NEVER output thinking processes, greetings, or conversational preambles."},
         {"role": "user", "content": prompt_article}
-    ], temperature=0.5, max_tokens=3800)
+    ], temperature=0.4, max_tokens=5000)
 
-    article_body = re.sub(r"^```(?:html)?\n", "", article_body.strip())
-    article_body = re.sub(r"\n```$", "", article_body)
+    article_body = sanitize_html_output(raw_article)
 
+    # Inject JSON-LD Schema
     schema_json = json.dumps({
         "@context": "https://schema.org",
         "@type": "TechArticle",
