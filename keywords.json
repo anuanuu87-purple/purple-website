@@ -68,7 +68,8 @@
     "keyword": "control spotify playback with voice macos",
     "title": "Voice-Controlled Music: Managing Spotify and Apple Music Hands-Free on macOS",
     "category": "Media Control",
-    "published": false
+    "published": true,
+    "published_date": "August 31, 2026"
   },
   {
     "slug": "automate-email-drafting-by-voice-mac",
