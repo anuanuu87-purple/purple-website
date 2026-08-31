@@ -18,47 +18,90 @@
     "keyword": "best voice controlled AI assistants for macOS",
     "title": "Best Voice-Controlled AI Assistants for macOS (2026 Comparison)",
     "category": "Software Reviews",
-    "published": true,
-    "published_date": "August 27, 2026"
+    "published": true
   },
   {
     "slug": "control-youtube-with-voice-on-mac",
     "keyword": "control youtube playback with voice mac",
     "title": "How to Search and Play YouTube Tracks on Mac Using Voice Only",
     "category": "Mac Shortcuts",
-    "published": true,
-    "published_date": "August 28, 2026"
+    "published": true
   },
   {
     "slug": "how-to-summarize-local-pdf-files-by-voice-mac",
     "keyword": "summarize local pdf files by voice mac",
     "title": "How to Summarize and Extract Metrics From Local PDFs on Mac",
     "category": "Document Analysis",
-    "published": true,
-    "published_date": "August 28, 2026"
+    "published": true
   },
   {
     "slug": "batch-rename-files-macos-voice-command",
     "keyword": "batch rename files macOS voice command",
     "title": "Batch Renaming and Organizing Finder Files by Voice on Mac",
     "category": "Finder Tips",
-    "published": true,
-    "published_date": "August 29, 2026"
+    "published": true
   },
   {
     "slug": "byok-ai-desktop-apps-explained",
     "keyword": "bring your own key AI desktop tools macOS",
     "title": "Why BYOK (Bring Your Own Key) Desktop AI Is the Future of Privacy",
     "category": "AI Privacy",
-    "published": true,
-    "published_date": "August 29, 2026"
+    "published": true
   },
   {
     "slug": "compare-flights-and-travel-plans-by-voice-mac",
     "keyword": "compare flights and travel plans hands free mac",
     "title": "How to Compare Flight Rates and Hotel Costs Using Voice on Mac",
     "category": "Travel Workflows",
-    "published": true,
-    "published_date": "August 30, 2026"
+    "published": true
+  },
+  {
+    "slug": "macos-terminal-automation-with-voice-ai",
+    "keyword": "voice controlled mac terminal commands",
+    "title": "How to Run macOS Terminal Commands and Scripts Using Voice AI",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-browser-scraping-mac",
+    "keyword": "scrape web pages by voice mac",
+    "title": "Automated Web Scraping on Mac: Extracting Live Web Data by Voice",
+    "category": "Data Extraction",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spotify-and-apple-music-control-mac",
+    "keyword": "control spotify playback with voice macos",
+    "title": "Voice-Controlled Music: Managing Spotify and Apple Music Hands-Free on macOS",
+    "category": "Media Control",
+    "published": false
+  },
+  {
+    "slug": "automate-email-drafting-by-voice-mac",
+    "keyword": "draft emails by voice macos ai",
+    "title": "How to Draft and Send Emails Hands-Free on Mac Using Voice AI",
+    "category": "Email Productivity",
+    "published": false
+  },
+  {
+    "slug": "how-to-automate-finder-tagging-by-voice",
+    "keyword": "organize mac finder files with voice tags",
+    "title": "Organizing Folders and Finder Tags Completely Hands-Free on Mac",
+    "category": "Finder Tips",
+    "published": false
+  },
+  {
+    "slug": "fastest-ai-voice-shortcut-triggers-macos",
+    "keyword": "option p shortcut macos voice ai",
+    "title": "Why Option+P is the Fastest Keyboard Shortcut Trigger for macOS Voice AI",
+    "category": "Mac Shortcuts",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-meeting-notes-synthesis-mac",
+    "keyword": "generate meeting summaries voice mac",
+    "title": "How to Convert Raw Meeting Notes Into Structured Summaries on Mac",
+    "category": "Productivity",
+    "published": false
   }
 ]
