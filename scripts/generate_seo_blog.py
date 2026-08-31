@@ -19,28 +19,47 @@ if not GROQ_API_KEY:
 client = Groq(api_key=GROQ_API_KEY.strip())
 os.makedirs(BLOG_DIR, exist_ok=True)
 
-# 2. Resilient Chat Completion with Fallback Models
-MODELS_TO_TRY = [
-    "llama-3.3-70b-versatile",
+# 2. Dynamic Live Model Detection from Groq Account
+try:
+    models_response = client.models.list()
+    available_models = [m.id for m in models_response.data]
+    print(f"Active Groq models on account: {available_models}")
+except Exception as e:
+    print(f"Could not list models via SDK: {e}")
+    available_models = []
+
+priority_preference = [
+    "llama-3.1-70b-versatile",
+    "llama3-70b-8192",
+    "llama-3.2-90b-text-preview",
+    "llama-3.2-11b-text-preview",
     "llama-3.1-8b-instant",
-    "gemma2-9b-it",
-    "mixtral-8x7b-32768"
+    "llama3-8b-8192"
 ]
 
-def generate_with_groq(messages, temperature=0.6, max_tokens=4000):
-    for model in MODELS_TO_TRY:
-        try:
-            print(f"--> Calling Groq with model: {model}")
-            response = client.chat.completions.create(
-                model=model,
-                messages=messages,
-                temperature=temperature,
-                max_tokens=max_tokens
-            )
-            return response.choices[0].message.content
-        except Exception as e:
-            print(f"Model {model} failed: {e}. Trying next fallback...")
-    raise RuntimeError("All Groq models failed.")
+selected_model = None
+for pref in priority_preference:
+    if pref in available_models:
+        selected_model = pref
+        break
+
+if not selected_model:
+    chat_models = [
+        m for m in available_models 
+        if not any(x in m.lower() for x in ["whisper", "guard", "vision", "embed"])
+    ]
+    selected_model = chat_models[0] if chat_models else "llama3-8b-8192"
+
+print(f"--> Using live verified Groq model: {selected_model}")
+
+def call_groq(messages, temperature=0.6, max_tokens=3800):
+    response = client.chat.completions.create(
+        model=selected_model,
+        messages=messages,
+        temperature=temperature,
+        max_tokens=max_tokens
+    )
+    return response.choices[0].message.content
 
 # 3. Load & Auto-Replenish Keywords
 with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
@@ -71,7 +90,7 @@ Set "published": false for all. Ensure slugs are URL-safe with hyphens only.
 Do not wrap in markdown or explanation. Raw JSON only.
 """
     try:
-        raw_json = generate_with_groq([
+        raw_json = call_groq([
             {"role": "system", "content": "You output only valid JSON."},
             {"role": "user", "content": prompt_topics}
         ], temperature=0.7, max_tokens=2000)
@@ -117,7 +136,7 @@ SEO & Structural Requirements for Google Top Ranking:
 4. Output format: Return ONLY the inner semantic HTML content for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>). Do not include <html>, <head>, or <body> tags.
 """
 
-    article_body = generate_with_groq([
+    article_body = call_groq([
         {"role": "system", "content": "You are a senior macOS systems architect and lead technical SEO writer specializing in in-depth documentation and featured snippet optimization."},
         {"role": "user", "content": prompt_article}
     ], temperature=0.5, max_tokens=3800)
@@ -158,7 +177,6 @@ SEO & Structural Requirements for Google Top Ranking:
     <link rel="icon" type="image/png" href="../logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -167,7 +185,6 @@ SEO & Structural Requirements for Google Top Ranking:
       gtag('config', 'G-W7WZRVJE0Z');
     </script>
 
-    <!-- JSON-LD Structured Data for Google Indexing -->
     <script type="application/ld+json">
     {schema_json}
     </script>
@@ -242,7 +259,7 @@ SEO & Structural Requirements for Google Top Ranking:
     with open(KEYWORDS_FILE, "w", encoding="utf-8") as f:
         json.dump(topics, f, indent=2)
 
-# 5. Rebuild Blog Hub (/blog/index.html)
+# 5. Rebuild Blog Hub
 published_posts = [t for t in topics if t.get("published", False)]
 cards_html = ""
 
