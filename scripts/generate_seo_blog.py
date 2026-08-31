@@ -19,56 +19,45 @@ if not GROQ_API_KEY:
 client = Groq(api_key=GROQ_API_KEY.strip())
 os.makedirs(BLOG_DIR, exist_ok=True)
 
-# 2. Dynamic Live Model Detection
-try:
-    models_response = client.models.list()
-    available_models = [m.id for m in models_response.data]
-    print(f"Active Groq models: {available_models}")
-except Exception as e:
-    available_models = []
-
-priority_preference = [
-    "llama-3.1-70b-versatile",
-    "llama3-70b-8192",
-    "llama-3.2-90b-text-preview",
-    "llama-3.1-8b-instant",
-    "llama3-8b-8192"
+# 2. Priority List Matching Your Account's Active Models
+TARGET_MODELS = [
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.8-27b",
+    "openai/gpt-oss-20b",
+    "qwen/qwen3.6-27b",
+    "groq/compound",
+    "allam-2-7b"
 ]
 
-selected_model = None
-for pref in priority_preference:
-    if pref in available_models:
-        selected_model = pref
-        break
-
-if not selected_model:
-    chat_models = [
-        m for m in available_models 
-        if not any(x in m.lower() for x in ["whisper", "guard", "vision", "embed"])
-    ]
-    selected_model = chat_models[0] if chat_models else "llama3-8b-8192"
-
-print(f"--> Using live verified Groq model: {selected_model}")
-
-def call_groq(messages, temperature=0.5, max_tokens=5000):
-    response = client.chat.completions.create(
-        model=selected_model,
-        messages=messages,
-        temperature=temperature,
-        max_tokens=max_tokens
-    )
-    return response.choices[0].message.content
+def call_groq(messages, temperature=0.5, max_tokens=4500):
+    """Tries active account models sequentially with automatic error fallback."""
+    for model in TARGET_MODELS:
+        try:
+            print(f"--> Attempting generation with model: {model}")
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens
+            )
+            content = response.choices[0].message.content
+            if content and len(content.strip()) > 50:
+                return content
+        except Exception as e:
+            print(f"Model {model} failed: {e}. Trying next available model...")
+    raise RuntimeError("All available Groq models failed.")
 
 def sanitize_html_output(raw_text):
-    """Strips all AI thinking traces, preambles, markdown artifacts, and fences."""
+    """Strips all reasoning traces, thinking blocks, and markdown artifacts."""
     text = raw_text.strip()
-    # Remove <think>...</think> blocks
     text = re.sub(r"<think>[\s\S]*?</think>", "", text, flags=re.IGNORECASE)
-    # Remove 'Here is a thinking process...' or markdown intros
-    text = re.sub(r"^.*?Here(?:'s| is) a thinking process:?[\s\S]*?(?=<h[1-6]|<p|<div|<article)", "", text, flags=re.IGNORECASE)
-    # Remove markdown code block fences
+    text = re.sub(r"^.*?Here(?:'s| is) a thinking process:?[\s\S]*?(?=<h[1-6]|<p|<div|<article|<section)", "", text, flags=re.IGNORECASE)
     text = re.sub(r"^```(?:html)?\s*", "", text.strip())
     text = re.sub(r"\s*```$", "", text.strip())
+    # Ensure it starts at the first real HTML tag
+    first_tag = re.search(r"<[a-zA-Z0-9]+", text)
+    if first_tag:
+        text = text[first_tag.start():]
     return text.strip()
 
 # 3. Load & Auto-Replenish Keywords
@@ -146,13 +135,13 @@ SEO & Structural Requirements:
 4. CRITICAL OUTPUT FORMAT RULE:
    - Output ONLY the raw semantic HTML for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>).
    - DO NOT include <!DOCTYPE>, <html>, <head>, or <body> tags.
-   - DO NOT write any thought process, introduction, or "Here is...". Start directly with the first <h2> or <p> tag.
+   - DO NOT output any reasoning, thinking process, or greetings. Start immediately with the first <h2> or <p> tag.
 """
 
     raw_article = call_groq([
         {"role": "system", "content": "You are a senior macOS systems architect and lead technical writer. You output ONLY valid inner semantic HTML. You NEVER output thinking processes, greetings, or conversational preambles."},
         {"role": "user", "content": prompt_article}
-    ], temperature=0.4, max_tokens=5000)
+    ], temperature=0.4, max_tokens=4500)
 
     article_body = sanitize_html_output(raw_article)
 
