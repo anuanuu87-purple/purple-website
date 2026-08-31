@@ -1,9 +1,8 @@
 import os
 import json
 import re
-import urllib.request
-import urllib.error
 from datetime import datetime
+from groq import Groq
 
 # 1. Configuration & Directories
 KEYWORDS_FILE = "keywords.json"
@@ -13,62 +12,35 @@ BLOG_INDEX_FILE = os.path.join(BLOG_DIR, "index.html")
 BASE_URL = "https://1into1.com"
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-
 if not GROQ_API_KEY:
     print("Error: GROQ_API_KEY environment variable is not set.")
     exit(1)
 
+client = Groq(api_key=GROQ_API_KEY.strip())
 os.makedirs(BLOG_DIR, exist_ok=True)
 
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
-}
-
-# 2. Dynamic Model Detection
-try:
-    models_req = urllib.request.Request(
-        url="https://api.groq.com/openai/v1/models",
-        headers=headers,
-        method="GET"
-    )
-    with urllib.request.urlopen(models_req) as resp:
-        available_models = [m["id"] for m in json.loads(resp.read().decode("utf-8")).get("data", [])]
-except Exception as e:
-    available_models = []
-
-priority_models = [
+# 2. Resilient Chat Completion with Fallback Models
+MODELS_TO_TRY = [
     "llama-3.3-70b-versatile",
     "llama-3.1-8b-instant",
     "gemma2-9b-it",
     "mixtral-8x7b-32768"
 ]
 
-selected_model = "llama-3.3-70b-versatile"
-for p in priority_models:
-    if p in available_models:
-        selected_model = p
-        break
-
-print(f"--> Using active Groq model: {selected_model}")
-
-def call_groq_api(messages, temperature=0.6, max_tokens=4000):
-    payload = {
-        "model": selected_model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens
-    }
-    req = urllib.request.Request(
-        url="https://api.groq.com/openai/v1/chat/completions",
-        data=json.dumps(payload).encode("utf-8"),
-        headers=headers,
-        method="POST"
-    )
-    with urllib.request.urlopen(req) as response:
-        result = json.loads(response.read().decode("utf-8"))
-        return result["choices"][0]["message"]["content"]
+def generate_with_groq(messages, temperature=0.6, max_tokens=4000):
+    for model in MODELS_TO_TRY:
+        try:
+            print(f"--> Calling Groq with model: {model}")
+            response = client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=temperature,
+                max_tokens=max_tokens
+            )
+            return response.choices[0].message.content
+        except Exception as e:
+            print(f"Model {model} failed: {e}. Trying next fallback...")
+    raise RuntimeError("All Groq models failed.")
 
 # 3. Load & Auto-Replenish Keywords
 with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
@@ -76,9 +48,8 @@ with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
 
 pending_topics = [t for t in topics if not t.get("published", False)]
 
-# Infinite auto-generation when queue has less than 2 items
 if len(pending_topics) < 2:
-    print("Keyword queue low. Generating 12 brand new SEO keywords via Groq...")
+    print("Keyword queue low. Generating 10 new SEO keywords...")
     existing_titles = [t["title"] for t in topics]
     
     prompt_topics = f"""
@@ -87,7 +58,7 @@ You are an expert SEO Strategist for Purple (https://1into1.com), an autonomous 
 Recently generated titles (DO NOT REPEAT):
 {json.dumps(existing_titles[-25:], indent=2)}
 
-Generate 12 BRAND NEW, high-ranking, long-tail SEO topics for macOS users, developers, and productivity power users.
+Generate 10 BRAND NEW, high-ranking, unique SEO topics for macOS users, developers, and power users.
 Focus on:
 - macOS voice automation and terminal workflow shortcuts
 - Hands-free document drafting, PDF analysis, and spreadsheet math
@@ -95,12 +66,12 @@ Focus on:
 - Privacy, Bring-Your-Own-Key (BYOK) architecture
 - Spotify/media playback by voice, automated web scraping, window management
 
-Return STRICTLY a JSON array of 12 objects with keys: "slug", "keyword", "title", "category", "published".
+Return STRICTLY a JSON array of 10 objects with keys: "slug", "keyword", "title", "category", "published".
 Set "published": false for all. Ensure slugs are URL-safe with hyphens only.
 Do not wrap in markdown or explanation. Raw JSON only.
 """
     try:
-        raw_json = call_groq_api([
+        raw_json = generate_with_groq([
             {"role": "system", "content": "You output only valid JSON."},
             {"role": "user", "content": prompt_topics}
         ], temperature=0.7, max_tokens=2000)
@@ -146,16 +117,14 @@ SEO & Structural Requirements for Google Top Ranking:
 4. Output format: Return ONLY the inner semantic HTML content for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>). Do not include <html>, <head>, or <body> tags.
 """
 
-    article_body = call_groq_api([
+    article_body = generate_with_groq([
         {"role": "system", "content": "You are a senior macOS systems architect and lead technical SEO writer specializing in in-depth documentation and featured snippet optimization."},
         {"role": "user", "content": prompt_article}
     ], temperature=0.5, max_tokens=3800)
 
-    # Clean markdown if present
     article_body = re.sub(r"^```(?:html)?\n", "", article_body.strip())
     article_body = re.sub(r"\n```$", "", article_body)
 
-    # Inject JSON-LD Schema for Google Rich Snippets
     schema_json = json.dumps({
         "@context": "https://schema.org",
         "@type": "TechArticle",
