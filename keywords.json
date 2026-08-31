@@ -60,7 +60,8 @@
     "keyword": "scrape web pages by voice mac",
     "title": "Automated Web Scraping on Mac: Extracting Live Web Data by Voice",
     "category": "Data Extraction",
-    "published": false
+    "published": true,
+    "published_date": "August 31, 2026"
   },
   {
     "slug": "hands-free-spotify-and-apple-music-control-mac",
