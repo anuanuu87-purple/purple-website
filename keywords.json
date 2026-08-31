@@ -60,7 +60,8 @@
     "keyword": "voice controlled mac terminal commands",
     "title": "How to Run macOS Terminal Commands and Scripts Using Voice AI",
     "category": "Developer Tools",
-    "published": false
+    "published": true,
+    "published_date": "August 31, 2026"
   },
   {
     "slug": "voice-controlled-browser-scraping-mac",
