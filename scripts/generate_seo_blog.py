@@ -1,5 +1,6 @@
-import json
 import os
+import json
+import re
 import urllib.request
 import urllib.error
 from datetime import datetime
@@ -19,13 +20,13 @@ if not GROQ_API_KEY:
 
 os.makedirs(BLOG_DIR, exist_ok=True)
 
-# 2. Auto-Detect Active Groq Model
 headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {GROQ_API_KEY.strip()}",
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
 }
 
+# 2. Dynamic Model Detection
 try:
     models_req = urllib.request.Request(
         url="https://api.groq.com/openai/v1/models",
@@ -34,34 +35,86 @@ try:
     )
     with urllib.request.urlopen(models_req) as resp:
         available_models = [m["id"] for m in json.loads(resp.read().decode("utf-8")).get("data", [])]
-        print(f"Available models: {available_models}")
 except Exception as e:
-    print(f"Could not query models list: {e}")
     available_models = []
 
 priority_models = [
     "llama-3.3-70b-versatile",
     "llama-3.1-8b-instant",
     "gemma2-9b-it",
-    "mixtral-8x7b-32768",
-    "qwen/qwen3.8-27b"
+    "mixtral-8x7b-32768"
 ]
 
-selected_model = None
+selected_model = "llama-3.3-70b-versatile"
 for p in priority_models:
     if p in available_models:
         selected_model = p
         break
 
-if not selected_model:
-    chat_models = [m for m in available_models if "whisper" not in m and "guard" not in m]
-    selected_model = chat_models[0] if chat_models else "llama-3.1-8b-instant"
-
 print(f"--> Using active Groq model: {selected_model}")
 
-# 3. Load Keywords Database
+def call_groq_api(messages, temperature=0.6, max_tokens=4000):
+    payload = {
+        "model": selected_model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_tokens": max_tokens
+    }
+    req = urllib.request.Request(
+        url="https://api.groq.com/openai/v1/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers=headers,
+        method="POST"
+    )
+    with urllib.request.urlopen(req) as response:
+        result = json.loads(response.read().decode("utf-8"))
+        return result["choices"][0]["message"]["content"]
+
+# 3. Load & Auto-Replenish Keywords
 with open(KEYWORDS_FILE, "r", encoding="utf-8") as f:
     topics = json.load(f)
+
+pending_topics = [t for t in topics if not t.get("published", False)]
+
+# Infinite auto-generation when queue has less than 2 items
+if len(pending_topics) < 2:
+    print("Keyword queue low. Generating 12 brand new SEO keywords via Groq...")
+    existing_titles = [t["title"] for t in topics]
+    
+    prompt_topics = f"""
+You are an expert SEO Strategist for Purple (https://1into1.com), an autonomous voice-controlled OS AI for macOS.
+
+Recently generated titles (DO NOT REPEAT):
+{json.dumps(existing_titles[-25:], indent=2)}
+
+Generate 12 BRAND NEW, high-ranking, long-tail SEO topics for macOS users, developers, and productivity power users.
+Focus on:
+- macOS voice automation and terminal workflow shortcuts
+- Hands-free document drafting, PDF analysis, and spreadsheet math
+- Desktop AI agents vs cloud chatbots
+- Privacy, Bring-Your-Own-Key (BYOK) architecture
+- Spotify/media playback by voice, automated web scraping, window management
+
+Return STRICTLY a JSON array of 12 objects with keys: "slug", "keyword", "title", "category", "published".
+Set "published": false for all. Ensure slugs are URL-safe with hyphens only.
+Do not wrap in markdown or explanation. Raw JSON only.
+"""
+    try:
+        raw_json = call_groq_api([
+            {"role": "system", "content": "You output only valid JSON."},
+            {"role": "user", "content": prompt_topics}
+        ], temperature=0.7, max_tokens=2000)
+        
+        raw_json = re.sub(r"^```(?:json)?\n", "", raw_json.strip())
+        raw_json = re.sub(r"\n```$", "", raw_json)
+        new_topics = json.loads(raw_json)
+        
+        topics.extend(new_topics)
+        with open(KEYWORDS_FILE, "w", encoding="utf-8") as f:
+            json.dump(topics, f, indent=2)
+        print(f"Successfully added {len(new_topics)} new topics to queue.")
+    except Exception as e:
+        print(f"Topic auto-generation error: {e}")
 
 selected_topic = None
 for item in topics:
@@ -69,49 +122,61 @@ for item in topics:
         selected_topic = item
         break
 
-# 4. Generate Content (If an unpublished topic exists)
+# 4. Generate 1,200+ Word SEO Guide
 if selected_topic:
-    print(f"Generating article for: {selected_topic['title']}")
+    print(f"Generating high-ranking SEO article for: {selected_topic['title']}")
     today_str = datetime.now().strftime("%B %d, %Y")
     slug = selected_topic["slug"]
     canonical_url = f"{BASE_URL}/blog/{slug}.html"
 
-    prompt = f"""
-Write a comprehensive, highly actionable 1,200+ word blog article targeting the keyword: "{selected_topic['keyword']}".
+    prompt_article = f"""
+Write an authoritative, highly comprehensive 1,200+ word technical guide and tutorial targeting the primary search keyword: "{selected_topic['keyword']}".
 Title: "{selected_topic['title']}".
 Category: "{selected_topic['category']}".
 
-Requirements:
-- Target audience: Mac power users, developers, entrepreneurs, and productivity enthusiasts.
-- Provide practical step-by-step walkthroughs, comparison points, and workflows.
-- Naturally showcase "Purple" (an autonomous voice-controlled OS AI for macOS from 1into1 that lets users control browser tabs, scrape multi-source web pages, generate 1,200+ word Word documents hands-free, summarize PDFs, and batch-automate Finder via BYOK architecture).
-- Return ONLY semantic HTML for the article body (use <h2>, <h3>, <p>, <ul>, <li>, <ol>, <blockquote>, <strong>, etc.). Do not include <html>, <head>, or <body> tags.
+SEO & Structural Requirements for Google Top Ranking:
+1. Word Count: 1,200+ words of actionable content.
+2. Structure:
+   - Compelling introduction explaining the core problem and workflow transition.
+   - At least 4 detailed <h2> sections with descriptive <h3> sub-headings targeting semantic sub-queries.
+   - Step-by-step practical implementation guide with real macOS terminal/voice commands.
+   - A comparison breakdown or workflow pros/cons list.
+   - A dedicated <h2>Frequently Asked Questions</h2> section answering 3 real user search questions.
+3. Natural Product Integration: Highlight "Purple" (https://1into1.com) as the native voice-driven autonomous OS AI for macOS that executes browser workflows, scrapes web data, drafts Word documents hands-free, summarizes PDFs, and automates Finder tasks securely with BYOK architecture.
+4. Output format: Return ONLY the inner semantic HTML content for the article body (<h2>, <h3>, <p>, <ul>, <ol>, <li>, <blockquote>, <pre><code>, <strong>). Do not include <html>, <head>, or <body> tags.
 """
 
-    payload = {
-        "model": selected_model,
-        "messages": [
-            {"role": "system", "content": "You are an expert macOS systems architect and technical writer producing high-ranking, in-depth tech documentation and guides."},
-            {"role": "user", "content": prompt}
-        ],
-        "temperature": 0.6,
-        "max_tokens": 3500
-    }
+    article_body = call_groq_api([
+        {"role": "system", "content": "You are a senior macOS systems architect and lead technical SEO writer specializing in in-depth documentation and featured snippet optimization."},
+        {"role": "user", "content": prompt_article}
+    ], temperature=0.5, max_tokens=3800)
 
-    req = urllib.request.Request(
-        url="https://api.groq.com/openai/v1/chat/completions",
-        data=json.dumps(payload).encode("utf-8"),
-        headers=headers,
-        method="POST"
-    )
+    # Clean markdown if present
+    article_body = re.sub(r"^```(?:html)?\n", "", article_body.strip())
+    article_body = re.sub(r"\n```$", "", article_body)
 
-    try:
-        with urllib.request.urlopen(req) as response:
-            result = json.loads(response.read().decode("utf-8"))
-            article_body = result["choices"][0]["message"]["content"]
-    except urllib.error.HTTPError as e:
-        print(f"Groq API Error {e.code}: {e.read().decode('utf-8')}")
-        exit(1)
+    # Inject JSON-LD Schema for Google Rich Snippets
+    schema_json = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": selected_topic['title'],
+        "description": f"Learn how to master {selected_topic['keyword']} with native macOS voice commands and desktop AI automation.",
+        "author": {
+            "@type": "Organization",
+            "name": "Purple AI",
+            "url": BASE_URL
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "1into1",
+            "logo": {
+                "@type": "ImageObject",
+                "url": f"{BASE_URL}/logo.png"
+            }
+        },
+        "datePublished": datetime.now().strftime("%Y-%m-%d"),
+        "mainEntityOfPage": canonical_url
+    }, indent=2)
 
     article_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -123,15 +188,32 @@ Requirements:
     <link rel="canonical" href="{canonical_url}">
     <link rel="icon" type="image/png" href="../logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+      gtag('config', 'G-W7WZRVJE0Z');
+    </script>
+
+    <!-- JSON-LD Structured Data for Google Indexing -->
+    <script type="application/ld+json">
+    {schema_json}
+    </script>
+
     <style>
         body {{ font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif; background-color: #0f0a19; color: #f3f4f6; }}
         .glow {{ box-shadow: 0 0 25px rgba(168, 85, 247, 0.45); }}
-        .article-content h2 {{ font-size: 1.75rem; font-weight: 700; color: #ffffff; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.2); padding-bottom: 0.5rem; }}
-        .article-content h3 {{ font-size: 1.35rem; font-weight: 600; color: #c084fc; margin-top: 1.5rem; margin-bottom: 0.75rem; }}
-        .article-content p {{ color: #d1d5db; line-height: 1.8; margin-bottom: 1.25rem; font-size: 1.05rem; }}
-        .article-content ul, .article-content ol {{ margin-left: 1.5rem; margin-bottom: 1.5rem; color: #d1d5db; line-height: 1.8; }}
+        .article-content h2 {{ font-size: 1.75rem; font-weight: 700; color: #ffffff; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.25); padding-bottom: 0.5rem; }}
+        .article-content h3 {{ font-size: 1.35rem; font-weight: 600; color: #c084fc; margin-top: 1.75rem; margin-bottom: 0.75rem; }}
+        .article-content p {{ color: #d1d5db; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.05rem; }}
+        .article-content ul, .article-content ol {{ margin-left: 1.5rem; margin-bottom: 1.5rem; color: #d1d5db; line-height: 1.85; }}
         .article-content li {{ margin-bottom: 0.5rem; }}
-        .article-content blockquote {{ border-left: 4px solid #a855f7; padding: 1rem; margin: 1.5rem 0; color: #e9d5ff; font-style: italic; background: rgba(168, 85, 247, 0.08); border-radius: 0.5rem; }}
+        .article-content blockquote {{ border-left: 4px solid #a855f7; padding: 1rem 1.25rem; margin: 1.5rem 0; color: #e9d5ff; font-style: italic; background: rgba(168, 85, 247, 0.08); border-radius: 0.5rem; }}
+        .article-content pre {{ background: #140d24; border: 1px solid rgba(168, 85, 247, 0.25); padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }}
+        .article-content code {{ color: #f3e8ff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.95rem; }}
         .article-content strong {{ color: #ffffff; }}
     </style>
 </head>
@@ -139,7 +221,7 @@ Requirements:
     <nav class="w-full bg-[#0f0a19]/80 backdrop-blur-md border-b border-purple-900/30 fixed top-0 left-0 z-50">
         <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="/" class="flex items-center space-x-3">
-                <img src="../logo.png" alt="Purple Logo" class="h-8 w-auto">
+                <img src="../logo.png" alt="Purple Logo" class="h-8 w-auto drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]">
                 <span class="text-xl font-bold text-white tracking-tight">Purple</span>
             </a>
             <div class="flex items-center space-x-6">
@@ -191,7 +273,7 @@ Requirements:
     with open(KEYWORDS_FILE, "w", encoding="utf-8") as f:
         json.dump(topics, f, indent=2)
 
-# 5. Build Dynamic Blog Hub (/blog/index.html)
+# 5. Rebuild Blog Hub (/blog/index.html)
 published_posts = [t for t in topics if t.get("published", False)]
 cards_html = ""
 
@@ -289,4 +371,4 @@ sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 
 with open(SITEMAP_FILE, "w", encoding="utf-8") as f:
     f.write(sitemap_content)
-print("Updated sitemap.xml with blog hub and article canonicals.")
+print("Updated sitemap.xml with canonical URLs.")
