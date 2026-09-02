@@ -100,6 +100,77 @@
     "keyword": "generate meeting summaries voice mac",
     "title": "How to Convert Raw Meeting Notes Into Structured Summaries on Mac",
     "category": "Productivity",
+    "published": true,
+    "published_date": "September 02, 2026"
+  },
+  {
+    "slug": "voice-driven-terminal-shortcuts-macos-2026",
+    "keyword": "macos voice terminal shortcuts",
+    "title": "Master Voice-Driven Terminal Shortcuts on macOS for Faster Development",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spreadsheet-calculations-with-voice-ai",
+    "keyword": "hands-free spreadsheet calculations macos",
+    "title": "Perform Complex Spreadsheet Math Hands-Free on macOS Using Voice AI",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "compare-desktop-ai-agents-vs-cloud-chatbots-macos",
+    "keyword": "desktop AI agents vs cloud chatbots macos",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Wins for macOS Power Users?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "byok-privacy-architecture-for-mac-voice-assistants",
+    "keyword": "BYOK privacy mac voice assistants",
+    "title": "Implement BYOK Privacy Architecture for macOS Voice Assistants",
+    "category": "Privacy",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-playlist-management-macos",
+    "keyword": "voice controlled spotify macos",
+    "title": "Create, Edit, and Play Spotify Playlists on macOS Using Voice Commands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-with-voice-prompt-mac",
+    "keyword": "voice automated web scraping mac",
+    "title": "Run Automated Web Scraping Jobs on macOS with Simple Voice Prompts",
+    "category": "Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-annotation-and-metadata-extraction",
+    "keyword": "hands-free pdf annotation macos",
+    "title": "Annotate PDFs and Extract Metadata Hands-Free on macOS Using Voice AI",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "voice-activated-window-arrangement-macos-workflow",
+    "keyword": "voice window arrangement macos",
+    "title": "Organize macOS Windows Instantly with Voice-Activated Arrangement Commands",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "drafting-legal-documents-hands-free-mac-voice-ai",
+    "keyword": "hands-free legal document drafting mac",
+    "title": "Draft Professional Legal Documents Hands-Free on macOS with Voice AI",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-data-visualization-in-excel-macos",
+    "keyword": "voice data visualization excel macos",
+    "title": "Generate Data Visualizations in Excel on macOS Using Voice Commands",
+    "category": "Productivity",
     "published": false
   }
 ]
