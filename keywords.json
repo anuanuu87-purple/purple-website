@@ -140,7 +140,8 @@
     "keyword": "voice controlled spotify macos",
     "title": "Create, Edit, and Play Spotify Playlists on macOS Using Voice Commands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "September 05, 2026"
   },
   {
     "slug": "automated-web-scraping-with-voice-prompt-mac",
