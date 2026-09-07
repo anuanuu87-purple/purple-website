@@ -180,6 +180,77 @@
     "keyword": "voice data visualization excel macos",
     "title": "Generate Data Visualizations in Excel on macOS Using Voice Commands",
     "category": "Productivity",
+    "published": true,
+    "published_date": "September 07, 2026"
+  },
+  {
+    "slug": "voice-driven-macos-terminal-scripting-guide",
+    "keyword": "macOS terminal voice scripting",
+    "title": "Master Voice-Driven Terminal Scripting on macOS: A Complete Guide for Developers",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-excel-mac-voice-formulas",
+    "keyword": "hands-free Excel formulas macOS",
+    "title": "Perform Complex Excel Formulas Hands-Free on macOS with Voice AI",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "pdf-voice-analysis-mac-automation",
+    "keyword": "PDF analysis voice macOS",
+    "title": "Automate PDF Analysis and Data Extraction on macOS Using Voice Commands",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-vs-cloud-chatbot-mac-performance",
+    "keyword": "desktop AI vs cloud chatbot macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Performance Showdown on macOS",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "byok-privacy-architecture-mac-voice-assistants",
+    "keyword": "BYOK privacy macOS voice assistants",
+    "title": "Implement BYOK Privacy Architecture for Secure macOS Voice Assistants",
+    "category": "Privacy",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-playlist-generation-mac",
+    "keyword": "voice controlled Spotify macOS",
+    "title": "Create and Manage Spotify Playlists on macOS Using Voice Commands",
+    "category": "Media Control",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-mac-workflows",
+    "keyword": "voice automated web scraping macOS",
+    "title": "Build Automated Web Scraping Workflows on macOS with Simple Voice Prompts",
+    "category": "Automation",
+    "published": false
+  },
+  {
+    "slug": "window-management-voice-shortcuts-mac",
+    "keyword": "voice window management macOS",
+    "title": "Instant macOS Window Management with Custom Voice-Activated Shortcuts",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-doc-drafting-mac-voice-ai",
+    "keyword": "hands-free legal document drafting macOS",
+    "title": "Draft Professional Legal Documents on macOS Completely Hands-Free with Voice AI",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-data-visualization-mac-excel",
+    "keyword": "voice data visualization macOS Excel",
+    "title": "Generate Data Visualizations in Excel on macOS Using Voice Commands",
+    "category": "Data Analysis",
     "published": false
   }
 ]
