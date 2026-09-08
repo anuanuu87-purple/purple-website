@@ -188,7 +188,8 @@
     "keyword": "macOS terminal voice scripting",
     "title": "Master Voice-Driven Terminal Scripting on macOS: A Complete Guide for Developers",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 08, 2026"
   },
   {
     "slug": "hands-free-excel-mac-voice-formulas",
