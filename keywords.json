@@ -196,7 +196,8 @@
     "keyword": "hands-free Excel formulas macOS",
     "title": "Perform Complex Excel Formulas Hands-Free on macOS with Voice AI",
     "category": "Productivity",
-    "published": false
+    "published": true,
+    "published_date": "September 08, 2026"
   },
   {
     "slug": "pdf-voice-analysis-mac-automation",
