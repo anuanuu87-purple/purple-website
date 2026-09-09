@@ -204,7 +204,8 @@
     "keyword": "PDF analysis voice macOS",
     "title": "Automate PDF Analysis and Data Extraction on macOS Using Voice Commands",
     "category": "Document Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 09, 2026"
   },
   {
     "slug": "desktop-ai-vs-cloud-chatbot-mac-performance",
