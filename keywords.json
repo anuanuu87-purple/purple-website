@@ -228,7 +228,8 @@
     "keyword": "voice controlled Spotify macOS",
     "title": "Create and Manage Spotify Playlists on macOS Using Voice Commands",
     "category": "Media Control",
-    "published": false
+    "published": true,
+    "published_date": "September 10, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-mac-workflows",
