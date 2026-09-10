@@ -220,7 +220,8 @@
     "keyword": "BYOK privacy macOS voice assistants",
     "title": "Implement BYOK Privacy Architecture for Secure macOS Voice Assistants",
     "category": "Privacy",
-    "published": false
+    "published": true,
+    "published_date": "September 10, 2026"
   },
   {
     "slug": "voice-controlled-spotify-playlist-generation-mac",
