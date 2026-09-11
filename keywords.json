@@ -236,7 +236,8 @@
     "keyword": "voice automated web scraping macOS",
     "title": "Build Automated Web Scraping Workflows on macOS with Simple Voice Prompts",
     "category": "Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 11, 2026"
   },
   {
     "slug": "window-management-voice-shortcuts-mac",
