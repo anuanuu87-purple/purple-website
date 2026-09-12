@@ -260,6 +260,77 @@
     "keyword": "voice data visualization macOS Excel",
     "title": "Generate Data Visualizations in Excel on macOS Using Voice Commands",
     "category": "Data Analysis",
+    "published": true,
+    "published_date": "September 12, 2026"
+  },
+  {
+    "slug": "voice-terminal-automation-ci-cd-macos",
+    "keyword": "macOS voice terminal automation",
+    "title": "Create Voice-Activated Terminal Macros for CI/CD Workflows on macOS",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spreadsheet-modeling-macos",
+    "keyword": "hands-free spreadsheet modeling macOS",
+    "title": "Hands-Free Spreadsheet Modeling and Complex Math with Voice Commands on macOS",
+    "category": "Spreadsheet Productivity",
+    "published": false
+  },
+  {
+    "slug": "byok-encryption-macos-voice-assistants",
+    "keyword": "BYOK encryption macOS voice assistant",
+    "title": "Secure BYOK Encryption Architecture for macOS Voice Assistants: A Step\u2011by\u2011Step Guide",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Boosts macOS Power\u2011User Productivity?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-podcast-audiobook-management-macos",
+    "keyword": "voice controlled podcast management macOS",
+    "title": "Voice\u2011Controlled Podcast and Audiobook Management on macOS for Seamless Media Playback",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "voice-pdf-invoice-extraction-macos",
+    "keyword": "voice PDF invoice extraction macOS",
+    "title": "Automate PDF Invoice Extraction and Data Parsing with Voice Prompts on macOS",
+    "category": "PDF Analysis",
+    "published": false
+  },
+  {
+    "slug": "voice-window-tiling-workspace-switching-macos",
+    "keyword": "voice window tiling macOS",
+    "title": "Instant Window Tiling and Workspace Switching on macOS Using Voice Commands",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "voice-triggered-web-scraping-bots-macos",
+    "keyword": "voice web scraping macOS",
+    "title": "Build Voice\u2011Triggered Web Scraping Bots on macOS with Python and Simple Prompts",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-legal-contract-templates-macos",
+    "keyword": "voice legal contract drafting macOS",
+    "title": "Draft Professional Legal Contracts Using Voice\u2011Powered Templates on macOS",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "voice-ai-battery-performance-optimizations-macos",
+    "keyword": "voice AI battery performance macOS",
+    "title": "Optimize macOS Battery Life and System Performance with Voice AI Shortcuts",
+    "category": "System Optimization",
     "published": false
   }
 ]
