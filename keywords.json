@@ -276,7 +276,8 @@
     "keyword": "hands-free spreadsheet modeling macOS",
     "title": "Hands-Free Spreadsheet Modeling and Complex Math with Voice Commands on macOS",
     "category": "Spreadsheet Productivity",
-    "published": false
+    "published": true,
+    "published_date": "September 13, 2026"
   },
   {
     "slug": "byok-encryption-macos-voice-assistants",
