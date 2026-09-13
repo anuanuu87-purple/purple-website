@@ -268,7 +268,8 @@
     "keyword": "macOS voice terminal automation",
     "title": "Create Voice-Activated Terminal Macros for CI/CD Workflows on macOS",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 13, 2026"
   },
   {
     "slug": "hands-free-spreadsheet-modeling-macos",
