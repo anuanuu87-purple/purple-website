@@ -308,7 +308,8 @@
     "keyword": "voice PDF invoice extraction macOS",
     "title": "Automate PDF Invoice Extraction and Data Parsing with Voice Prompts on macOS",
     "category": "PDF Analysis",
-    "published": false
+    "published": true,
+    "published_date": "September 15, 2026"
   },
   {
     "slug": "voice-window-tiling-workspace-switching-macos",
