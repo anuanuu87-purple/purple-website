@@ -300,7 +300,8 @@
     "keyword": "voice controlled podcast management macOS",
     "title": "Voice\u2011Controlled Podcast and Audiobook Management on macOS for Seamless Media Playback",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "September 15, 2026"
   },
   {
     "slug": "voice-pdf-invoice-extraction-macos",
