@@ -316,7 +316,8 @@
     "keyword": "voice window tiling macOS",
     "title": "Instant Window Tiling and Workspace Switching on macOS Using Voice Commands",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "September 16, 2026"
   },
   {
     "slug": "voice-triggered-web-scraping-bots-macos",
