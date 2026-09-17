@@ -340,6 +340,77 @@
     "keyword": "voice AI battery performance macOS",
     "title": "Optimize macOS Battery Life and System Performance with Voice AI Shortcuts",
     "category": "System Optimization",
+    "published": true,
+    "published_date": "September 17, 2026"
+  },
+  {
+    "slug": "voice-driven-ci-cd-pipelines-macos",
+    "keyword": "voice driven CI/CD pipelines macOS",
+    "title": "Streamline CI/CD Pipelines on macOS with Voice\u2011Driven Terminal Commands",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-brief-generation-macos",
+    "keyword": "hands free legal brief generation macOS",
+    "title": "Create Comprehensive Legal Briefs on macOS Completely Hands\u2011Free Using Voice AI",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "secure-byo-keys-voice-assistant-macos",
+    "keyword": "secure BYOK keys voice assistant macOS",
+    "title": "Implement Secure BYOK Encryption for macOS Voice Assistants: A Developer\u2019s Guide",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-data-cleaning-excel-macos",
+    "keyword": "voice controlled data cleaning Excel macOS",
+    "title": "Master Voice\u2011Controlled Data Cleaning and Transformation in Excel on macOS",
+    "category": "Spreadsheet Automation",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-productivity",
+    "keyword": "desktop AI agents vs cloud chatbots productivity",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Drives Higher Productivity on macOS?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "automated-pdf-research-workflows-macos",
+    "keyword": "automated PDF research workflows macOS",
+    "title": "Build Automated PDF Research Workflows on macOS Using Voice Prompts",
+    "category": "PDF Analysis",
+    "published": false
+  },
+  {
+    "slug": "voice-activated-spotify-queue-management-macos",
+    "keyword": "voice activated Spotify queue management macOS",
+    "title": "Control Spotify Queues and Playlists on macOS with Simple Voice Commands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "dynamic-window-tiling-voice-shortcuts-macos",
+    "keyword": "dynamic window tiling voice shortcuts macOS",
+    "title": "Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-web-scraping-framework-macos",
+    "keyword": "voice powered web scraping framework macOS",
+    "title": "Design a Voice\u2011Powered Web Scraping Framework for macOS Developers",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "hands-free-math-modelling-terminal-macos",
+    "keyword": "hands free math modelling terminal macOS",
+    "title": "Perform Advanced Math Modeling in the macOS Terminal Completely Hands\u2011Free",
+    "category": "Math Automation",
     "published": false
   }
 ]
