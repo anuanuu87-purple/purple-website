@@ -348,7 +348,8 @@
     "keyword": "voice driven CI/CD pipelines macOS",
     "title": "Streamline CI/CD Pipelines on macOS with Voice\u2011Driven Terminal Commands",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 18, 2026"
   },
   {
     "slug": "hands-free-legal-brief-generation-macos",
