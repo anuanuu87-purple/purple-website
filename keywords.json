@@ -364,7 +364,8 @@
     "keyword": "secure BYOK keys voice assistant macOS",
     "title": "Implement Secure BYOK Encryption for macOS Voice Assistants: A Developer\u2019s Guide",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "September 19, 2026"
   },
   {
     "slug": "voice-controlled-data-cleaning-excel-macos",
