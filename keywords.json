@@ -388,7 +388,8 @@
     "keyword": "automated PDF research workflows macOS",
     "title": "Build Automated PDF Research Workflows on macOS Using Voice Prompts",
     "category": "PDF Analysis",
-    "published": false
+    "published": true,
+    "published_date": "September 20, 2026"
   },
   {
     "slug": "voice-activated-spotify-queue-management-macos",
