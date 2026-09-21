@@ -396,7 +396,8 @@
     "keyword": "voice activated Spotify queue management macOS",
     "title": "Control Spotify Queues and Playlists on macOS with Simple Voice Commands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "September 21, 2026"
   },
   {
     "slug": "dynamic-window-tiling-voice-shortcuts-macos",
