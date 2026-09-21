@@ -404,7 +404,8 @@
     "keyword": "dynamic window tiling voice shortcuts macOS",
     "title": "Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "September 21, 2026"
   },
   {
     "slug": "voice-powered-web-scraping-framework-macos",
