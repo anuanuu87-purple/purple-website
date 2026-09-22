@@ -412,7 +412,8 @@
     "keyword": "voice powered web scraping framework macOS",
     "title": "Design a Voice\u2011Powered Web Scraping Framework for macOS Developers",
     "category": "Web Scraping",
-    "published": false
+    "published": true,
+    "published_date": "September 22, 2026"
   },
   {
     "slug": "hands-free-math-modelling-terminal-macos",
