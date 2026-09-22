@@ -420,6 +420,77 @@
     "keyword": "hands free math modelling terminal macOS",
     "title": "Perform Advanced Math Modeling in the macOS Terminal Completely Hands\u2011Free",
     "category": "Math Automation",
+    "published": true,
+    "published_date": "September 22, 2026"
+  },
+  {
+    "slug": "voice-driven-macos-ci-cd-pipeline-orchestration",
+    "keyword": "voice driven macOS CI/CD orchestration",
+    "title": "Orchestrate macOS CI/CD Pipelines Hands-Free with Voice Commands",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-research-synthesis-macos",
+    "keyword": "hands-free PDF research synthesis macOS",
+    "title": "Synthesize Academic PDF Research Using Voice Prompts on macOS",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-assistant-architecture-macos",
+    "keyword": "secure BYOK voice assistant macOS",
+    "title": "Design a Secure BYOK Architecture for macOS Voice Assistants",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-activated-excel-forecast-modeling-macos",
+    "keyword": "voice activated Excel forecasting macOS",
+    "title": "Build Forecast Models in Excel on macOS Using Voice Commands",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agent-vs-cloud-chatbot-productivity-macos",
+    "keyword": "desktop AI agent vs cloud chatbot macOS productivity",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Supercharges macOS Productivity?",
+    "category": "AI Agents",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-party-mode-macos",
+    "keyword": "voice controlled Spotify party mode macOS",
+    "title": "Launch and Manage Spotify Party Mode on macOS with Simple Voice Commands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-workflows-macos-terminal",
+    "keyword": "automated web scraping voice workflows macOS terminal",
+    "title": "Create Automated Web Scraping Workflows in the macOS Terminal Using Voice Prompts",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "dynamic-window-tiling-voice-shortcuts-macos",
+    "keyword": "dynamic window tiling voice shortcuts macOS",
+    "title": "Dynamic Window Tiling and Multi\u2011Monitor Management on macOS via Voice Shortcuts",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-brief-generation-macos",
+    "keyword": "hands-free legal brief generation macOS",
+    "title": "Generate Complete Legal Briefs on macOS Completely Hands\u2011Free with Voice AI",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-macos-battery-optimization-workflows",
+    "keyword": "voice driven macOS battery optimization",
+    "title": "Optimize macOS Battery Life and Performance with Voice\u2011Activated Workflows",
+    "category": "Voice Automation",
     "published": false
   }
 ]
