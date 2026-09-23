@@ -428,7 +428,8 @@
     "keyword": "voice driven macOS CI/CD orchestration",
     "title": "Orchestrate macOS CI/CD Pipelines Hands-Free with Voice Commands",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 23, 2026"
   },
   {
     "slug": "hands-free-pdf-research-synthesis-macos",
