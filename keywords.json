@@ -436,7 +436,8 @@
     "keyword": "hands-free PDF research synthesis macOS",
     "title": "Synthesize Academic PDF Research Using Voice Prompts on macOS",
     "category": "Document Drafting",
-    "published": false
+    "published": true,
+    "published_date": "September 23, 2026"
   },
   {
     "slug": "secure-byok-voice-assistant-architecture-macos",
