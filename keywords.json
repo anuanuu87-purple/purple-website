@@ -452,7 +452,8 @@
     "keyword": "voice activated Excel forecasting macOS",
     "title": "Build Forecast Models in Excel on macOS Using Voice Commands",
     "category": "Spreadsheet Math",
-    "published": false
+    "published": true,
+    "published_date": "September 24, 2026"
   },
   {
     "slug": "desktop-ai-agent-vs-cloud-chatbot-productivity-macos",
