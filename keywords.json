@@ -444,7 +444,8 @@
     "keyword": "secure BYOK voice assistant macOS",
     "title": "Design a Secure BYOK Architecture for macOS Voice Assistants",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "September 24, 2026"
   },
   {
     "slug": "voice-activated-excel-forecast-modeling-macos",
