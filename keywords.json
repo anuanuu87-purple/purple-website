@@ -468,7 +468,8 @@
     "keyword": "voice controlled Spotify party mode macOS",
     "title": "Launch and Manage Spotify Party Mode on macOS with Simple Voice Commands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "September 25, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-workflows-macos-terminal",
