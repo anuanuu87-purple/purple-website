@@ -476,7 +476,8 @@
     "keyword": "automated web scraping voice workflows macOS terminal",
     "title": "Create Automated Web Scraping Workflows in the macOS Terminal Using Voice Prompts",
     "category": "Web Scraping",
-    "published": false
+    "published": true,
+    "published_date": "September 26, 2026"
   },
   {
     "slug": "dynamic-window-tiling-voice-shortcuts-macos",
