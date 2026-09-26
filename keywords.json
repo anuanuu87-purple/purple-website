@@ -484,7 +484,8 @@
     "keyword": "dynamic window tiling voice shortcuts macOS",
     "title": "Dynamic Window Tiling and Multi\u2011Monitor Management on macOS via Voice Shortcuts",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "September 26, 2026"
   },
   {
     "slug": "hands-free-legal-brief-generation-macos",

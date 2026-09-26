@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts | Purple OS AI</title>
+    <title>Dynamic Window Tiling and Multi‑Monitor Management on macOS via Voice Shortcuts | Purple OS AI</title>
     <meta name="description" content="Discover how to master dynamic window tiling voice shortcuts macOS with native macOS voice automation and intelligent desktop agents.">
     <link rel="canonical" href="https://1into1.com/blog/dynamic-window-tiling-voice-shortcuts-macos.html">
     <link rel="icon" type="image/png" href="../logo.png">
@@ -21,7 +21,7 @@
     {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts",
+  "headline": "Dynamic Window Tiling and Multi\u2011Monitor Management on macOS via Voice Shortcuts",
   "description": "Learn how to master dynamic window tiling voice shortcuts macOS with native macOS voice commands and desktop AI automation.",
   "author": {
     "@type": "Organization",
@@ -36,7 +36,7 @@
       "url": "https://1into1.com/logo.png"
     }
   },
-  "datePublished": "2026-09-21",
+  "datePublished": "2026-09-26",
   "mainEntityOfPage": "https://1into1.com/blog/dynamic-window-tiling-voice-shortcuts-macos.html"
 }
     </script>
@@ -75,197 +75,196 @@
                 Window Management
             </span>
             <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
-                Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts
+                Dynamic Window Tiling and Multi‑Monitor Management on macOS via Voice Shortcuts
             </h1>
-            <p class="text-sm text-gray-400">Published on September 21, 2026 • 6 min read</p>
+            <p class="text-sm text-gray-400">Published on September 26, 2026 • 6 min read</p>
         </div>
 
         <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
-            <p><strong>Dynamic Window Tiling and Workspace Switching on macOS via Voice Shortcuts</strong> addresses a pain point that many power users still encounter: the friction between visual window management and hands‑free interaction. Traditional macOS tiling (Split View, Mission Control) works well with a mouse or trackpad, but it collapses when you need to stay in a voice‑first workflow—whether you’re dictating a report, reviewing PDFs, or running a series of automated Finder actions. This guide shows how to bridge that gap, turning spoken commands into precise window placements, workspace changes, and multi‑app orchestration, all while keeping security and extensibility at the forefront.</p>
+            <h2>Introduction: From Manual Resizing to Voice‑Driven Dynamic Tiling</h2>
+<p>macOS users have long relied on the mouse, trackpad, or keyboard shortcuts to arrange windows. While tools like Magnet, Rectangle, and the native Split View provide static tiling, they fall short when a workflow demands rapid, context‑aware re‑layout across multiple monitors. The friction of dragging, holding modifier keys, and manually adjusting each pane becomes especially pronounced for power users who switch between coding, design, and research tasks dozens of times a day.</p>
+<p>This guide demonstrates how to replace that friction with <strong>dynamic window tiling voice shortcuts</strong> that adapt to the current workspace, monitor configuration, and application focus. By leveraging macOS’s built‑in <code>osascript</code> engine, the <code>defaults</code> command‑line utility, and the emerging voice‑automation platform <strong>Purple</strong> (https://1into1.com), you can issue natural‑language commands such as “Tile my code editor on the left and place Slack on the right” and have the system instantly rearrange windows, resize them proportionally, and even move them between displays.</p>
 
-<h2>Understanding macOS Window Management Fundamentals</h2>
-
-<h3>Built‑in tiling capabilities</h3>
-<p>macOS ships with three core mechanisms for arranging windows:</p>
-<ul>
-<li><strong>Split View</strong> – two apps share the screen in a 50/50 layout, invoked via the green traffic‑light button.</li>
-<li><strong>Mission Control</strong> – a spatial overview that lets you drag windows into separate desktops (Spaces).</li>
-<li><strong>Stage Manager</strong> – introduced in macOS Ventura, automatically groups windows into a sidebar for quick switching.</li>
-</ul>
-<p>These tools are UI‑centric; they lack a programmable API that can be called directly from Voice Control or the Shortcuts app. Consequently, voice‑only users must rely on indirect shortcuts (e.g., <code>Control+⌘+F</code> for full‑screen) or on third‑party automation.</p>
-
-<h3>Third‑party tiling engines (yabai, chunkwm)</h3>
-<p>For developers and power users, <a href="https://github.com/koekeishiya/yabai">yabai</a> is the de‑facto tiling window manager for macOS. It provides a robust <code>socket</code>‑based IPC, enabling scripts to:</p>
+<h2>Setting Up the Foundations</h2>
+<h3>1. Enable Voice Control and Accessibility Permissions</h3>
+<p>Voice Control is the gateway that lets macOS listen for custom phrases and translate them into AppleScript or shell commands.</p>
 <ol>
-<li>Move a window to a specific space.</li>
-<li>Resize or re‑tile windows on the fly.</li>
-<li>Query the current layout for conditional logic.</li>
+<li>Open <strong>System Settings → Accessibility → Voice Control</strong>.</li>
+<li>Toggle <strong>Voice Control</strong> on and click <strong>Commands…</strong>.</li>
+<li>Press the <strong>+ Add</strong> button, choose <strong>Run Workflow</strong>, and give the command a spoken phrase (e.g., “Tile windows dynamically”).</li>
+<li>When prompted, grant <strong>Full Disk Access</strong> and <strong>Automation</strong> rights to the Terminal app and any script editors you will use.</li>
 </ol>
-<p>Because yabai runs with elevated privileges (via <code>brew services start yabai</code> and a <code>sudo yabai --install-sa</code> step), it can bypass the sandbox restrictions that limit AppleScript’s window‑control capabilities.</p>
 
-<h3>Voice Control architecture</h3>
-<p>macOS Voice Control (System Settings → Accessibility → Voice Control) works by listening for a defined phrase, then executing a <em>command</em>. Commands can be:</p>
-<ul>
-<li>Built‑in actions (e.g., “Open Safari”).</li>
-<li>Custom AppleScript snippets.</li>
-<li>Shell scripts invoked through the “Run Script” action.</li>
-</ul>
-<p>The key to voice‑driven tiling is mapping a spoken phrase to a script that calls yabai (or any other tiling engine) and then confirming the action with auditory feedback.</p>
-
-<h2>Setting Up a Voice‑Driven Tiling Stack</h2>
-
-<h3>Installing and configuring yabai</h3>
-<p>Open Terminal and run the following commands. Each step includes a brief explanation to keep the guide self‑contained.</p>
-<pre><code># Install Homebrew if it isn’t present
+<h3>2. Install Required Command‑Line Tools</h3>
+<p>The implementation relies on two open‑source utilities that expose window metadata to the shell: <code>yabai</code> (a tiling window manager for macOS) and <code>skhd</code> (a hot‑key daemon). Both can be installed via Homebrew.</p>
+<pre><code># Install Homebrew if not present
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Install yabai
-brew install yabai
+# Install yabai and skhd
+brew install yabai skhd
 
-# Enable scripting additions (required for window manipulation)
+# Enable scripting additions (requires SIP to be partially disabled)
 sudo yabai --install-sa
-
-# Start yabai as a background service
-brew services start yabai
-
-# Verify installation
-yabai -m query --spaces
 </code></pre>
-<p>After the service starts, you should see a JSON array describing each Space. If you encounter a permission error, open <strong>System Settings → Security & Privacy → Privacy → Accessibility</strong> and add <code>/usr/local/opt/yabai/bin/yabai</code> (or the Homebrew path on Apple Silicon).</p>
-
-<h3>Creating AppleScript wrappers</h3>
-<p>Voice Control cannot invoke a raw shell command directly; it must go through an AppleScript <code>do shell script</code> call. Create a folder <code>~/Library/Scripts/WindowTiling</code> and add the following scripts:</p>
-<pre><code>-- tile-left.scpt
-do shell script "/usr/local/bin/yabai -m window --focus recent && \
-                /usr/local/bin/yabai -m window --grid 1:2:0:0:1:2"
+<p>After installation, start the services and configure them to launch at login:</p>
+<pre><code>brew services start yabai
+brew services start skhd
 </code></pre>
-<pre><code>-- tile-right.scpt
-do shell script "/usr/local/bin/yabai -m window --focus recent && \
-                /usr/local/bin/yabai -m window --grid 1:2:1:0:1:2"
+
+<h3>3. Configure Yabai for Multi‑Monitor Awareness</h3>
+<p>Yabai must be told to treat each display as a separate space and to respect the native macOS window‑management rules. Add the following to <code>~/.yabairc</code>:</p>
+<pre><code>#!/usr/bin/env sh
+
+# Enable window‑border drawing for visual debugging
+yabai -m config window_border off
+
+# Treat each display as its own space
+yabai -m config display_split true
+
+# Enable mouse‑follows‑focus for smoother voice‑driven switching
+yabai -m config mouse_follows_focus on
+
+# Set default tiling layout to bsp (binary space partitioning)
+yabai -m config layout bsp
 </code></pre>
-<p>These scripts move the most recently focused window to the left or right half of the current screen. Save each file with a <code>.scpt</code> extension and test them by double‑clicking; the window should snap instantly.</p>
-
-<h3>Defining Voice Control commands</h3>
-<p>Launch Voice Control preferences, click “Commands → + Add Command”. Fill the fields as follows:</p>
-<ul>
-<li><strong>When I say</strong>: “Tile left”.</li>
-<li><strong>While using</strong>: “Any Application”.</li>
-<li><strong>Run</strong>: “AppleScript”.</li>
-<li><strong>Script</strong>: Choose <code>tile-left.scpt</code>.</li>
-</ul>
-<p>Repeat for “Tile right” using <code>tile-right.scpt</code>. Test the commands by saying the phrases; you should hear macOS confirm “Done”. If you need auditory confirmation, prepend <code>say "Tiling left"</code> to the script:</p>
-<pre><code>do shell script "say 'Tiling left'; /usr/local/bin/yabai -m window --grid 1:2:0:0:1:2"
+<p>Make the script executable:</p>
+<pre><code>chmod +x ~/.yabairc
 </code></pre>
-<p>Now you have a fully functional voice‑driven tiling pair.</p>
 
-<h2>Crafting Dynamic Voice Shortcuts with Shortcuts App</h2>
+<h2>Designing Voice‑Activated Tiling Commands</h2>
+<h3>4. Mapping Natural Language to AppleScript</h3>
+<p>Voice Control can invoke an AppleScript that, in turn, calls <code>yabai</code>. The script parses spoken tokens, determines the target applications, and issues the appropriate tiling instructions.</p>
+<pre><code>-- File: ~/Scripts/DynamicTile.scpt
+on run argv
+    set phrase to item 1 of argv
+    set tokens to words of phrase
 
-<h3>Using “Run Shell Script” action</h3>
-<p>The Shortcuts app (macOS 13+) lets you chain multiple actions, including “Run Shell Script”. Create a new shortcut called “Tile and Switch Space”. Add the following actions in order:</p>
+    -- Example phrase: "tile safari left monitor two"
+    set appName to ""
+    set position to ""
+    set monitorIndex to 1
+
+    repeat with t in tokens
+        if t is in {"safari", "chrome", "firefox", "code", "slack", "notes"} then
+            set appName to t
+        else if t is in {"left", "right", "top", "bottom"} then
+            set position to t
+        else if t is in {"one", "two", "three"} then
+            set monitorIndex to (offset of t in {"one","two","three"}) + 0
+        end if
+    end repeat
+
+    if appName = "" or position = "" then
+        display notification "Could not parse command" with title "DynamicTile"
+        return
+    end if
+
+    -- Focus the target app
+    tell application appName to activate
+
+    -- Get the window id via yabai
+    set winID to do shell script "yabai -m query --windows --window | jq -r '.id'"
+
+    -- Move window to the desired monitor
+    do shell script "yabai -m window " & winID & " --display " & monitorIndex
+
+    -- Apply tiling position
+    if position is "left" then
+        do shell script "yabai -m window " & winID & " --grid 2:1:0:0:1:1"
+    else if position is "right" then
+        do shell script "yabai -m window " & winID & " --grid 2:1:1:0:1:1"
+    else if position is "top" then
+        do shell script "yabai -m window " & winID & " --grid 1:2:0:0:1:1"
+    else if position is "bottom" then
+        do shell script "yabai -m window " & winID & " --grid 1:2:0:1:1:1"
+    end if
+end run
+</code></pre>
+<p>Save the script, then create a Voice Control command that runs:</p>
+<pre><code>osascript ~/Scripts/DynamicTile.scpt "tile code left monitor two"</code></pre>
+<p>Replace the spoken phrase with any combination of app name, position, and monitor number. The script can be expanded to support groups of windows, custom ratios, or even “focus‑next‑empty‑space”.</p>
+
+<h3>5. Integrating Purple for Hands‑Free Workflow Orchestration</h3>
+<p><strong>Purple</strong> (https://1into1.com) is a native, voice‑driven autonomous OS AI that runs locally on macOS. It can invoke the same AppleScript, scrape web data, draft Word documents, summarize PDFs, and automate Finder tasks—all while keeping your encryption keys on‑device (BYOK architecture).</p>
+<p>To let Purple handle dynamic tiling, add a custom “skill” in Purple’s configuration file (<code>~/.purple/skills.yml</code>):</p>
+<pre><code>skills:
+  - name: Dynamic Window Tiling
+    trigger: "tile * on * monitor *"
+    action: |
+      osascript ~/Scripts/DynamicTile.scpt "tile {app} {position} monitor {monitor}"
+</code></pre>
+<p>When Purple hears “Tile Xcode on the right monitor three”, it substitutes the placeholders and runs the script automatically. Because Purple operates with local AI inference, there is no network latency, and all commands respect the user’s BYOK security model.</p>
+
+<h2>Step‑by‑Step Implementation Guide</h2>
+<h3>6. Create a Reusable Voice Shortcut Library</h3>
 <ol>
-<li><strong>Ask for Input</strong> – Prompt: “Which side? (left/right)”.</li>
-<li><strong>Run Shell Script</strong> – Script:
-<pre><code>side=$1
-if [[ "$side" == "left" ]]; then
-  yabai -m window --grid 1:2:0:0:1:2
-else
-  yabai -m window --grid 1:2:1:0:1:2
-fi
-</code></pre>
-</li>
-<li><strong>Run Shell Script</strong> – Script to move to a specific Space (e.g., Space 3):
-<pre><code>yabai -m space --focus 3
-</code></pre>
-</li>
-<li><strong>Speak Text</strong> – “Window tiled $side, now on Space 3”.</li>
+<li>Open the <strong>Shortcuts</strong> app and click <strong>+ New Shortcut</strong>.</li>
+<li>Add the action <strong>Run Shell Script</strong> and paste the following template:</li>
 </ol>
-<p>Save the shortcut. In Voice Control, add a new command “Tile and switch” that runs this shortcut via the “Run Shortcut” action. The result is a single spoken phrase that both tiles the window and jumps to a predetermined workspace.</p>
-
-<h3>Passing parameters for workspace switching</h3>
-<p>If you need a more flexible workflow, you can ask for the target Space number as a second input:</p>
-<pre><code>space=$2
-yabai -m space --focus "$space"
+<pre><code># Dynamic Tiling Shortcut
+# Parameters: $APP $POS $MON
+osascript ~/Scripts/DynamicTile.scpt "tile $APP $POS monitor $MON"
 </code></pre>
-<p>Then modify the “Ask for Input” step to request two values (“Side” and “Space”). The Shortcuts UI will automatically concatenate the responses into <code>$1</code> and <code>$2</code> for the script.</p>
+<ol start="3">
+<li>Click the gear icon, enable <strong>Show in Menu Bar</strong>, and assign a keyboard shortcut (e.g., ⌃⌥⌘ T).</li>
+<li>Duplicate the shortcut for common layouts (e.g., “Code‑Left‑Primary”, “Chat‑Right‑Secondary”) and rename each accordingly.</li>
+</ol>
 
-<h3>Binding shortcuts to spoken phrases</h3>
-<p>Shortcuts can be invoked directly from Siri, but for a pure voice‑control environment you should keep the mapping inside Voice Control. The advantage of using Shortcuts is that you can add additional actions—opening a related app, creating a new document, or triggering a Purple workflow (see next section) without touching the underlying shell scripts.</p>
-
-<h2>Integrating Purple for Autonomous Voice Automation</h2>
-
-<h3>What Purple adds beyond native Voice Control</h3>
-<p><a href="https://1into1.com"><strong>Purple</strong></a> is a native, voice‑driven autonomous OS AI for macOS. While Voice Control executes static scripts, Purple understands context, can chain multi‑step web‑scraping, draft Word documents, summarize PDFs, and automate Finder tasks—all while keeping your data encrypted with a Bring‑Your‑Own‑Key (BYOK) architecture. Purple’s “workflow engine” can call the same yabai commands you built earlier, but it also adds:</p>
-<ul>
-<li>Natural‑language intent parsing (e.g., “Arrange my code editor and terminal side‑by‑side on the second desktop”).</li>
-<li>Secure credential handling for cloud‑based actions without exposing keys to the OS.</li>
-<li>Feedback loops that confirm each step verbally, reducing the need for visual verification.</li>
-</ul>
-
-<h3>Secure BYOK workflow example</h3>
-<p>Suppose you need to tile a window, fetch the latest build logs from a private GitHub repository, and save them to a Finder folder that is encrypted with your own key. Purple can orchestrate this in a single spoken command:</p>
-<pre><code>“Purple, tile my Xcode window left, switch to Space 4, pull the latest CI logs, and store them in SecureLogs.”</code></pre>
-<p>Behind the scenes, Purple does the following:</p>
+<h3>7. Bind Voice Phrases to Shortcuts via Voice Control</h3>
 <ol>
-<li>Runs <code>yabai -m window --grid 1:2:0:0:1:2</code> to tile Xcode.</li>
-<li>Executes <code>yabai -m space --focus 4</code> to change the workspace.</li>
-<li>Uses its BYOK‑protected GitHub token to call the GitHub API, download <code>ci.log</code>, and write it to <code>~/SecureLogs</code> (an encrypted APFS volume created with the user’s own encryption key).</li>
-<li>Speaks a confirmation: “Xcode tiled left, now on Space 4, logs saved securely.”</li>
+<li>Return to <strong>System Settings → Accessibility → Voice Control → Commands</strong>.</li>
+<li>Press <strong>+ Add</strong>, select <strong>Run Shortcut</strong>, and choose the shortcut you created.</li>
+<li>Enter the spoken phrase, for example, “Code left primary”.</li>
+<li>Repeat for each layout shortcut you defined.</li>
 </ol>
-<p>This single utterance replaces three separate manual steps and guarantees that the secret token never leaves the local encrypted enclave.</p>
 
-<h3>Sample Purple voice script for tiling</h3>
-<p>If you prefer to keep the Purple workflow explicit, you can define a custom “voice shortcut” inside Purple’s UI:</p>
-<pre><code>{
-  "intent": "tile_and_switch",
-  "utterance": "tile {app} {side} on space {space}",
-  "actions": [
-    {"type": "focus_app", "app": "{{app}}"},
-    {"type": "run_shell", "command": "yabai -m window --grid 1:2:{{side_offset}}:0:1:2"},
-    {"type": "run_shell", "command": "yabai -m space --focus {{space}}"},
-    {"type": "speak", "text": "{{app}} tiled {{side}}, now on Space {{space}}"}
-  ]
-}
-</code></pre>
-<p>In this JSON‑like definition, <code>{{side_offset}}</code> resolves to <code>0</code> for “left” and <code>1</code> for “right”. Purple parses the spoken phrase, fills the placeholders, and executes the actions atomically.</p>
-
-<h2>Comparison: Native Voice Control vs. Third‑Party Tiling vs. Purple</h2>
-
+<h3>8. Test Across Multiple Monitors</h3>
+<p>Assuming you have a 27‑inch primary display (index 1) and a 34‑inch ultrawide secondary display (index 2), try the following voice commands:</p>
 <ul>
-<li><strong>Native Voice Control + AppleScript</strong>
-  <ul>
-    <li>Pros: No extra installations, fully sandboxed, works out‑of‑the‑box.</li>
-    <li>Cons: Limited to AppleScript capabilities; cannot reliably move windows across Spaces without third‑party tools; maintenance overhead for each new command.</li>
-  </ul>
-</li>
-<li><strong>Third‑Party Tiling Engine (yabai) + Voice Control</strong>
-  <ul>
-    <li>Pros: Precise window placement, full multi‑Space control, scriptable via shell.</li>
-    <li>Cons: Requires elevated privileges, potential macOS security prompts, separate learning curve for yabai syntax.</li>
-  </ul>
-</li>
-<li><strong>Purple Autonomous AI</strong>
-  <ul>
-    <li>Pros: Natural‑language intent, single‑utterance multi‑step workflows, BYOK security for cloud credentials, integrates with Shortcuts, Finder, web scraping, and document generation.</li>
-    <li>Cons: Subscription‑based service, reliance on an external AI engine (though runs locally), initial onboarding time to teach custom intents.</li>
-  </ul>
-</li>
+<li><strong>“Tile Safari left monitor two”</strong> – Moves Safari to the secondary display and snaps it to the left half.</li>
+<li><strong>“Tile Mail top monitor one”</strong> – Places Mail at the top of the primary display.</li>
+<li><strong>“Tile VSCode bottom monitor two”</strong> – Positions the editor at the bottom of the ultrawide screen.</li>
 </ul>
+<p>Observe that Yabai instantly recalculates the binary space partitioning, preserving existing windows’ relative sizes while respecting the new tile.</p>
+
+<h3>9. Automate Complex Scenarios with Purple</h3>
+<p>Complex workflows often involve more than a single window. For example, a “research session” might require:</p>
+<ol>
+<li>Safari on the left half of monitor 1.</li>
+<li>Notes on the right half of monitor 1.</li>
+<li>Slack on the bottom third of monitor 2.</li>
+</ol>
+<p>Define a Purple macro that runs three sequential <code>osascript</code> calls:</p>
+<pre><code>skills:
+  - name: Research Session
+    trigger: "start research session"
+    action: |
+      osascript ~/Scripts/DynamicTile.scpt "tile safari left monitor one"
+      osascript ~/Scripts/DynamicTile.scpt "tile notes right monitor one"
+      osascript ~/Scripts/DynamicTile.scpt "tile slack bottom monitor two"
+</code></pre>
+<p>Now a single spoken phrase “Start research session” configures the entire workspace in under two seconds.</p>
+
+<h2>Comparison: Voice‑Driven Dynamic Tiling vs. Traditional Methods</h2>
+<table>
+<tr><th>Aspect</th><th>Static Keyboard Shortcuts (e.g., ⌘ ⌥ ←)</th><th>Third‑Party Tiling Apps (Magnet, Rectangle)</th><th>Dynamic Voice‑Driven Tiling (Yabai + Purple)</th></tr>
+<tr><td>Speed of Execution</td><td>Medium – requires manual key press each time</td><td>Medium – one‑click but still manual per window</td><td>Fast – single spoken phrase can arrange multiple windows across monitors</td></tr>
+<tr><td>Context Awareness</td><td>Low – no knowledge of monitor layout or app state</td><td>Low – static grid positions only</td><td>High – scripts can query current display count, window IDs, and adapt ratios</td></tr>
+<tr><td>Scalability</td><td>Poor – becomes cumbersome with >5 windows</td><td>Poor – limited to preset layouts</td><td>Excellent – can generate arbitrary layouts programmatically</td></tr>
+<tr><td>Learning Curve</td><td>Low – familiar shortcuts</td><td>Low – UI‑driven</td><td>Medium – requires terminal, AppleScript, and Purple configuration</td></tr>
+<tr><td>Security & Privacy</td><td>Native – no third‑party binaries</td><td>Varies – some apps request accessibility access</td><td>Strong – Purple operates with BYOK encryption, all scripts run locally</td></tr>
+<tr><td>Automation Potential</td><td>None – manual only</td><td>Limited – can chain shortcuts but not voice</td><td>Full – integrate with Finder, PDF summarizer, web scraper, and document drafting via Purple</td></tr>
+</table>
 
 <h2>Frequently Asked Questions</h2>
+<h3>Can I use dynamic tiling without disabling System Integrity Protection (SIP)?</h3>
+<p>Yabai’s scripting additions require a partial SIP exemption (the <code>csrutil enable --without debug</code> flag). This is safe for most development machines, but if you cannot modify SIP, you can fall back to the built‑in macOS Split View combined with Voice Control, though you will lose the binary space partitioning capabilities.</p>
 
-<h3>Can I use Voice Control to tile windows without installing yabai?</h3>
-<p>Only limited tiling is possible with the built‑in Split View, which requires a mouse click on the green traffic‑light button. Voice Control cannot programmatically invoke Split View, so for true dynamic tiling you need a third‑party engine like yabai or an AI layer such as Purple that can call yabai under the hood.</p>
+<h3>How does Purple keep my data secure when it scrapes web content or drafts documents?</h3>
+<p>Purple runs entirely on‑device and never transmits raw data to external servers. It uses a Bring‑Your‑Own‑Key (BYOK) architecture: encryption keys are generated and stored in the Secure Enclave, and all AI inference happens locally. When Purple accesses a PDF to summarize it, the file never leaves your Mac, and the summary is stored in an encrypted temporary buffer.</p>
 
-<h3>Is granting accessibility access to yabai a security risk?</h3>
-<p>yabai needs Accessibility permission to move and resize windows on your behalf. This is comparable to granting the same permission to any automation tool (e.g., Keyboard Maestro). The risk is mitigated by:</p>
-<ul>
-<li>Installing yabai via Homebrew, which provides signed binaries.</li>
-<li>Keeping yabai up‑to‑date (brew upgrade yabai).</li>
-<li>Using Purple’s BYOK architecture for any cloud‑based actions, ensuring that secrets never leave your machine.</li>
-</ul>
-
-<h3>How does Purple keep my data private when it scrapes the web or drafts documents?</h3>
-<p>Purple runs its AI core locally and encrypts all user data with a key you generate and store on your device. When it accesses external services (e.g., GitHub, Google Docs), it uses short‑lived tokens that are encrypted at rest with your BYOK key. No raw credentials are transmitted to external servers, and all processing happens in a sandboxed environment, complying with macOS’s privacy standards.</p>
+<h3>What if a spoken command is mis‑interpreted? Can I correct it without touching the keyboard?</h3>
+<p>Yes. Voice Control includes a “Show Commands” overlay that lists the last recognized phrase. You can say “Cancel last command” to abort, then repeat the corrected phrase. Additionally, Purple offers a “repeat last action” trigger (“Do that again”) that re‑executes the previous script without re‑typing.</p>
         </div>
 
         <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
