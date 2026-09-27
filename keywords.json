@@ -500,6 +500,77 @@
     "keyword": "voice driven macOS battery optimization",
     "title": "Optimize macOS Battery Life and Performance with Voice\u2011Activated Workflows",
     "category": "Voice Automation",
+    "published": true,
+    "published_date": "September 27, 2026"
+  },
+  {
+    "slug": "hands-free-macos-data-visualization-with-voice",
+    "keyword": "macOS voice data visualization",
+    "title": "Create Dynamic Data Visualizations in macOS Sheets Using Voice Commands",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-macos-remote-server-management",
+    "keyword": "macOS voice server management",
+    "title": "Manage Remote Servers from macOS Terminal Completely Hands\u2011Free with Voice Prompts",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "secure-voice-assistant-byok-macos",
+    "keyword": "macOS BYOK voice assistant",
+    "title": "Implement a Bring\u2011Your\u2011Own\u2011Key (BYOK) Encryption Model for macOS Voice Assistants",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-productivity",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Boosts macOS Productivity More?",
+    "category": "AI Agents",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-party-mode-macos",
+    "keyword": "macOS voice Spotify party",
+    "title": "Launch and Sync Spotify Party Mode on macOS Using Simple Voice Commands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "automated-pdf-research-summaries-voice-macos",
+    "keyword": "macOS voice PDF research summary",
+    "title": "Generate Concise Research Summaries from PDFs on macOS with Voice\u2011Driven AI",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "voice\u2011enabled\u2011window\u2011tiling\u2011multi\u2011monitor\u2011macos",
+    "keyword": "macOS voice window tiling multi-monitor",
+    "title": "Master Multi\u2011Monitor Window Tiling on macOS Using Voice Shortcuts",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "hands\u2011free\u2011web\u2011scraping\u2011pipeline\u2011macos\u2011terminal",
+    "keyword": "macOS hands\u2011free web scraping",
+    "title": "Build a Fully Automated Web Scraping Pipeline in macOS Terminal with Voice Prompts",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "voice\u2011driven\u2011excel\u2011forecast\u2011models\u2011macos",
+    "keyword": "macOS voice Excel forecasting",
+    "title": "Create Accurate Forecast Models in Excel on macOS Using Voice Commands",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "privacy\u2011first\u2011voice\u2011automation\u2011macos\u2011byok\u2011framework",
+    "keyword": "macOS privacy voice automation BYOK",
+    "title": "Design a Privacy\u2011First Voice Automation Framework for macOS with BYOK Encryption",
+    "category": "Privacy & Security",
     "published": false
   }
 ]
