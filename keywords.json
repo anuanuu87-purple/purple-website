@@ -516,7 +516,8 @@
     "keyword": "macOS voice server management",
     "title": "Manage Remote Servers from macOS Terminal Completely Hands\u2011Free with Voice Prompts",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "September 28, 2026"
   },
   {
     "slug": "secure-voice-assistant-byok-macos",
