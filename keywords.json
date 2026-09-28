@@ -508,7 +508,8 @@
     "keyword": "macOS voice data visualization",
     "title": "Create Dynamic Data Visualizations in macOS Sheets Using Voice Commands",
     "category": "Spreadsheet Math",
-    "published": false
+    "published": true,
+    "published_date": "September 28, 2026"
   },
   {
     "slug": "voice-driven-macos-remote-server-management",
