@@ -524,7 +524,8 @@
     "keyword": "macOS BYOK voice assistant",
     "title": "Implement a Bring\u2011Your\u2011Own\u2011Key (BYOK) Encryption Model for macOS Voice Assistants",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "September 29, 2026"
   },
   {
     "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-productivity",
