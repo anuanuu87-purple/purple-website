@@ -548,7 +548,8 @@
     "keyword": "macOS voice PDF research summary",
     "title": "Generate Concise Research Summaries from PDFs on macOS with Voice\u2011Driven AI",
     "category": "Document Drafting",
-    "published": false
+    "published": true,
+    "published_date": "September 30, 2026"
   },
   {
     "slug": "voice\u2011enabled\u2011window\u2011tiling\u2011multi\u2011monitor\u2011macos",
