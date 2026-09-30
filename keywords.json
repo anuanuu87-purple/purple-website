@@ -540,7 +540,8 @@
     "keyword": "macOS voice Spotify party",
     "title": "Launch and Sync Spotify Party Mode on macOS Using Simple Voice Commands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "September 30, 2026"
   },
   {
     "slug": "automated-pdf-research-summaries-voice-macos",
