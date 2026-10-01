@@ -556,7 +556,8 @@
     "keyword": "macOS voice window tiling multi-monitor",
     "title": "Master Multi\u2011Monitor Window Tiling on macOS Using Voice Shortcuts",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "October 01, 2026"
   },
   {
     "slug": "hands\u2011free\u2011web\u2011scraping\u2011pipeline\u2011macos\u2011terminal",
