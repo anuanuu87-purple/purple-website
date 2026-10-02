@@ -580,6 +580,77 @@
     "keyword": "macOS privacy voice automation BYOK",
     "title": "Design a Privacy\u2011First Voice Automation Framework for macOS with BYOK Encryption",
     "category": "Privacy & Security",
+    "published": true,
+    "published_date": "October 02, 2026"
+  },
+  {
+    "slug": "voice-driven-pdf-annotation-macos",
+    "keyword": "voice PDF annotation macOS",
+    "title": "Annotate PDFs Hands-Free on macOS with Voice Commands",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "terminal-voice-shortcuts-macos-devops",
+    "keyword": "macOS terminal voice shortcuts",
+    "title": "Accelerate DevOps Tasks in macOS Terminal Using Voice Shortcuts",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "spotify-voice-playlist-curation-macos",
+    "keyword": "Spotify voice playlist macOS",
+    "title": "Curate Spotify Playlists on macOS Instantly via Voice Prompts",
+    "category": "Media Control",
+    "published": false
+  },
+  {
+    "slug": "byok-voice-assistant-macos-privacy",
+    "keyword": "BYOK voice assistant macOS",
+    "title": "Implement BYOK Encryption for macOS Voice Assistants to Safeguard Your Data",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "ai-agent-vs-cloud-chatbot-macos-productivity",
+    "keyword": "desktop AI agent vs cloud chatbot macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Drives More macOS Productivity?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-spreadsheet-math-macos",
+    "keyword": "voice spreadsheet math macOS",
+    "title": "Perform Complex Spreadsheet Calculations on macOS Using Voice Commands",
+    "category": "Spreadsheet Automation",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-macos-terminal",
+    "keyword": "voice web scraping macOS terminal",
+    "title": "Launch Automated Web Scraping Jobs in macOS Terminal with Simple Voice Prompts",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "dynamic-window-management-voice-macos-multi-monitor",
+    "keyword": "voice window management macOS multi-monitor",
+    "title": "Control Multi-Monitor Window Layouts on macOS with Voice Shortcuts",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "voice-legal-drafting-macos",
+    "keyword": "voice legal document drafting macOS",
+    "title": "Draft Legal Documents on macOS Fully Hands-Free Using Voice AI",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-excel-forecasting-macos",
+    "keyword": "voice Excel forecasting macOS",
+    "title": "Build Forecast Models in Excel on macOS Completely Hands-Free with Voice Commands",
+    "category": "Spreadsheet Automation",
     "published": false
   }
 ]
