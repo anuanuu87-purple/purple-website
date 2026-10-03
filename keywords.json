@@ -596,7 +596,8 @@
     "keyword": "macOS terminal voice shortcuts",
     "title": "Accelerate DevOps Tasks in macOS Terminal Using Voice Shortcuts",
     "category": "Developer Tools",
-    "published": false
+    "published": true,
+    "published_date": "October 03, 2026"
   },
   {
     "slug": "spotify-voice-playlist-curation-macos",
