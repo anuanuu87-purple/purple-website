@@ -588,7 +588,8 @@
     "keyword": "voice PDF annotation macOS",
     "title": "Annotate PDFs Hands-Free on macOS with Voice Commands",
     "category": "Document Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 03, 2026"
   },
   {
     "slug": "terminal-voice-shortcuts-macos-devops",
