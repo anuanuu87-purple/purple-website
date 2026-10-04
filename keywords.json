@@ -604,7 +604,8 @@
     "keyword": "Spotify voice playlist macOS",
     "title": "Curate Spotify Playlists on macOS Instantly via Voice Prompts",
     "category": "Media Control",
-    "published": false
+    "published": true,
+    "published_date": "October 04, 2026"
   },
   {
     "slug": "byok-voice-assistant-macos-privacy",
