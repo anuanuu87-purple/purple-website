@@ -612,7 +612,8 @@
     "keyword": "BYOK voice assistant macOS",
     "title": "Implement BYOK Encryption for macOS Voice Assistants to Safeguard Your Data",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "October 04, 2026"
   },
   {
     "slug": "ai-agent-vs-cloud-chatbot-macos-productivity",
