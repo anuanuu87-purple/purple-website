@@ -628,7 +628,8 @@
     "keyword": "voice spreadsheet math macOS",
     "title": "Perform Complex Spreadsheet Calculations on macOS Using Voice Commands",
     "category": "Spreadsheet Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 05, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-macos-terminal",
