@@ -636,7 +636,8 @@
     "keyword": "voice web scraping macOS terminal",
     "title": "Launch Automated Web Scraping Jobs in macOS Terminal with Simple Voice Prompts",
     "category": "Web Scraping",
-    "published": false
+    "published": true,
+    "published_date": "October 06, 2026"
   },
   {
     "slug": "dynamic-window-management-voice-macos-multi-monitor",
