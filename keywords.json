@@ -644,7 +644,8 @@
     "keyword": "voice window management macOS multi-monitor",
     "title": "Control Multi-Monitor Window Layouts on macOS with Voice Shortcuts",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "October 06, 2026"
   },
   {
     "slug": "voice-legal-drafting-macos",
