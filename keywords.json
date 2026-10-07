@@ -660,6 +660,77 @@
     "keyword": "voice Excel forecasting macOS",
     "title": "Build Forecast Models in Excel on macOS Completely Hands-Free with Voice Commands",
     "category": "Spreadsheet Automation",
+    "published": true,
+    "published_date": "October 07, 2026"
+  },
+  {
+    "slug": "voice-driven-macos-terminal-git-automation",
+    "keyword": "macOS voice git automation",
+    "title": "Voice-Driven macOS Terminal Automation for Git Workflow Optimization",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-contract-review-macos",
+    "keyword": "hands-free PDF contract review macOS",
+    "title": "Hands-Free PDF Contract Review with AI Summarization on macOS",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "byok-secure-voice-assistant-macos",
+    "keyword": "BYOK voice assistant macOS",
+    "title": "Secure BYOK-Enabled Voice Assistant for macOS: Building a Private Encryption Layer",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-monitoring",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Comparing Desktop AI Agents and Cloud Chatbots for Real-Time macOS System Monitoring",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-queue-macos",
+    "keyword": "voice controlled Spotify macOS",
+    "title": "Voice-Controlled Spotify Queue Management and Party Sync on macOS",
+    "category": "Media",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-macos-terminal",
+    "keyword": "voice automated web scraping macOS terminal",
+    "title": "Automated Web Scraping with macOS Terminal and Voice Prompts: From Setup to Export",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "dynamic-multi-monitor-tiling-voice-macos",
+    "keyword": "voice multi-monitor tiling macOS",
+    "title": "Dynamic Multi-Monitor Tiling via Voice Commands in macOS: Boosting Productivity",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-spreadsheet-forecasting-numbers-macos",
+    "keyword": "voice spreadsheet forecasting macOS Numbers",
+    "title": "Voice-Powered Spreadsheet Calculations and Forecasting in Numbers on macOS",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-clause-generation-macos-voice-ai",
+    "keyword": "hands-free legal clause generation macOS",
+    "title": "Hands-Free Legal Clause Generation Using macOS Voice AI and Document Templates",
+    "category": "Legal",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-automation-end-to-end-encryption-macos",
+    "keyword": "privacy first voice automation macOS encryption",
+    "title": "Privacy-First Voice Automation: Implementing End-to-End Encryption for macOS Scripts",
+    "category": "Privacy & Security",
     "published": false
   }
 ]
