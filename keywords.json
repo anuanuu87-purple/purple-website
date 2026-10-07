@@ -652,7 +652,8 @@
     "keyword": "voice legal document drafting macOS",
     "title": "Draft Legal Documents on macOS Fully Hands-Free Using Voice AI",
     "category": "Document Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 07, 2026"
   },
   {
     "slug": "voice-driven-excel-forecasting-macos",
