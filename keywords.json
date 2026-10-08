@@ -668,7 +668,8 @@
     "keyword": "macOS voice git automation",
     "title": "Voice-Driven macOS Terminal Automation for Git Workflow Optimization",
     "category": "Developer Tools",
-    "published": false
+    "published": true,
+    "published_date": "October 08, 2026"
   },
   {
     "slug": "hands-free-pdf-contract-review-macos",
