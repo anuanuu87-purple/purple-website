@@ -684,7 +684,8 @@
     "keyword": "BYOK voice assistant macOS",
     "title": "Secure BYOK-Enabled Voice Assistant for macOS: Building a Private Encryption Layer",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "October 09, 2026"
   },
   {
     "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-monitoring",
