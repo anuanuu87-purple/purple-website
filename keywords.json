@@ -700,7 +700,8 @@
     "keyword": "voice controlled Spotify macOS",
     "title": "Voice-Controlled Spotify Queue Management and Party Sync on macOS",
     "category": "Media",
-    "published": false
+    "published": true,
+    "published_date": "October 10, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-macos-terminal",
