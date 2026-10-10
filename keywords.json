@@ -708,7 +708,8 @@
     "keyword": "voice automated web scraping macOS terminal",
     "title": "Automated Web Scraping with macOS Terminal and Voice Prompts: From Setup to Export",
     "category": "Developer Tools",
-    "published": false
+    "published": true,
+    "published_date": "October 10, 2026"
   },
   {
     "slug": "dynamic-multi-monitor-tiling-voice-macos",

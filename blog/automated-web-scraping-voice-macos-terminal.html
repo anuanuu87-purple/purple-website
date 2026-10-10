@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Launch Automated Web Scraping Jobs in macOS Terminal with Simple Voice Prompts | Purple OS AI</title>
-    <meta name="description" content="Discover how to master voice web scraping macOS terminal with native macOS voice automation and intelligent desktop agents.">
+    <title>Automated Web Scraping with macOS Terminal and Voice Prompts: From Setup to Export | Purple OS AI</title>
+    <meta name="description" content="Discover how to master voice automated web scraping macOS terminal with native macOS voice automation and intelligent desktop agents.">
     <link rel="canonical" href="https://1into1.com/blog/automated-web-scraping-voice-macos-terminal.html">
     <link rel="icon" type="image/png" href="../logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +21,8 @@
     {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Launch Automated Web Scraping Jobs in macOS Terminal with Simple Voice Prompts",
-  "description": "Learn how to master voice web scraping macOS terminal with native macOS voice commands and desktop AI automation.",
+  "headline": "Automated Web Scraping with macOS Terminal and Voice Prompts: From Setup to Export",
+  "description": "Learn how to master voice automated web scraping macOS terminal with native macOS voice commands and desktop AI automation.",
   "author": {
     "@type": "Organization",
     "name": "Purple AI",
@@ -36,7 +36,7 @@
       "url": "https://1into1.com/logo.png"
     }
   },
-  "datePublished": "2026-10-06",
+  "datePublished": "2026-10-10",
   "mainEntityOfPage": "https://1into1.com/blog/automated-web-scraping-voice-macos-terminal.html"
 }
     </script>
@@ -72,214 +72,252 @@
     <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
         <div class="mb-8">
             <span class="px-3 py-1 bg-purple-900/50 border border-purple-500/40 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">
-                Web Scraping
+                Developer Tools
             </span>
             <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
-                Launch Automated Web Scraping Jobs in macOS Terminal with Simple Voice Prompts
+                Automated Web Scraping with macOS Terminal and Voice Prompts: From Setup to Export
             </h1>
-            <p class="text-sm text-gray-400">Published on October 06, 2026 • 6 min read</p>
+            <p class="text-sm text-gray-400">Published on October 10, 2026 • 6 min read</p>
         </div>
 
         <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
-            <h2>Introduction</h2>
-<p>Web scraping on macOS has traditionally required a keyboard‑centric workflow: open a terminal, type <strong>curl</strong> or <strong>python</strong> commands, edit scripts, and manually move files. For analysts, journalists, and developers who spend hours toggling between the mouse, keyboard, and browser, this pattern introduces friction, context‑switching fatigue, and a higher chance of error. The emergence of voice‑driven automation reshapes this paradigm. By speaking natural language commands, you can launch, monitor, and retrieve scraping jobs without ever leaving the terminal window. This guide shows how to harness the macOS terminal together with a native voice AI—<strong>Purple (https://1into1.com)</strong>—to create a hands‑free, secure, and repeatable web‑scraping pipeline.</p>
-
-<h3>Problem Statement</h3>
-<p>Data‑driven teams often need to extract tables, product listings, or news articles on a recurring basis. The conventional approach forces users to:</p>
+            <h2>Introduction: From Manual Copy‑Paste to Voice‑Driven Automation</h2>
+<p>Web scraping on macOS has traditionally required a mix of Python scripts, browser extensions, or GUI‑based recorders. While powerful, those approaches still demand a keyboard‑centric workflow, frequent context switches, and manual handling of credentials. The rise of voice‑first AI agents—exemplified by <a href="https://1into1.com">Purple</a>, the native voice‑driven autonomous OS AI for macOS—redefines the paradigm. Purple can listen to natural language commands, launch Safari or Chrome, navigate pages, extract tables, and pipe the results directly into a Word document or a CSV file, all without touching a keyboard.</p>
+<p>This guide walks you through building a fully voice‑automated web‑scraping pipeline that lives entirely in the macOS Terminal. You will learn how to:</p>
 <ul>
-<li>Write or copy‑paste code snippets.</li>
-<li>Manually start scripts and watch logs.</li> 
-<li>Export results to spreadsheets or documents by hand.</li>
-<li>Secure sensitive credentials in ad‑hoc ways.</li>
+<li>Install and configure the command‑line tools that Purple leverages.</li>
+<li>Define reusable voice prompts that trigger terminal scripts.</li>
+<li>Scrape dynamic sites using <code>curl</code>, <code>jq</code>, and <code>xmllint</code> without writing a single line of Python.</li>
+<li>Export the harvested data to Excel‑compatible CSV, JSON, or a formatted Microsoft Word (.docx) file.</li>
+<li>Securely manage API keys and credentials with Purple’s BYOK (Bring‑Your‑Own‑Key) architecture.</li>
 </ul>
-<p>Each step adds latency and opens a surface for mistakes. When the workflow is voice‑enabled, the same tasks become a single spoken phrase, dramatically reducing turnaround time.</p>
+<p>By the end of this tutorial you will have a repeatable, hands‑free workflow that can be invoked with a phrase like “Hey Purple, pull the latest earnings table from Apple’s investor site and draft a report.”</p>
 
-<h3>Voice‑First Paradigm Shift</h3>
-<p>With <strong>Purple</strong>, macOS gains an autonomous layer that interprets spoken intent, maps it to terminal commands, and executes them with end‑to‑end encryption (BYOK – Bring Your Own Key). The system can launch a Python scraper, pipe the output to <strong>jq</strong>, and draft a formatted Microsoft Word report—all while you dictate the next task. This guide walks you through the complete setup, from installing the required tools to scheduling recurring jobs, so you can transition from a keyboard‑only routine to a truly voice‑driven workflow.</p>
+<h2>Prerequisites and Environment Setup</h2>
+<h3>macOS Version and Terminal Configuration</h3>
+<p>The steps below assume macOS Ventura (13) or later, with the default <code>zsh</code> shell. Open Terminal and verify your version:</p>
+<pre><code>sw_vers -productVersion</code></pre>
+<p>If you are still on <code>bash</code>, switch to <code>zsh</code> for better compatibility with Purple’s voice‑command bindings:</p>
+<pre><code>chsh -s /bin/zsh</code></pre>
 
-<h2>Setting Up the Environment</h2>
-<h3>Installing Homebrew &amp; Python</h3>
-<p>Homebrew remains the most reliable package manager on macOS. Open the terminal and run:</p>
+<h3>Homebrew Installation (Package Manager)</h3>
+<p>Homebrew remains the most reliable way to install CLI utilities on macOS. Run the official installer:</p>
 <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
-<p>After Homebrew finishes, install Python 3 and essential libraries:</p>
-<pre><code>brew install python@3.12
-pip3 install requests beautifulsoup4 pandas lxml</code></pre>
-<p>These packages provide the HTTP client, HTML parser, and data‑frame utilities needed for most scraping projects.</p>
+<p>After installation, add Homebrew to your <code>PATH</code> (the installer usually does this automatically). Verify with:</p>
+<pre><code>brew doctor</code></pre>
 
-<h3>Adding Speech Recognition Tools</h3>
-<p>macOS ships with <strong>speechrecognition</strong> APIs, but for command‑line integration we recommend <strong>vosk</strong> and <strong>sox</strong>:</p>
-<pre><code>brew install vosk sox</code></pre>
-<p>Vosk offers offline speech‑to‑text with high accuracy, while SoX handles audio capture from the built‑in microphone. Verify the installation:</p>
-<pre><code>vosk-cli --list-models
-sox --version</code></pre>
-<p>If the model list appears, you’re ready to feed voice input into scripts.</p>
+<h3>Core Scraping Utilities</h3>
+<p>Install the following tools, each of which will be orchestrated by Purple’s voice layer:</p>
+<pre><code>brew install curl jq xmlstarlet gnupg</code></pre>
+<p><strong>curl</strong> handles HTTP requests, <strong>jq</strong> parses JSON, <strong>xmlstarlet</strong> works with HTML/XML DOM trees, and <strong>gnupg</strong> provides the encryption primitives required for BYOK key storage.</p>
 
-<h3>Configuring Purple for Voice Execution</h3>
-<p>Download the Purple agent from the official site and place it in <code>/usr/local/bin</code>:</p>
-<pre><code>curl -O https://1into1.com/downloads/purple-macos.tar.gz
-tar -xzf purple-macos.tar.gz -C /usr/local/bin
-chmod +x /usr/local/bin/purple</code></pre>
-<p>Initialize the BYOK key store (replace <em>YOUR_KEY</em> with a base64‑encoded key you generate securely):</p>
-<pre><code>purple init --byok YOUR_KEY</code></pre>
-<p>Finally, register a voice profile that maps natural language to terminal commands:</p>
-<pre><code>purple profile create "WebScrape" \
-  --trigger "run scraper for *" \
-  --command "/usr/local/bin/run-scraper.sh {1}"</code></pre>
-<p>The placeholder <code>{1}</code> captures the spoken argument (e.g., a URL or job name) and injects it into the script path.</p>
+<h3>Python (Optional for Complex Transformations)</h3>
+<p>While the core pipeline avoids Python, you may need <code>pandoc</code> or <code>python-docx</code> for advanced Word export. Install them as needed:</p>
+<pre><code>brew install python@3.12 pandoc
+pip3 install python-docx</code></pre>
 
-<h2>Building a Voice‑Driven Scraper</h2>
-<h3>Defining the Scraping Script</h3>
-<p>Create a reusable Bash wrapper that accepts a target URL and invokes a Python scraper. Save it as <code>/usr/local/bin/run-scraper.sh</code> and make it executable:</p>
-<pre><code>#!/usr/bin/env bash
-set -euo pipefail
+<h3>Enable Purple’s Voice Command Integration</h3>
+<p>Open the Purple preferences (⌘ + , in the menu bar) and navigate to <strong>Voice Triggers → Terminal Scripts</strong>. Click “Add New Trigger” and point it to a shell script you will create in the next section. Give the trigger a natural phrase, for example:</p>
+<blockquote>“Hey Purple, run the earnings scraper.”</blockquote>
+<p>Save the trigger; Purple will now listen for that phrase and execute the associated script with the current user context.</p>
 
-TARGET_URL="$1"
-OUTPUT_DIR="${HOME}/scrape_results/$(date +%Y%m%d_%H%M%S)"
-mkdir -p "$OUTPUT_DIR"
+<h2>Designing the Voice‑Activated Scraping Script</h2>
+<h3>Script Overview and File Layout</h3>
+<p>Create a dedicated directory to keep your automation tidy:</p>
+<pre><code>mkdir -p ~/Automation/Scrapers/Earnings
+cd ~/Automation/Scrapers/Earnings</code></pre>
+<p>Inside, create a file named <code>scrape_earnings.sh</code> and make it executable:</p>
+<pre><code>touch scrape_earnings.sh
+chmod +x scrape_earnings.sh</code></pre>
+<p>The script will perform four logical steps:</p>
+<ol>
+<li>Fetch the target page using <code>curl</code> with proper headers.</li>
+<li>Extract the earnings table with <code>xmlstarlet</code> (or <code>jq</code> for JSON APIs).</li>
+<li>Transform the raw rows into CSV format.</li>
+<li>Hand off the CSV to Purple, which will automatically open a new Word document, paste the data, and apply a pre‑defined style.</li>
+</ol>
 
-echo "🔎 Starting scrape for $TARGET_URL"
-python3 - <<PY
-import sys, requests, pandas as pd
-from bs4 import BeautifulSoup
+<h3>Securely Storing API Keys with BYOK</h3>
+<p>If the target site requires an API token, store it encrypted with your own GPG key. First, generate a key (if you don’t already have one):</p>
+<pre><code>gpg --full-generate-key</code></pre>
+<p>Export the public key fingerprint and add it to Purple’s trusted key list via the “Security → BYOK” pane. Then encrypt the token:</p>
+<pre><code>echo "YOUR_API_TOKEN_HERE" | gpg --encrypt --armor --recipient YOUR_FINGERPRINT > api_token.asc</code></pre>
+<p>Within the script, decrypt on‑the‑fly:</p>
+<pre><code>API_TOKEN=$(gpg --decrypt api_token.asc)</code></pre>
+<p>This ensures the token never appears in plain text on disk or in process memory longer than necessary.</p>
 
-url = sys.argv[1]
-resp = requests.get(url, timeout=15)
-resp.raise_for_status()
-soup = BeautifulSoup(resp.text, "lxml")
+<h3>Full Script Example (Annotated)</h3>
+<pre><code>#!/bin/zsh
+# scrape_earnings.sh – Voice‑triggered earnings table extractor
 
-# Example: extract all table rows into a CSV
-tables = pd.read_html(resp.text)
-if tables:
-    df = tables[0]
-    df.to_csv(f"{sys.argv[2]}/data.csv", index=False)
-    print(f"✅ Data saved to {sys.argv[2]}/data.csv")
-else:
-    print("⚠️ No tables found on the page.")
-PY "$TARGET_URL" "$OUTPUT_DIR"
+# ------------------------------------------------------------------
+# 1️⃣  Load encrypted API token (if required)
+# ------------------------------------------------------------------
+if [[ -f api_token.asc ]]; then
+    API_TOKEN=$(gpg --quiet --decrypt api_token.asc)
+else
+    API_TOKEN=""
+fi
+
+# ------------------------------------------------------------------
+# 2️⃣  Define target URL and request headers
+# ------------------------------------------------------------------
+TARGET_URL="https://investor.apple.com/earnings/quarterly"
+USER_AGENT="Mozilla/5.0 (Macintosh; Intel Mac OS X 13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+
+# ------------------------------------------------------------------
+# 3️⃣  Fetch the page (respect robots.txt manually – this is an example)
+# ------------------------------------------------------------------
+HTML_CONTENT=$(curl -s -A "$USER_AGENT" "$TARGET_URL" \
+    -H "Authorization: Bearer $API_TOKEN")
+
+# ------------------------------------------------------------------
+# 4️⃣  Extract the earnings table using xmlstarlet
+# ------------------------------------------------------------------
+# The table has an id="earnings-table". Adjust XPath if the site changes.
+TABLE_XML=$(echo "$HTML_CONTENT" | \
+    xmlstarlet sel -t -c "//table[@id='earnings-table']")
+
+# ------------------------------------------------------------------
+# 5️⃣  Convert HTML rows to CSV
+# ------------------------------------------------------------------
+# Helper function to strip HTML tags and escape commas.
+clean_cell() {
+    echo "$1" | \
+    sed -E 's/<[^>]+>//g' | \
+    tr -d '\r\n' | \
+    sed -e 's/,/\\,/g' | \
+    awk '{$1=$1};1'
+}
+
+CSV_OUTPUT="earnings_$(date +%Y%m%d).csv"
+{
+    # Header row
+    HEADER=$(echo "$TABLE_XML" | xmlstarlet sel -t -m "//thead/tr/th" -v . -n | paste -sd "," -)
+    echo "$HEADER"
+    # Data rows
+    xmlstarlet sel -t -m "//tbody/tr" -v "concat(
+        clean_cell(string(./td[1])),
+        ',',
+        clean_cell(string(./td[2])),
+        ',',
+        clean_cell(string(./td[3])),
+        ',',
+        clean_cell(string(./td[4]))
+    )" -n | while read line; do echo "$line"; done
+} > "$CSV_OUTPUT"
+
+# ------------------------------------------------------------------
+# 6️⃣  Hand off to Purple for Word export
+# ------------------------------------------------------------------
+# Purple listens on a custom URL scheme: purple://run?cmd=...
+# Encode the file path for safe transmission.
+ENCODED_PATH=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$PWD/$CSV_OUTPUT")
+open "purple://run?cmd=import_csv&path=$ENCODED_PATH"
+
+# ------------------------------------------------------------------
+# 7️⃣  Confirmation feedback (spoken by Purple)
+# ------------------------------------------------------------------
+osascript -e 'display notification "Earnings data saved and opened in Word." with title "Purple Automation"'
 </code></pre>
-<p>This script isolates the scraping logic, logs progress, and stores results in a timestamped folder.</p>
 
-<h3>Registering the Voice Command with Purple</h3>
-<p>Now bind a natural phrase to the wrapper. The following command tells Purple to listen for “run scraper for *example.com*” and pass the domain as the argument:</p>
-<pre><code>purple command add \
-  --phrase "run scraper for *" \
-  --exec "/usr/local/bin/run-scraper.sh {1}" \
-  --profile "WebScrape"</code></pre>
-<p>After registration, test the voice trigger by speaking into the microphone. Purple will echo the recognized text and execute the script, displaying the same console output you would see manually.</p>
+<h3>Explanation of Key Sections</h3>
+<p><strong>Step 1</strong> demonstrates BYOK decryption, keeping credentials out of the script source. <strong>Step 3</strong> uses a realistic <code>User‑Agent</code> header to avoid basic bot detection. <strong>Step 4</strong> leverages <code>xmlstarlet</code> to isolate the table via XPath, a technique that works even when JavaScript renders the DOM (as long as the HTML source contains the table). <strong>Step 5</strong> converts each cell to a CSV‑safe string, escaping commas and trimming whitespace. Finally, <strong>Step 6</strong> calls Purple’s custom URL scheme, which instructs the AI to import the CSV into a new Word document, apply the “EarningsReport” style, and summarize the key figures.</p>
 
-<h3>Running the Job from Terminal</h3>
-<p>If you prefer a typed fallback, you can invoke Purple directly:</p>
-<pre><code>purple exec "run scraper for https://example.com"</code></pre>
-<p>The command parses the phrase, resolves the placeholder, and launches <code>run-scraper.sh</code>. The terminal will show real‑time logs, such as:</p>
-<pre><code>🔎 Starting scrape for https://example.com
-✅ Data saved to /Users/you/scrape_results/20241006_143210/data.csv</code></pre>
-<p>Because Purple runs under the BYOK context, any API keys embedded in the script (e.g., for paid data services) remain encrypted at rest and are decrypted only in memory during execution.</p>
+<h2>Running the Voice‑Driven Workflow</h2>
+<h3>Testing the Script Manually</h3>
+<p>Before binding the script to a voice trigger, verify it works from the command line:</p>
+<pre><code>./scrape_earnings.sh</code></pre>
+<p>Check the generated CSV in the script directory. Open it with <code>open -a Numbers</code> or <code>open -a Excel</code> to confirm proper formatting.</p>
 
-<h2>Automating, Scheduling, and Securing</h2>
-<h3>Using launchd for Recurring Jobs</h3>
-<p>macOS’s <strong>launchd</strong> daemon can trigger voice‑enabled scripts on a schedule. Create a plist file at <code>~/Library/LaunchAgents/com.example.webscrape.plist</code>:</p>
+<h3>Activating the Voice Trigger</h3>
+<p>With the script verified, return to Purple’s preferences, locate the trigger you created earlier, and set the script path to <code>~/Automation/Scrapers/Earnings/scrape_earnings.sh</code>. Save the trigger. Now you can say:</p>
+<blockquote>“Hey Purple, run the earnings scraper.”</blockquote>
+<p>Purple will announce “Fetching Apple earnings data…” while the script runs in the background, then open a fresh Word document titled “Earnings Report – 2024‑10‑10” (or whatever the current date is). The AI will also read a brief summary: “Apple reported $X billion in revenue, up Y % YoY.”</p>
+
+<h3>Scheduling Periodic Scrapes (Optional)</h3>
+<p>If you need daily or weekly updates, combine the script with <code>launchd</code> or <code>cron</code>. Here’s a minimal <code>launchd</code> plist that runs at 08:00 AM every weekday:</p>
 <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 &lt;dict&gt;
     &lt;key&gt;Label&lt;/key&gt;
-    &lt;string&gt;com.example.webscrape&lt;/string&gt;
+    &lt;string&gt;com.user.earningsscraper&lt;/string&gt;
     &lt;key&gt;ProgramArguments&lt;/key&gt;
     &lt;array&gt;
-        &lt;string&gt;/usr/local/bin/purple&lt;/string&gt;
-        &lt;string&gt;exec&lt;/string&gt;
-        &lt;string&gt;run scraper for https://news.ycombinator.com&lt;/string&gt;
+        &lt;string&gt;/Users/yourname/Automation/Scrapers/Earnings/scrape_earnings.sh&lt;/string&gt;
     &lt;/array&gt;
     &lt;key&gt;StartCalendarInterval&lt;/key&gt;
-    &lt;dict&gt;
-        &lt;key&gt;Hour&lt;/key&gt;
-        &lt;integer&gt;2&lt;/integer&gt;
-        &lt;key&gt;Minute&lt;/key&gt;
-        &lt;integer&gt;0&lt;/integer&gt;
-    &lt;/dict&gt;
+    &lt;array&gt;
+        &lt;dict&gt;
+            &lt;key&gt;Hour&lt;/key&gt;&lt;integer&gt;8&lt;/integer&gt;
+            &lt;key&gt;Minute&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;
+            &lt;key&gt;Weekday&lt;/key&gt;&lt;integer&gt;2&lt;/integer&gt; &lt;!-- Monday --&gt;
+        &lt;/dict&gt;
+        &lt;dict&gt;
+            &lt;key&gt;Hour&lt;/key&gt;&lt;integer&gt;8&lt;/integer&gt;
+            &lt;key&gt;Minute&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;
+            &lt;key&gt;Weekday&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt; &lt;!-- Tuesday --&gt;
+        &lt;/dict&gt;
+        &lt;!-- Add entries for Wednesday‑Friday similarly --&gt;
+    &lt;/array&gt;
     &lt;key&gt;StandardOutPath&lt;/key&gt;
-    &lt;string&gt;/tmp/webscrape.out&lt;/string&gt;
+    &lt;string&gt;/tmp/earnings_scraper.log&lt;/string&gt;
     &lt;key&gt;StandardErrorPath&lt;/key&gt;
-    &lt;string&gt;/tmp/webscrape.err&lt;/string&gt;
+    &lt;string&gt;/tmp/earnings_scraper.err&lt;/string&gt;
 &lt;/dict&gt;
 &lt;/plist&gt;
 </code></pre>
-<p>Load the job with:</p>
-<pre><code>launchctl load ~/Library/LaunchAgents/com.example.webscrape.plist</code></pre>
-<p>Every day at 02:00 AM, launchd will invoke Purple, which in turn runs the scraper without any manual input.</p>
+<p>Load it with <code>launchctl load ~/Library/LaunchAgents/com.user.earningsscraper.plist</code>. Purple will still be able to fetch the latest report on demand, but the scheduled job guarantees a daily baseline.</p>
 
-<h3>Encrypting Data with BYOK</h3>
-<p>When the scraper writes sensitive JSON payloads (e.g., user‑generated content), encrypt them using the same BYOK key that Purple manages. Add the following snippet to <code>run-scraper.sh</code> after data extraction:</p>
-<pre><code>python3 - <<PY
-import os, json, base64
-from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-
-key = base64.b64decode(os.getenv("PURPLE_BYOK_KEY"))
-nonce = os.urandom(12)
-aesgcm = AESGCM(key)
-
-data_path = f"{sys.argv[2]}/data.json"
-with open(data_path, "rb") as f:
-    plaintext = f.read()
-
-ciphertext = aesgcm.encrypt(nonce, plaintext, None)
-enc_path = f"{sys.argv[2]}/data.enc"
-with open(enc_path, "wb") as f:
-    f.write(nonce + ciphertext)
-
-print(f"🔐 Encrypted payload saved to {enc_path}")
-PY</code></pre>
-<p>The encrypted file can only be decrypted by a process that possesses the same BYOK key, ensuring compliance with data‑privacy regulations.</p>
-
-<h3>Exporting Results to Word via Purple</h3>
-<p>One of Purple’s standout capabilities is generating Microsoft Word documents hands‑free. After a successful scrape, invoke the AI to draft a report:</p>
-<pre><code>purple exec "draft word report from latest scrape"</code></pre>
-<p>Behind the scenes, Purple reads the most recent <code>data.csv</code>, creates a styled table, adds a summary paragraph, and saves <code>ScrapeReport.docx</code> in your <code>~/Documents</code> folder. You can then dictate further edits, such as “add a conclusion about market trends”. This eliminates the need to open Word, copy‑paste data, and format manually.</p>
-
-<h2>Comparison: Traditional Keyboard‑Only vs Voice‑First Scraping</h2>
-<p>Below is a concise pros‑cons breakdown that helps you decide whether to adopt a voice‑driven pipeline.</p>
+<h2>Comparison: Traditional Keyboard‑Centric Scraping vs. Voice‑Automated macOS Terminal</h2>
 <ul>
+<li><strong>Setup Complexity</strong>
+    <ul>
+        <li>Keyboard‑Centric: Requires IDE, virtual environments, and often multiple language runtimes.</li>
+        <li>Voice‑Automated: Relies on native macOS tools plus a single shell script; Purple handles context switching.</li>
+    </ul>
+</li>
 <li><strong>Speed of Execution</strong>
     <ul>
-        <li>Keyboard‑Only: Requires typing each command, opening editors, and manually chaining scripts – average latency 30‑45 seconds per job.</li>
-        <li>Voice‑First: One spoken phrase triggers the entire workflow – latency drops to 5‑10 seconds.</li>
+        <li>Keyboard‑Centric: Developer must type <code>python scrape.py</code>, monitor output, then manually copy results.</li>
+        <li>Voice‑Automated: One spoken command triggers end‑to‑end execution, including automatic Word export.</li>
     </ul>
 </li>
-<li><strong>Error Rate</strong>
+<li><strong>Security Posture</strong>
     <ul>
-        <li>Keyboard‑Only: Typos, misplaced flags, and copy‑paste errors are common, especially under fatigue.</li>
-        <li>Voice‑First: Vosk’s offline model achieves >95 % transcription accuracy; Purple confirms the parsed command before execution.</li>
+        <li>Keyboard‑Centric: API keys often stored in plain‑text <code>.env</code> files.</li>
+        <li>Voice‑Automated: BYOK encryption ensures keys are never exposed; Purple enforces sandboxed execution.</li>
     </ul>
 </li>
-<li><strong>Security &amp; Compliance</strong>
+<li><strong>Maintainability</strong>
     <ul>
-        <li>Keyboard‑Only: Credentials often stored in plain‑text <code>.env</code> files.</li>
-        <li>Voice‑First: BYOK encryption ensures keys never leave the secure enclave; Purple decrypts only in‑memory.</li>
+        <li>Keyboard‑Centric: Scripts can become tangled with library upgrades.</li>
+        <li>Voice‑Automated: Each voice trigger maps to a single, version‑controlled shell script; updates are atomic.</li>
     </ul>
 </li>
-<li><strong>Scalability</strong>
+<li><strong>Accessibility</strong>
     <ul>
-        <li>Keyboard‑Only: Scaling requires writing additional scripts or using cron.</li>
-        <li>Voice‑First: Adding new voice triggers is a single <code>purple command add</code> line; launchd can schedule any number of jobs.</li>
-    </ul>
-</li>
-<li><strong>Learning Curve</strong>
-    <ul>
-        <li>Keyboard‑Only: Familiar to developers; no extra software.</li>
-        <li>Voice‑First: Initial setup (Homebrew, Vosk, Purple) adds a few steps, but payoff is rapid once configured.</li>
+        <li>Keyboard‑Centric: Inaccessible for users with motor impairments.</li>
+        <li>Voice‑Automated: Fully hands‑free; complies with macOS VoiceOver and accessibility guidelines.</li>
     </ul>
 </li>
 </ul>
 
 <h2>Frequently Asked Questions</h2>
-<h3>Can I use Purple with other shells like zsh or fish?</h3>
-<p>Yes. Purple is a standalone binary that reads environment variables and executes commands regardless of the active shell. Simply add the <code>purple</code> binary to your <code>PATH</code> in <code>~/.zshrc</code>, <code>~/.config/fish/config.fish</code>, or any other startup file. The voice triggers work identically across shells because the underlying launch mechanism (launchd or direct exec) is shell‑agnostic.</p>
+<h3>Can I scrape sites that require JavaScript rendering?</h3>
+<p>Yes. Purple can launch a headless Chromium instance via the <code>puppeteer</code> CLI, capture the rendered HTML, and pipe it back to your shell script. The command looks like:</p>
+<pre><code>npx puppeteer-cli https://example.com --output html > rendered.html</code></pre>
+<p>After the HTML is saved, you can reuse the same <code>xmlstarlet</code> extraction logic as shown earlier.</p>
 
-<h3>What if Vosk mis‑recognizes a word in a noisy environment?</h3>
-<p>Purple includes a confirmation step for ambiguous phrases. When the confidence score falls below a configurable threshold (default 0.85), Purple will echo the interpreted command and ask “Did you mean …?” You can answer “yes” to proceed or “no” to repeat. This safety net prevents accidental data pulls or unintended file deletions.</p>
+<h3>How does Purple protect my data when it creates Word documents?</h3>
+<p>Purple operates under macOS’s native sandbox and uses your own encryption keys (BYOK) to encrypt any temporary files. The generated <code>.docx</code> is stored in the user’s <code>~/Documents/Automation</code> folder with file‑system permissions set to <code>600</code>, meaning only your user account can read or modify it. Additionally, Purple never transmits the document to external servers unless you explicitly invoke a cloud‑sync action.</p>
 
-<h3>Is the BYOK key stored on Apple’s servers?</h3>
-<p>No. The BYOK architecture is fully client‑side. When you run <code>purple init --byok YOUR_KEY</code>, the key is encrypted with the macOS Secure Enclave and never leaves the device. All encryption and decryption happen locally, satisfying GDPR, CCPA, and other data‑sovereignty requirements.</p>
+<h3>What if the target website changes its HTML structure?</h3>
+<p>Because the script relies on XPath expressions, a single change in the table’s <code>id</code> or column order will break extraction. To mitigate this, wrap the XPath in a fallback block that attempts alternative selectors. For example:</p>
+<pre><code>TABLE_XML=$(echo "$HTML_CONTENT" | xmlstarlet sel -t -c "//table[@id='earnings-table']" 2>/dev/null ||
+             xmlstarlet sel -t -c "//div[contains(@class,'earnings')]/table")</code></pre>
+<p>Regularly schedule a “self‑test” run that logs success/failure to <code>/tmp/earnings_check.log</code>. If the log shows a failure, Purple can automatically notify you via a spoken alert.</p>
         </div>
 
         <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
