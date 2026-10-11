@@ -724,7 +724,8 @@
     "keyword": "voice spreadsheet forecasting macOS Numbers",
     "title": "Voice-Powered Spreadsheet Calculations and Forecasting in Numbers on macOS",
     "category": "Productivity",
-    "published": false
+    "published": true,
+    "published_date": "October 11, 2026"
   },
   {
     "slug": "hands-free-legal-clause-generation-macos-voice-ai",
