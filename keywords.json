@@ -716,7 +716,8 @@
     "keyword": "voice multi-monitor tiling macOS",
     "title": "Dynamic Multi-Monitor Tiling via Voice Commands in macOS: Boosting Productivity",
     "category": "Productivity",
-    "published": false
+    "published": true,
+    "published_date": "October 11, 2026"
   },
   {
     "slug": "voice-powered-spreadsheet-forecasting-numbers-macos",
