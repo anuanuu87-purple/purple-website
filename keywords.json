@@ -740,6 +740,77 @@
     "keyword": "privacy first voice automation macOS encryption",
     "title": "Privacy-First Voice Automation: Implementing End-to-End Encryption for macOS Scripts",
     "category": "Privacy & Security",
+    "published": true,
+    "published_date": "October 12, 2026"
+  },
+  {
+    "slug": "voice-driven-macos-terminal-git-automation",
+    "keyword": "macOS voice terminal git automation",
+    "title": "Streamline Git Workflows on macOS with Voice-Activated Terminal Commands",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spreadsheet-forecasting-numbers-macos",
+    "keyword": "macOS Numbers voice forecasting",
+    "title": "Create Accurate Financial Forecasts in Numbers on macOS Using Voice Commands",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-b yok-macos-voice-assistant-framework",
+    "keyword": "macOS BYOK voice assistant privacy",
+    "title": "Design a Privacy\u2011First BYOK Architecture for macOS Voice Assistants",
+    "category": "Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agent-vs-cloud-chatbot-macos-productivity",
+    "keyword": "macOS desktop AI agent vs cloud chatbot",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Boosts macOS Productivity More?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-macos-multi-monitor-tiling",
+    "keyword": "macOS multi-monitor voice tiling",
+    "title": "Master Multi\u2011Monitor Window Tiling on macOS with Simple Voice Shortcuts",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-macos-voice-pipeline",
+    "keyword": "macOS voice web scraping automation",
+    "title": "Build an End\u2011to\u2011End Web Scraping Pipeline on macOS Using Voice Prompts",
+    "category": "Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-contract-review-macos-ai",
+    "keyword": "macOS PDF contract review voice AI",
+    "title": "Review Legal Contracts Hands\u2011Free on macOS with AI\u2011Powered Voice Summaries",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "voice-optimized-spotify-playlist-management-macos",
+    "keyword": "macOS Spotify voice playlist management",
+    "title": "Curate and Control Spotify Playlists on macOS Instantly via Voice Commands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "secure-b yok-encrypted-macos-voice-scripts",
+    "keyword": "macOS BYOK encrypted voice scripts",
+    "title": "Implement End\u2011to\u2011End BYOK Encryption for macOS Voice\u2011Driven Automation Scripts",
+    "category": "Security",
+    "published": false
+  },
+  {
+    "slug": "voice-powered-macos-document-drafting-workflow",
+    "keyword": "macOS voice document drafting workflow",
+    "title": "Draft Professional Documents on macOS Completely Hands\u2011Free Using Voice AI",
+    "category": "Productivity",
     "published": false
   }
 ]
