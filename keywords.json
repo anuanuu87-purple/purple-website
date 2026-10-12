@@ -732,7 +732,8 @@
     "keyword": "hands-free legal clause generation macOS",
     "title": "Hands-Free Legal Clause Generation Using macOS Voice AI and Document Templates",
     "category": "Legal",
-    "published": false
+    "published": true,
+    "published_date": "October 12, 2026"
   },
   {
     "slug": "privacy-first-voice-automation-end-to-end-encryption-macos",
