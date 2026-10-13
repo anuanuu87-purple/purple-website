@@ -748,7 +748,8 @@
     "keyword": "macOS voice terminal git automation",
     "title": "Streamline Git Workflows on macOS with Voice-Activated Terminal Commands",
     "category": "Developer Tools",
-    "published": false
+    "published": true,
+    "published_date": "October 13, 2026"
   },
   {
     "slug": "hands-free-spreadsheet-forecasting-numbers-macos",

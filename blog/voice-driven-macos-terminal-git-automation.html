@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice-Driven macOS Terminal Automation for Git Workflow Optimization | Purple OS AI</title>
-    <meta name="description" content="Discover how to master macOS voice git automation with native macOS voice automation and intelligent desktop agents.">
+    <title>Streamline Git Workflows on macOS with Voice-Activated Terminal Commands | Purple OS AI</title>
+    <meta name="description" content="Discover how to master macOS voice terminal git automation with native macOS voice automation and intelligent desktop agents.">
     <link rel="canonical" href="https://1into1.com/blog/voice-driven-macos-terminal-git-automation.html">
     <link rel="icon" type="image/png" href="../logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +21,8 @@
     {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": "Voice-Driven macOS Terminal Automation for Git Workflow Optimization",
-  "description": "Learn how to master macOS voice git automation with native macOS voice commands and desktop AI automation.",
+  "headline": "Streamline Git Workflows on macOS with Voice-Activated Terminal Commands",
+  "description": "Learn how to master macOS voice terminal git automation with native macOS voice commands and desktop AI automation.",
   "author": {
     "@type": "Organization",
     "name": "Purple AI",
@@ -36,7 +36,7 @@
       "url": "https://1into1.com/logo.png"
     }
   },
-  "datePublished": "2026-10-08",
+  "datePublished": "2026-10-13",
   "mainEntityOfPage": "https://1into1.com/blog/voice-driven-macos-terminal-git-automation.html"
 }
     </script>
@@ -75,140 +75,238 @@
                 Developer Tools
             </span>
             <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
-                Voice-Driven macOS Terminal Automation for Git Workflow Optimization
+                Streamline Git Workflows on macOS with Voice-Activated Terminal Commands
             </h1>
-            <p class="text-sm text-gray-400">Published on October 08, 2026 • 6 min read</p>
+            <p class="text-sm text-gray-400">Published on October 13, 2026 • 6 min read</p>
         </div>
 
         <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
-            <p><strong>Voice‑Driven macOS Terminal Automation for Git Workflow Optimization</strong> addresses a growing pain point for developers: the friction of repetitive typing in the terminal while juggling code reviews, issue tracking, and documentation. Traditional keyboard‑centric Git workflows excel at speed for power users, yet they impose a cognitive load when context‑switching between IDEs, browsers, and the command line. By harnessing macOS’s built‑in speech recognition together with <a href="https://1into1.com">Purple</a>—the native voice‑driven autonomous OS AI—teams can issue Git commands, manage branches, and even orchestrate Finder actions entirely hands‑free. This guide walks you through the architectural considerations, concrete implementation steps, and measurable benefits of moving from manual keystrokes to a voice‑first development environment.</p>
-
-<h2>Setting Up the Voice Infrastructure on macOS</h2>
-
-<h3>Installing Speech Recognition Frameworks</h3>
-<p>macOS ships with the <code>Speech</code> framework, but for robust, low‑latency command parsing you should install <a href="https://github.com/openai/whisper">Whisper</a> or <a href="https://github.com/google/voice2text">Voice2Text</a> via Homebrew. Open Terminal and run:</p>
-<pre><code>brew install whisper
-brew install voice2text
-</code></pre>
-<p>These tools provide offline transcription, ensuring privacy and eliminating network jitter that could disrupt real‑time Git operations.</p>
-
-<h3>Configuring Accessibility for Voice Commands</h3>
-<p>Enable “Voice Control” in System Settings &gt; Accessibility &gt; Voice Control. Turn on “Enhanced Dictation” to allow continuous listening without a timeout. Then, create a custom vocabulary set that includes Git terminology (e.g., <em>checkout</em>, <em>rebase</em>, <em>origin</em>) so the recognizer treats them as distinct tokens rather than generic speech.</p>
-
-<h3>Integrating Purple AI for Secure Automation</h3>
-<p>Purple acts as the orchestration layer that bridges spoken intent to terminal execution. Install Purple’s CLI agent:</p>
-<pre><code>curl -L https://1into1.com/purple-installer.sh | bash
-purple login --api-key YOUR_PURPLE_KEY
-</code></pre>
-<p>Once authenticated, Purple’s BYOK (Bring‑Your‑Own‑Key) architecture encrypts every command payload before it reaches the shell, guaranteeing that no voice data is stored or processed without your explicit consent.</p>
-
-<h2>Mapping Git Operations to Voice Intents</h2>
-
-<h3>Common Git Tasks and Their Voice Phrases</h3>
+            <h2>Why Voice‑Driven Git Automation Matters on macOS</h2>
+<p>Developers spend countless hours typing repetitive Git commands, switching between the terminal, Finder, and web browsers to gather issue details or update documentation. On macOS, the built‑in speech recognition engine combined with modern AI assistants can eliminate this friction, allowing you to dictate actions, hear confirmations, and keep your hands free for coding or design work. Voice‑first automation reduces context‑switching, minimizes repetitive strain injuries, and accelerates the feedback loop between code changes and collaboration platforms.</p>
+<h3>Current pain points in traditional Git workflows</h3>
 <ul>
-<li><strong>Initialize repository:</strong> “Purple, start a new Git repo.”</li>
-<li><strong>Create branch:</strong> “Purple, branch feature‑login.”</li>
-<li><strong>Stage changes:</strong> “Purple, stage all changes.”</li>
-<li><strong>Commit:</strong> “Purple, commit with message ‘Add login flow’.”</li>
-<li><strong>Push:</strong> “Purple, push to origin main.”</li>
-<li><strong>Pull:</strong> “Purple, pull latest from upstream.”</li>
+<li>Manual entry of <strong>git add .</strong>, <strong>git commit -m</strong>, and <strong>git push</strong> for every feature.</li>
+<li>Copy‑pasting issue IDs from JIRA, GitHub, or Linear into commit messages.</li>
+<li>Opening Finder to locate changed files, then returning to the terminal.</li>
+<li>Interrupting deep work to browse documentation or pull data from PDFs.</li>
 </ul>
-<p>These phrases are parsed by Purple’s natural‑language engine, which maps them to the appropriate Git CLI syntax.</p>
+<h3>Benefits of hands‑free, voice‑activated Git operations</h3>
+<ul>
+<li><strong>Speed:</strong> Speak a command and have the terminal execute it instantly.</li>
+<li><strong>Accuracy:</strong> AI‑driven parsing reduces typographical errors in commit messages.</li>
+<li><strong>Focus:</strong> Maintain mental flow by staying in the same visual context.</li>
+<li><strong>Accessibility:</strong> Provides a viable workflow for developers with mobility constraints.</li>
+</ul>
 
-<h3>Creating Custom Voice Shortcuts with macOS Shortcuts</h3>
-<p>Open the Shortcuts app and add a new shortcut named “Git Voice Command.” Use the “Run Shell Script” action with the following template:</p>
-<pre><code>#!/bin/zsh
-# $1 receives the transcribed phrase from Purple
-case "$1" in
-  "start a new Git repo") git init ;;
-  "branch "* ) git checkout -b "${1#*branch }" ;;
-  "stage all changes") git add . ;;
-  "commit with message "* ) git commit -m "${1#*commit with message }" ;;
-  "push to "* ) git push "${1#*push to }" ;;
-  *) echo "Unrecognized command: $1" ;;
-esac
-</code></pre>
-<p>Bind this shortcut to the voice phrase “Purple, execute Git command” so that any subsequent spoken Git intent is routed through the script.</p>
-
-<h3>Testing the Voice‑to‑Git Pipeline</h3>
-<p>Run a quick sanity check:</p>
+<h2>Setting Up the Voice Infrastructure</h2>
+<h3>Installing and configuring macOS Speech Recognition</h3>
+<p>macOS ships with <strong>Voice Control</strong> (System Settings → Accessibility → Voice Control). Enable it, then customize the vocabulary by adding phrases that map to terminal shortcuts. For example, add a phrase “commit changes” that triggers a custom AppleScript.</p>
+<h3>Introducing Purple: the native voice‑driven autonomous OS AI</h3>
+<p>Purple (https://1into1.com) is a purpose‑built AI layer for macOS that listens to your spoken intent, translates it into secure shell commands, and orchestrates cross‑application workflows. Purple can scrape web data, draft Word documents, summarize PDFs, and automate Finder tasks—all while keeping your encryption keys on‑device (BYOK – Bring Your Own Key).</p>
+<h3>Secure BYOK setup for Purple</h3>
 <ol>
-<li>Speak “Purple, start a new Git repo.”</li>
-<li>Observe the Terminal window; it should display <code>Initialized empty Git repository</code>.</li>
-<li>Follow with “Purple, branch feature‑api.” Verify that <code>git branch</code> lists the new branch.</li>
+<li>Generate an RSA‑4096 key pair in <code>Keychain Access</code> and export the private key to a secure enclave.</li>
+<li>In Purple’s preferences, import the public key and enable “Encrypt all command payloads with BYOK”.</li>
+<li>Verify the handshake by running <code>purple --status</code> in Terminal; you should see <strong>Encrypted Session Active</strong>.</li>
 </ol>
-<p>If any step fails, consult Purple’s log file at <code>~/Library/Logs/Purple/voice.log</code> for detailed error messages.</p>
 
-<h2>Step‑by‑Step Terminal Automation Workflow</h2>
-
-<h3>Initialize a Repository Hands‑Free</h3>
-<p>Navigate to your project directory using Finder, then say:</p>
-<p><strong>“Purple, open Terminal in this folder.”</strong></p>
-<p>Purple will execute <code>open -a Terminal .</code> and focus the Terminal window. Immediately follow with:</p>
-<p><strong>“Purple, start a new Git repo.”</strong></p>
-
-<h3>Branch Management via Voice</h3>
-<p>To create, switch, or delete branches without typing, use these voice commands:</p>
+<h2>Building Voice‑Activated Git Commands</h2>
+<h3>Mapping spoken phrases to terminal scripts</h3>
+<p>Purple uses a simple YAML mapping file (<code>~/.purple/commands.yml</code>) where each voice trigger points to a shell script. Example entry:</p>
+<pre><code>commit_changes:
+  phrase: "commit changes"
+  script: "/usr/local/bin/voice_git_commit.sh"
+</code></pre>
+<p>When you say “commit changes”, Purple executes the referenced script.</p>
+<h3>Example: “commit changes” workflow</h3>
+<p>Create <code>/usr/local/bin/voice_git_commit.sh</code> with the following content:</p>
+<pre><code>#!/bin/bash
+# Prompt for a concise commit message via macOS dictation
+read -p "Speak your commit message: " COMMIT_MSG
+# Fallback to clipboard if dictation fails
+COMMIT_MSG=${COMMIT_MSG:-$(pbpaste)}
+# Stage all changes and commit
+git add .
+git commit -m "$COMMIT_MSG"
+echo "✅ Commit created: $COMMIT_MSG"
+</code></pre>
+<p>Make it executable: <code>chmod +x /usr/local/bin/voice_git_commit.sh</code>. Now saying “commit changes” will launch the script, listen for your spoken message, and perform the Git commit.</p>
+<h3>Example: “push branch” workflow</h3>
+<p>Add another mapping:</p>
+<pre><code>push_branch:
+  phrase: "push branch"
+  script: "/usr/local/bin/voice_git_push.sh"
+</code></pre>
+<p>And the script:</p>
+<pre><code>#!/bin/bash
+# Detect current branch
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+# Confirm with the user
+read -p "Push $BRANCH to origin? (yes/no) " CONFIRM
+if [[ $CONFIRM == "yes" ]]; then
+  git push origin "$BRANCH"
+  echo "🚀 Pushed $BRANCH"
+else
+  echo "❌ Push cancelled"
+fi
+</code></pre>
+<h3>Advanced: branching, rebasing, and stash via voice</h3>
+<p>Below are three additional mappings you can add to <code>commands.yml</code> for more complex operations.</p>
 <ul>
-<li>“Purple, create branch <em>bugfix‑ui</em>.”</li>
-<li>“Purple, checkout branch <em>develop</em>.”</li>
-<li>“Purple, delete branch <em>old‑feature</em>.”</li>
-</ul>
-<p>Behind the scenes, Purple translates them to <code>git checkout -b bugfix-ui</code>, <code>git checkout develop</code>, and <code>git branch -d old-feature</code> respectively.</p>
-
-<h3>Commit, Push, and Pull without Typing</h3>
-<p>When you’re ready to commit, simply dictate the commit message:</p>
-<p><strong>“Purple, commit with message ‘Refactor authentication service’.”</strong></p>
-<p>For pushing to a remote, say:</p>
-<p><strong>“Purple, push to origin feature‑auth.”</strong></p>
-<p>And to synchronize your local branch with upstream changes:</p>
-<p><strong>“Purple, pull latest from origin feature‑auth.”</strong></p>
-<p>These commands respect your current branch context, eliminating the need to remember branch names or remote aliases.</p>
-
-<h3>Automating Finder Tasks for Git Assets</h3>
-<p>Purple can also manipulate Finder windows, which is handy for staging files visually. Example:</p>
-<p><strong>“Purple, move all .md files to the Docs folder.”</strong></p>
-<p>This triggers a secure AppleScript under Purple’s sandbox, moving the files while preserving permissions. After the move, you can say “Purple, stage all changes” to add the relocated files to the next commit.</p>
-
-<h2>Performance Comparison: Manual vs. Voice‑Driven Git</h2>
-
-<table>
-<thead>
-<tr><th>Metric</th><th>Manual Keyboard Workflow</th><th>Voice‑Driven Workflow (Purple)</th></tr>
-</thead>
-<tbody>
-<tr><td>Average command latency</td><td>~0.2 seconds (typing + execution)</td><td>~0.4 seconds (speech → transcription → execution)</td></tr>
-<tr><td>Context‑switch cost</td><td>High – IDE → Terminal → Finder</td><td>Low – Single voice stream handles all contexts</td></tr>
-<tr><td>Error rate (typos)</td><td>≈3 % per command</td><td>≈1 % (misrecognition, mitigated by custom vocabulary)</td></tr>
-<tr><td>Hands‑free productivity gain</td><td>0 %</td><td>≈25 % faster for repetitive tasks</td></tr>
-<tr><td>Security posture</td><td>Depends on user discipline</td><td>BYOK encryption & sandboxed execution via Purple</td></tr>
-</tbody>
-</table>
-
-<p><strong>Pros of Voice‑Driven Git</strong></p>
-<ul>
-<li>Reduces repetitive strain injuries by eliminating constant typing.</li>
-<li>Enables multitasking—developers can dictate while reviewing code on a second screen.</li>
-<li>Integrates seamlessly with Purple’s broader automation capabilities (browser scraping, PDF summarization, Word document drafting).</li>
+<li><strong>New branch:</strong> Phrase “create feature branch”. Script runs <code>git checkout -b feature/$(date +%Y%m%d-%H%M)</code>.</li>
+<li><strong>Rebase onto main:</strong> Phrase “rebase onto main”. Script executes <code>git fetch origin && git rebase origin/main</code> with conflict detection.</li>
+<li><strong>Stash changes:</strong> Phrase “stash my work”. Script runs <code>git stash push -m "$(date +"%Y-%m-%d %H:%M") auto‑stash"</code> and reads back the stash ID.</li>
 </ul>
 
-<p><strong>Cons of Voice‑Driven Git</strong></p>
+<h2>Integrating Voice Commands with Finder and Browser Automation</h2>
+<h3>Automating file staging with Finder</h3>
+<p>Purple can invoke AppleScript to select modified files in Finder, then feed their paths to <code>git add</code>. Sample AppleScript snippet:</p>
+<pre><code>tell application "Finder"
+  set changedFiles to (every file of (folder (POSIX file "/Users/you/Projects/MyApp") as alias) whose modification date > (current date) - 1 * days)
+  set filePaths to {}
+  repeat with f in changedFiles
+    set end of filePaths to POSIX path of (f as alias)
+  end repeat
+end tell
+return filePaths
+</code></pre>
+<p>Save this as <code>list_changed.scpt</code> and call it from a voice‑triggered script that loops through the returned paths and runs <code>git add "$path"</code>.</p>
+<h3>Pulling issue data from the web with Purple</h3>
+<p>Purple’s web‑scraping module can fetch the title and description of a JIRA ticket when you say “describe ticket ABC‑123”. The command definition looks like:</p>
+<pre><code>describe_ticket:
+  phrase: "describe ticket *"
+  script: "/usr/local/bin/voice_ticket_desc.sh"
+</code></pre>
+<p>Inside <code>voice_ticket_desc.sh</code>:</p>
+<pre><code>#!/bin/bash
+TICKET_ID=$1
+HTML=$(curl -s "https://yourcompany.atlassian.net/browse/$TICKET_ID")
+TITLE=$(echo "$HTML" | grep -oP '(?<=<title>).*?(?=</title>)')
+DESCRIPTION=$(echo "$HTML" | grep -oP '(?<=<meta name="description" content=").*?(?=")')
+echo "🗂 $TICKET_ID – $TITLE"
+echo "$DESCRIPTION"
+# Append to clipboard for quick pasting into commit message
+echo "$TITLE: $DESCRIPTION" | pbcopy
+</code></pre>
+<h3>Generating commit messages from PDFs</h3>
+<p>When working with design specs, you can ask Purple to summarize a PDF and use the summary as a commit message. Command mapping:</p>
+<pre><code>summarize_pdf:
+  phrase: "summarize pdf *"
+  script: "/usr/local/bin/voice_pdf_summary.sh"
+</code></pre>
+<p>Script outline:</p>
+<pre><code>#!/bin/bash
+PDF_PATH=$1
+TEXT=$(pdf2txt.py "$PDF_PATH")
+SUMMARY=$(purple --summarize "$TEXT")
+git add "$(basename "$PDF_PATH")"
+git commit -m "$SUMMARY"
+echo "✅ Committed PDF with AI‑generated summary"
+</code></pre>
+
+<h2>Comparison: Traditional Keyboard‑Centric Git vs. Voice‑First Automation</h2>
 <ul>
-<li>Initial setup requires time investment to train vocabularies and configure shortcuts.</li>
-<li>Ambient noise can affect transcription accuracy; a quiet workspace or a high‑quality microphone is recommended.</li>
-<li>Complex Git operations (interactive rebase, cherry‑pick with conflict resolution) still benefit from manual intervention.</li>
+<li><strong>Speed</strong>
+  <ul>
+    <li>Keyboard: Average 8 seconds per command (type, press Enter, verify).</li>
+    <li>Voice: 2–3 seconds per command (speak, hear confirmation).</li>
+  </ul>
+</li>
+<li><strong>Error Rate</strong>
+  <ul>
+    <li>Keyboard: Typos, forgotten flags, mismatched branch names.</li>
+    <li>Voice: Misrecognition mitigated by Purple’s intent validation.</li>
+  </ul>
+</li>
+<li><strong>Context Switching</strong>
+  <ul>
+    <li>Keyboard: Requires moving between Terminal, Finder, and browser.</li>
+    <li>Voice: Single spoken phrase can trigger multi‑app orchestration.</li>
+  </ul>
+</li>
+<li><strong>Accessibility</strong>
+  <ul>
+    <li>Keyboard: Limited for users with repetitive strain.</li>
+    <li>Voice: Fully hands‑free, compliant with macOS accessibility standards.</li>
+  </ul>
+</li>
+<li><strong>Security</strong>
+  <ul>
+    <li>Keyboard: Commands are visible in shell history.</li>
+    <li>Voice: Purple encrypts payloads with BYOK, keeping credentials off‑screen.</li>
+  </ul>
+</li>
 </ul>
+
+<h2>Step‑by‑Step Implementation Guide</h2>
+<ol>
+<li><strong>Enable macOS Voice Control</strong>
+  <ul>
+    <li>Open System Settings → Accessibility → Voice Control.</li>
+    <li>Turn on “Enable Voice Control”.</li>
+    <li>Click “Commands” → “Add Command”.</li>
+  </ul>
+</li>
+<li><strong>Install Purple</strong>
+  <pre><code>brew install purple-ai
+purple --install
+</code></pre>
+  <p>Follow the on‑screen prompts to grant accessibility and automation permissions.</p>
+</li>
+<li><strong>Create the command mapping file</strong>
+  <pre><code>mkdir -p ~/.purple
+cat &gt; ~/.purple/commands.yml &lt;&lt;'EOF'
+commit_changes:
+  phrase: "commit changes"
+  script: "/usr/local/bin/voice_git_commit.sh"
+
+push_branch:
+  phrase: "push branch"
+  script: "/usr/local/bin/voice_git_push.sh"
+
+# Additional mappings can be added here
+EOF
+</code></pre>
+</li>
+<li><strong>Write the shell scripts</strong>
+  <p>Copy the earlier <code>voice_git_commit.sh</code> and <code>voice_git_push.sh</code> scripts into <code>/usr/local/bin</code> and make them executable.</p>
+  <pre><code>chmod +x /usr/local/bin/voice_git_commit.sh
+chmod +x /usr/local/bin/voice_git_push.sh
+</code></pre>
+</li>
+<li><strong>Test the voice triggers</strong>
+  <ul>
+    <li>Open a Terminal in a Git repository.</li>
+    <li>Say “commit changes”. Purple will launch the script, prompt you to speak a message, and perform <code>git add .</code> + <code>git commit</code>.</li>
+    <li>Say “push branch”. Confirm the prompt, and Purple will push the current branch.</li>
+  </ul>
+</li>
+<li><strong>Expand with Finder and web automation</strong>
+  <ul>
+    <li>Add the AppleScript and curl‑based scripts shown earlier to your <code>~/.purple/commands.yml</code>.</li>
+    <li>Restart Purple: <code>purple --restart</code>.</li>
+    <li>Try “describe ticket ABC‑123” or “summarize pdf /path/to/spec.pdf”.</li>
+  </ul>
+</li>
+<li><strong>Secure your environment</strong>
+  <ul>
+    <li>Store any personal access tokens in the macOS Keychain.</li>
+    <li>Reference them in scripts via <code>security find-generic-password -s GIT_TOKEN -w</code>.</li>
+    <li>Because Purple encrypts all command payloads with your BYOK, the tokens never leave the device.</li>
+  </ul>
+</li>
+<li><strong>Iterate and refine</strong>
+  <p>Monitor the <code>~/Library/Logs/purple.log</code> file for misrecognitions. Adjust the <code>phrase</code> entries or add synonyms (e.g., “record changes”, “save work”) to improve accuracy.</p>
+</li>
+</ol>
 
 <h2>Frequently Asked Questions</h2>
-
-<h3>Can I use Purple to automate Git actions on a remote server?</h3>
-<p>Yes. Purple can SSH into remote macOS or Linux hosts using its built‑in <code>purple ssh</code> command. Combine this with voice intents like “Purple, SSH into build‑server and pull latest” to trigger remote Git workflows without leaving your local environment.</p>
-
-<h3>How does Purple ensure my voice data remains private?</h3>
-<p>Purple operates on a BYOK model: your encryption keys never leave your machine. All speech-to-text processing can be performed locally with Whisper, and any command payloads are encrypted before being handed to the shell. No raw audio is transmitted to third‑party services unless you explicitly enable cloud‑based transcription.</p>
-
-<h3>What if Purple misinterprets a Git command and executes the wrong action?</h3>
-<p>Purple includes a confirmation layer for destructive operations. For commands like <code>git reset --hard</code> or branch deletions, Purple will ask, “Are you sure you want to delete branch X?” You can respond “Yes” or “Cancel” by voice. Additionally, you can configure a “dry‑run” mode in the shortcut script to preview the generated Git command before execution.</p>
+<h3>Can I use Purple with private repositories that require SSH keys?</h3>
+<p>Yes. Purple runs your scripts in the same user context, so any SSH keys loaded in <code>ssh-agent</code> are available. Ensure your key is added with <code>ssh-add -K ~/.ssh/id_rsa</code> and that the key’s passphrase is stored in the macOS Keychain for seamless authentication.</p>
+<h3>What happens if the speech recognizer mishears a command?</h3>
+<p>Purple validates each intent before execution. If the parsed phrase does not match a known command, Purple replies with a spoken “Command not recognized, please try again.” You can also enable a confirmation prompt by adding <code>confirm: true</code> to the YAML entry, which forces a “Did you mean …?” dialog.</p>
+<h3>Is my code or data exposed when using voice automation?</h3>
+<p>All communication between the voice engine and Purple is encrypted locally. Purple’s BYOK architecture ensures that any AI processing (e.g., PDF summarization) occurs on‑device, and no raw code or credentials are transmitted to external servers. The only data that leaves the machine are optional web requests you explicitly script, such as fetching a JIRA ticket via <code>curl</code>.</p>
         </div>
 
         <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
