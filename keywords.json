@@ -764,7 +764,8 @@
     "keyword": "macOS BYOK voice assistant privacy",
     "title": "Design a Privacy\u2011First BYOK Architecture for macOS Voice Assistants",
     "category": "Security",
-    "published": false
+    "published": true,
+    "published_date": "October 14, 2026"
   },
   {
     "slug": "desktop-ai-agent-vs-cloud-chatbot-macos-productivity",
