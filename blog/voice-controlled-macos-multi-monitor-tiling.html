@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Multi‑Monitor Window Tiling on macOS with Simple Voice Shortcuts | Purple OS AI</title>
+    <meta name="description" content="Discover how to master macOS multi-monitor voice tiling with native macOS voice automation and intelligent desktop agents.">
+    <link rel="canonical" href="https://1into1.com/blog/voice-controlled-macos-multi-monitor-tiling.html">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7WZRVJE0Z');
+    </script>
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Master Multi\u2011Monitor Window Tiling on macOS with Simple Voice Shortcuts",
+  "description": "Learn how to master macOS multi-monitor voice tiling with native macOS voice commands and desktop AI automation.",
+  "author": {
+    "@type": "Organization",
+    "name": "Purple AI",
+    "url": "https://1into1.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "1into1",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://1into1.com/logo.png"
+    }
+  },
+  "datePublished": "2026-10-15",
+  "mainEntityOfPage": "https://1into1.com/blog/voice-controlled-macos-multi-monitor-tiling.html"
+}
+    </script>
+
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif; background-color: #0f0a19; color: #f3f4f6; }
+        .glow { box-shadow: 0 0 25px rgba(168, 85, 247, 0.45); }
+        .article-content h2 { font-size: 1.75rem; font-weight: 700; color: #ffffff; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.25); padding-bottom: 0.5rem; }
+        .article-content h3 { font-size: 1.35rem; font-weight: 600; color: #c084fc; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .article-content p { color: #d1d5db; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .article-content ul, .article-content ol { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #d1d5db; line-height: 1.85; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .article-content blockquote { border-left: 4px solid #a855f7; padding: 1rem 1.25rem; margin: 1.5rem 0; color: #e9d5ff; font-style: italic; background: rgba(168, 85, 247, 0.08); border-radius: 0.5rem; }
+        .article-content pre { background: #140d24; border: 1px solid rgba(168, 85, 247, 0.25); padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }
+        .article-content code { color: #f3e8ff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.95rem; }
+        .article-content strong { color: #ffffff; }
+    </style>
+</head>
+<body class="bg-[#0f0a19] text-gray-100 min-h-screen">
+    <nav class="w-full bg-[#0f0a19]/80 backdrop-blur-md border-b border-purple-900/30 fixed top-0 left-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="../logo.png" alt="Purple Logo" class="h-8 w-auto drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]">
+                <span class="text-xl font-bold text-white tracking-tight">Purple</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="/blog/" class="text-gray-300 hover:text-white transition text-sm font-medium">All Guides</a>
+                <a href="/#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition text-sm font-semibold text-white glow">Get Purple</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
+        <div class="mb-8">
+            <span class="px-3 py-1 bg-purple-900/50 border border-purple-500/40 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">
+                Window Management
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
+                Master Multi‑Monitor Window Tiling on macOS with Simple Voice Shortcuts
+            </h1>
+            <p class="text-sm text-gray-400">Published on October 15, 2026 • 6 min read</p>
+        </div>
+
+        <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
+            <h2>Introduction: From Manual Drag‑And‑Drop to Voice‑Driven Tiling on Multiple Displays</h2>
+<p>macOS users with two or more monitors often spend precious minutes each day rearranging windows to keep their workflow efficient. Traditional mouse‑driven tiling tools—such as Magnet, Rectangle, or built‑in Split View—still require clicks, drags, or keyboard shortcuts, which become cumbersome when you’re juggling code editors, design canvases, and reference documents across separate screens. The rise of voice‑first interfaces promises a paradigm shift: you can command your Mac to tile, resize, and move windows without ever touching the trackpad.</p>
+<p>This guide shows you how to master <strong>multi‑monitor window tiling on macOS using simple voice shortcuts</strong>. We’ll walk through enabling macOS Voice Control, wiring custom voice phrases to <code>osascript</code> and <code>yabai</code> commands, and leveraging <a href="https://1into1.com"><strong>Purple</strong></a>—the native voice‑driven autonomous OS AI that can execute browser workflows, scrape web data, draft Word documents hands‑free, summarize PDFs, and automate Finder tasks securely with BYOK architecture. By the end, you’ll have a reproducible, hands‑free tiling system that works seamlessly across any number of monitors.</p>
+
+<h2>Setting Up Voice Control for Multi‑Monitor Tiling</h2>
+<h3>Enable macOS Voice Control and Create a Custom Vocabulary</h3>
+<p>Voice Control, introduced in macOS Catalina, replaces the older Dictation engine with a fully offline, on‑device speech recognizer. Follow these steps to activate it:</p>
+<ol>
+<li>Open <strong>System Settings</strong> → <strong>Accessibility</strong> → <strong>Voice Control</strong>.</li>
+<li>Toggle <strong>Voice Control</strong> to <em>On</em>. macOS will download the speech model (≈200 MB).</li>
+<li>Click <strong>Commands…</strong> then the <strong>+</strong> button to add a new command.</li>
+<li>In the dialog, set <strong>When I say</strong> to your desired phrase (e.g., “tile left on screen two”).</li>
+<li>Choose <strong>Run Workflow</strong> and select <strong>Run AppleScript</strong> from the dropdown.</li>
+<li>Paste the AppleScript snippet provided in the next section and click <strong>Done</strong>.</li>
+</ol>
+<p>Repeat the process for each tiling direction you need (left, right, top‑half, bottom‑half, center) and for each monitor (screen one, screen two, etc.). Voice Control stores these phrases in a custom vocabulary, ensuring high‑accuracy recognition even in noisy environments.</p>
+
+<h3>Install and Configure the Open‑Source Tiling Engine “yabai”</h3>
+<p>While macOS provides basic window management, a dedicated tiling window manager gives you granular control over placement, gaps, and monitor‑specific layouts. <a href="https://github.com/koekeishiya/yabai"><strong>yabai</strong></a> is the most popular choice for power users because it works entirely via command‑line, integrates with <code>skhd</code> for hotkeys, and can be invoked from AppleScript.</p>
+<p>Run the following commands in Terminal (you’ll need <code>brew</code> installed):</p>
+<pre><code># Install yabai and its scripting addition
+brew install yabai
+brew install --cask koekeishiya/formulae/yabai-scripting-addition
+
+# Grant the necessary accessibility permissions
+sudo yabai --install-sa
+
+# Enable the daemon (requires a reboot or logout/login)
+brew services start yabai
+</code></pre>
+<p>Next, create a basic <code>.yabairc</code> configuration in your home directory to enable multi‑monitor awareness:</p>
+<pre><code>#!/usr/bin/env sh
+yabai -m config layout bsp
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     8
+</code></pre>
+<p>Make the file executable with <code>chmod +x ~/.yabairc</code>. Restart yabai (<code>brew services restart yabai</code>) and you’ll see your windows snap into a binary space‑partitioning (BSP) layout across all connected displays.</p>
+
+<h2>Core Voice Commands and Terminal Integration</h2>
+<h3>AppleScript Wrapper for yabai Commands</h3>
+<p>Voice Control can only execute AppleScript directly, so we need a thin wrapper that forwards a spoken phrase to <code>yabai</code>. Save the following script as <code>~/Scripts/voiceTile.scpt</code> (or any location you prefer):</p>
+<pre><code>on run argv
+    set commandText to item 1 of argv
+    try
+        do shell script commandText
+    on error errMsg
+        display notification errMsg with title "Voice Tile Error"
+    end try
+end run
+</code></pre>
+<p>This script receives a single argument—the full <code>yabai</code> command string—and runs it in the background. It also surfaces any errors as a macOS notification, which is helpful during debugging.</p>
+
+<h3>Mapping Voice Phrases to Specific yabai Commands</h3>
+<p>Below is a table of recommended voice phrases and their corresponding <code>yabai</code> invocations. Copy each command into the “Run AppleScript” field when you create a Voice Control command, replacing <code>PHRASE</code> with the exact phrase you’ll speak.</p>
+<ul>
+<li><strong>Phrase:</strong> “tile left on screen one”<br><strong>AppleScript command:</strong> <code>osascript ~/Scripts/voiceTile.scpt "yabai -m window --display 1 --grid 2:2:0:0:1:2"</code></li>
+<li><strong>Phrase:</strong> “tile right on screen two”<br><strong>AppleScript command:</strong> <code>osascript ~/Scripts/voiceTile.scpt "yabai -m window --display 2 --grid 2:2:1:0:2:2"</code></li>
+<li><strong>Phrase:</strong> “center window on screen three”<br><strong>AppleScript command:</strong> <code>osascript ~/Scripts/voiceTile.scpt "yabai -m window --display 3 --grid 1:1:0:0:1:1"</code></li>
+<li><strong>Phrase:</strong> “make window top half on screen one”<br><strong>AppleScript command:</strong> <code>osascript ~/Scripts/voiceTile.scpt "yabai -m window --display 1 --grid 1:2:0:0:1:1"</code></li>
+<li><strong>Phrase:</strong> “make window bottom half on screen one”<br><strong>AppleScript command:</strong> <code>osascript ~/Scripts/voiceTile.scpt "yabai -m window --display 1 --grid 1:2:0:1:1:1"</code></li>
+</ul>
+<p>The <code>--grid</code> syntax follows <code>cols:rows:x:y:w:h</code>, where <code>x</code> and <code>y</code> are the cell coordinates, and <code>w</code> and <code>h</code> are the width and height in cells. Adjust the numbers if you prefer a 3‑column layout or custom gaps.</p>
+
+<h3>Testing and Refining Voice Accuracy</h3>
+<p>After creating a few commands, open a terminal window on each monitor and speak the corresponding phrase. If the window does not move as expected, check the following:</p>
+<ol>
+<li>Ensure the target monitor is correctly identified by <code>yabai -m query --displays</code>. The <code>id</code> field corresponds to the <code>--display</code> number used above.</li>
+<li>Verify that Voice Control’s custom vocabulary is not conflicting with macOS’s built‑in commands (e.g., “turn left” might be interpreted as a navigation gesture).</li>
+<li>Open <strong>Console.app</strong> and filter for “Voice Tile Error” to see any script‑level failures.</li>
+</ol>
+
+<h2>Advanced Tiling Workflows with Purple AI</h2>
+<h3>Why Integrate Purple?</h3>
+<p><a href="https://1into1.com"><strong>Purple</strong></a> is a native voice‑driven autonomous OS AI built specifically for macOS. Unlike generic assistants, Purple runs locally, respects BYOK (Bring‑Your‑Own‑Key) encryption, and can orchestrate complex, multi‑step workflows without leaving the desktop. When combined with yabai, Purple becomes the glue that turns a single spoken command into an entire project setup:</p>
+<ul>
+<li>Open a set of URLs in Safari, each on a designated monitor.</li>
+<li>Scrape a table from a web page, paste it into a new Numbers spreadsheet, and tile the spreadsheet full‑screen.</li>
+<li>Summarize a PDF in Preview, copy the summary to a new Pages document, and position the document beside the source PDF.</li>
+</ul>
+<p>All of these actions can be triggered with a phrase like “launch research workspace”, freeing you from repetitive mouse clicks.</p>
+
+<h3>Creating a Purple “Research Workspace” Script</h3>
+<p>Open Purple’s scripting console (⌘ Shift P) and add the following YAML‑styled workflow. Purple interprets this as a series of voice‑activated steps:</p>
+<pre><code>name: Research Workspace
+trigger: "launch research workspace"
+steps:
+  - action: open_urls
+    urls:
+      - "https://arxiv.org"
+      - "https://scholar.google.com"
+    monitors: [1, 2]
+  - action: download_pdf
+    url: "https://arxiv.org/pdf/2301.12345.pdf"
+    save_to: "~/Documents/Research/paper.pdf"
+    monitor: 1
+  - action: summarize_pdf
+    file: "~/Documents/Research/paper.pdf"
+    output: "~/Documents/Research/summary.txt"
+    monitor: 2
+  - action: open_app
+    app: "Pages"
+    file: "~/Documents/Research/summary.txt"
+    monitor: 2
+  - action: tile_window
+    app: "Safari"
+    position: "left"
+    monitor: 1
+  - action: tile_window
+    app: "Pages"
+    position: "right"
+    monitor: 2
+</code></pre>
+<p>When you say “launch research workspace”, Purple will:</p>
+<ol>
+<li>Open Safari tabs on monitors 1 and 2.</li>
+<li>Download the specified PDF to your Research folder.</li>
+<li>Run its built‑in summarizer (leveraging the local LLM) and write the result to a text file.</li>
+<li>Open the summary in Pages on monitor 2.</li>
+<li>Tile Safari to the left side of monitor 1 and Pages to the right side of monitor 2, using the same <code>yabai</code> grid commands under the hood.</li>
+</ol>
+<p>This example demonstrates how voice‑only interaction can replace a 10‑step manual process with a single utterance.</p>
+
+<h3>Secure Automation with BYOK</h3>
+<p>Purple’s architecture stores all encryption keys on your Mac, never in the cloud. When you grant Purple permission to access Finder or Safari, it uses your personal key to encrypt any temporary data (e.g., downloaded PDFs, scraped HTML). This ensures that even if a malicious script tries to exfiltrate information, the payload remains unreadable without your key. For compliance‑heavy environments, you can audit Purple’s activity logs in <strong>System Settings → Privacy & Security → Purple Logs</strong>.</p>
+
+<h2>Comparison: Voice‑Only vs Keyboard‑Mouse Tiling</h2>
+<h3>Pros and Cons Matrix</h3>
+<table>
+<tr><th>Aspect</th><th>Voice‑Only Tiling (with Purple & yabai)</th><th>Keyboard‑Mouse Tiling (Hotkeys, Magnet, etc.)</th></tr>
+<tr><td>Speed of Execution</td><td>Instantaneous once phrase is recognized; no hand movement required.</td><td>Fast with practiced hotkeys, but still requires finger travel.</td></tr>
+<tr><td>Learning Curve</td><td>Higher initial setup (Voice Control, AppleScript, yabai, Purple workflow).</td><td>Low; install app, learn default shortcuts.</td></tr>
+<tr><td>Accessibility</td><td>Excellent for users with limited mobility; fully hands‑free.</td><td>Limited; relies on fine motor control.</td></tr>
+<tr><td>Reliability in Noisy Environments</td><td>Potential false positives; mitigated by custom vocabulary and offline model.</td><td>Unaffected by ambient sound.</td></tr>
+<tr><td>Cross‑App Automation</td><td>Seamless integration with browsers, Finder, PDF tools via Purple.</td><td>Usually limited to window positioning only.</td></tr>
+<tr><td>Security & Privacy</td><td>Local processing, BYOK encryption, no cloud telemetry.</td><td>Depends on third‑party app; some send usage data.</td></tr>
+<tr><td>Scalability to More Monitors</td><td>Simple phrase extensions (e.g., “tile left on screen three”).</td><td>Hotkey combos become cumbersome as monitor count grows.</td></tr>
+</table>
+<p>For power users who already invest time in configuring a tiling manager, adding voice control multiplies productivity. For occasional users, a hybrid approach—hotkeys for common actions and voice for complex multi‑step workflows—offers the best of both worlds.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can I use Voice Control without installing yabai?</h3>
+<p>Yes. macOS’s built‑in <code>osascript -e 'tell application "System Events" to keystroke ...'</code> can simulate keyboard shortcuts, allowing you to trigger existing tiling apps. However, yabai provides the most granular control over monitor selection and grid placement, which is essential for true multi‑monitor voice tiling.</p>
+
+<h3>What if my Mac’s microphone picks up background conversation?</h3>
+<p>Voice Control runs an offline model that can be trained with a custom vocabulary. To improve accuracy, add “never” or “ignore” phrases for common background speech, and keep the microphone close to your mouth. You can also enable the “Require Confirmation” option in Voice Control settings, which asks you to confirm the recognized command before execution.</p>
+
+<h3>Is Purple compatible with macOS Ventura and later?</h3>
+<p>Purple is built on Apple’s native Speech framework and supports macOS 13 (Ventura) through the latest release (macOS 14 Sonoma). The BYOK encryption layer uses the Secure Enclave, which is present on all Intel and Apple‑silicon Macs released after 2018. Ensure you have the latest Purple update from <a href="https://1into1.com">the official site</a> to benefit from security patches and new workflow actions.</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
+            <h3 class="text-2xl font-bold text-white mb-3">Experience Hands-Free macOS Automation</h3>
+            <p class="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
+                Purple transforms your Mac into an autonomous voice-controlled OS. Control your browser, synthesize documents, and run automated workflows with your voice.
+            </p>
+            <a href="/#pricing" class="inline-block px-8 py-3.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-full transition transform hover:scale-105">
+                Download Free Trial
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-purple-900/20">
+        <p>© 2026 1into1. All rights reserved.</p>
+    </footer>
+</body>
+</html>
