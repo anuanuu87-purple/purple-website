@@ -804,7 +804,8 @@
     "keyword": "macOS Spotify voice playlist management",
     "title": "Curate and Control Spotify Playlists on macOS Instantly via Voice Commands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "October 16, 2026"
   },
   {
     "slug": "secure-b yok-encrypted-macos-voice-scripts",
