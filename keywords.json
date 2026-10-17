@@ -812,7 +812,8 @@
     "keyword": "macOS BYOK encrypted voice scripts",
     "title": "Implement End\u2011to\u2011End BYOK Encryption for macOS Voice\u2011Driven Automation Scripts",
     "category": "Security",
-    "published": false
+    "published": true,
+    "published_date": "October 17, 2026"
   },
   {
     "slug": "voice-powered-macos-document-drafting-workflow",
