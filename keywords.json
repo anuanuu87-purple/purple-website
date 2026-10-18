@@ -820,6 +820,77 @@
     "keyword": "macOS voice document drafting workflow",
     "title": "Draft Professional Documents on macOS Completely Hands\u2011Free Using Voice AI",
     "category": "Productivity",
+    "published": true,
+    "published_date": "October 18, 2026"
+  },
+  {
+    "slug": "voice-activated-terminal-deployment-macos",
+    "keyword": "voice activated terminal deployment macOS",
+    "title": "Voice-Activated macOS Terminal Scripts for Automated Code Deployment",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-extraction-macos-voice-ai",
+    "keyword": "hands-free PDF extraction macOS voice AI",
+    "title": "Hands-Free PDF Data Extraction and Summarization on macOS with Voice AI",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-commands-macos-automation",
+    "keyword": "secure BYOK voice commands macOS automation",
+    "title": "Secure BYOK Voice Commands for macOS Automation: A Step-by-Step Guide",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-monitoring",
+    "keyword": "desktop AI agents vs cloud chatbots macOS monitoring",
+    "title": "Desktop AI Agents vs Cloud Chatbots for Real-Time macOS System Health Monitoring",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-multi-display-window-management-macos",
+    "keyword": "voice controlled multi-display window management macOS",
+    "title": "Voice-Controlled Multi-Display Window Management for macOS Power Users",
+    "category": "Productivity",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-pipeline-voice-macos",
+    "keyword": "automated web scraping pipeline voice macOS",
+    "title": "Automated Web Scraping Pipelines on macOS Using Voice Prompts and Python",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "hands-free-financial-modeling-excel-voice-macos",
+    "keyword": "hands-free financial modeling Excel voice macOS",
+    "title": "Hands-Free Financial Modeling in Excel on macOS via Voice Commands",
+    "category": "Finance",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-spotify-playlist-curation-macos",
+    "keyword": "voice driven Spotify playlist curation macOS",
+    "title": "Voice-Driven Spotify Playlist Curation and Smart Home Integration on macOS",
+    "category": "Media Control",
+    "published": false
+  },
+  {
+    "slug": "end-to-end-encrypted-voice-scripts-byok-macos",
+    "keyword": "end-to-end encrypted voice scripts BYOK macOS",
+    "title": "Implementing End-to-End Encrypted Voice Scripts on macOS with BYOK",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-triggered-gitops-workflows-macos-developers",
+    "keyword": "voice triggered GitOps workflows macOS",
+    "title": "Boosting macOS Developer Productivity with Voice-Triggered GitOps Workflows",
+    "category": "Developer Tools",
     "published": false
   }
 ]
