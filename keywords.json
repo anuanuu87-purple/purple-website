@@ -828,7 +828,8 @@
     "keyword": "voice activated terminal deployment macOS",
     "title": "Voice-Activated macOS Terminal Scripts for Automated Code Deployment",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 18, 2026"
   },
   {
     "slug": "hands-free-pdf-extraction-macos-voice-ai",
