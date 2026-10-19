@@ -836,7 +836,8 @@
     "keyword": "hands-free PDF extraction macOS voice AI",
     "title": "Hands-Free PDF Data Extraction and Summarization on macOS with Voice AI",
     "category": "Document Management",
-    "published": false
+    "published": true,
+    "published_date": "October 19, 2026"
   },
   {
     "slug": "secure-byok-voice-commands-macos-automation",
