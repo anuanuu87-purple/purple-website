@@ -844,7 +844,8 @@
     "keyword": "secure BYOK voice commands macOS automation",
     "title": "Secure BYOK Voice Commands for macOS Automation: A Step-by-Step Guide",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "October 19, 2026"
   },
   {
     "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-monitoring",
