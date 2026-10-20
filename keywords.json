@@ -860,7 +860,8 @@
     "keyword": "voice controlled multi-display window management macOS",
     "title": "Voice-Controlled Multi-Display Window Management for macOS Power Users",
     "category": "Productivity",
-    "published": false
+    "published": true,
+    "published_date": "October 20, 2026"
   },
   {
     "slug": "automated-web-scraping-pipeline-voice-macos",
