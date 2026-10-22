@@ -884,7 +884,8 @@
     "keyword": "voice driven Spotify playlist curation macOS",
     "title": "Voice-Driven Spotify Playlist Curation and Smart Home Integration on macOS",
     "category": "Media Control",
-    "published": false
+    "published": true,
+    "published_date": "October 22, 2026"
   },
   {
     "slug": "end-to-end-encrypted-voice-scripts-byok-macos",
