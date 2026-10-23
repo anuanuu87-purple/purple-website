@@ -908,7 +908,8 @@
     "keyword": "macOS voice terminal shortcuts",
     "title": "Voice-Driven macOS Terminal Shortcuts to Accelerate DevOps Workflows",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 23, 2026"
   },
   {
     "slug": "hands-free-pdf-annotation-and-summarization-with-macOS-ai",
