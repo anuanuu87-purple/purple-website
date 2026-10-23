@@ -900,6 +900,77 @@
     "keyword": "voice triggered GitOps workflows macOS",
     "title": "Boosting macOS Developer Productivity with Voice-Triggered GitOps Workflows",
     "category": "Developer Tools",
+    "published": true,
+    "published_date": "October 23, 2026"
+  },
+  {
+    "slug": "voice-driven-macos-terminal-shortcuts-for-devops",
+    "keyword": "macOS voice terminal shortcuts",
+    "title": "Voice-Driven macOS Terminal Shortcuts to Accelerate DevOps Workflows",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-annotation-and-summarization-with-macOS-ai",
+    "keyword": "hands-free PDF annotation macOS",
+    "title": "Hands-Free PDF Annotation and Summarization on macOS Using AI Voice Commands",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-scripts-for-macOS-data-pipelines",
+    "keyword": "BYOK voice scripts macOS",
+    "title": "Secure BYOK Voice Scripts for macOS Data Pipelines: End-to-End Encryption Guide",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "compare-desktop-ai-agents-vs-cloud-chatbots-macos-productivity",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Drives More macOS Productivity?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-queue-management-macos",
+    "keyword": "voice controlled Spotify macOS",
+    "title": "Voice-Controlled Spotify Queue Management on macOS for Seamless Listening",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-with-voice-and-apple-script-macos",
+    "keyword": "voice automated web scraping macOS",
+    "title": "Automated Web Scraping on macOS with Voice Prompts and AppleScript Integration",
+    "category": "Automation",
+    "published": false
+  },
+  {
+    "slug": "multi-monitor-window-tiling-voice-macOS-power-users",
+    "keyword": "multi-monitor window tiling voice macOS",
+    "title": "Multi-Monitor Window Tiling on macOS Powered by Voice Commands for Power Users",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "voice-enabled-spreadsheet-forecasting-numbers-macOS",
+    "keyword": "voice spreadsheet forecasting macOS",
+    "title": "Voice-Enabled Spreadsheet Forecasting in Numbers on macOS: From Data to Insight",
+    "category": "Spreadsheet Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-document-drafting-with-macOS-voice-ai",
+    "keyword": "hands-free legal drafting macOS",
+    "title": "Hands-Free Legal Document Drafting on macOS Using Voice AI and Template Libraries",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-automation-framework-macOS-byok",
+    "keyword": "privacy-first voice automation macOS",
+    "title": "Building a Privacy-First Voice Automation Framework for macOS with BYOK",
+    "category": "Privacy & Security",
     "published": false
   }
 ]
