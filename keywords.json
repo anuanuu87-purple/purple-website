@@ -924,7 +924,8 @@
     "keyword": "BYOK voice scripts macOS",
     "title": "Secure BYOK Voice Scripts for macOS Data Pipelines: End-to-End Encryption Guide",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "October 24, 2026"
   },
   {
     "slug": "compare-desktop-ai-agents-vs-cloud-chatbots-macos-productivity",
