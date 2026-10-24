@@ -916,7 +916,8 @@
     "keyword": "hands-free PDF annotation macOS",
     "title": "Hands-Free PDF Annotation and Summarization on macOS Using AI Voice Commands",
     "category": "Document Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 24, 2026"
   },
   {
     "slug": "secure-byok-voice-scripts-for-macOS-data-pipelines",
