@@ -940,7 +940,8 @@
     "keyword": "voice controlled Spotify macOS",
     "title": "Voice-Controlled Spotify Queue Management on macOS for Seamless Listening",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "October 25, 2026"
   },
   {
     "slug": "automated-web-scraping-with-voice-and-apple-script-macos",
