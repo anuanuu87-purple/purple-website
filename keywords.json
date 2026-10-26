@@ -948,7 +948,8 @@
     "keyword": "voice automated web scraping macOS",
     "title": "Automated Web Scraping on macOS with Voice Prompts and AppleScript Integration",
     "category": "Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 26, 2026"
   },
   {
     "slug": "multi-monitor-window-tiling-voice-macOS-power-users",
