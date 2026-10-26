@@ -956,7 +956,8 @@
     "keyword": "multi-monitor window tiling voice macOS",
     "title": "Multi-Monitor Window Tiling on macOS Powered by Voice Commands for Power Users",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "October 26, 2026"
   },
   {
     "slug": "voice-enabled-spreadsheet-forecasting-numbers-macOS",
