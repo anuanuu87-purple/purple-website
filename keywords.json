@@ -964,7 +964,8 @@
     "keyword": "voice spreadsheet forecasting macOS",
     "title": "Voice-Enabled Spreadsheet Forecasting in Numbers on macOS: From Data to Insight",
     "category": "Spreadsheet Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 27, 2026"
   },
   {
     "slug": "hands-free-legal-document-drafting-with-macOS-voice-ai",
