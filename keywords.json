@@ -972,7 +972,8 @@
     "keyword": "hands-free legal drafting macOS",
     "title": "Hands-Free Legal Document Drafting on macOS Using Voice AI and Template Libraries",
     "category": "Document Drafting",
-    "published": false
+    "published": true,
+    "published_date": "October 27, 2026"
   },
   {
     "slug": "privacy-first-voice-automation-framework-macOS-byok",
