@@ -988,7 +988,8 @@
     "keyword": "macOS voice automation terminal shortcuts",
     "title": "Master macOS Terminal Shortcuts with Voice Automation for Faster DevOps",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 28, 2026"
   },
   {
     "slug": "hands-free-pdf-analysis-macos",
