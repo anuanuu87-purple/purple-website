@@ -980,6 +980,77 @@
     "keyword": "privacy-first voice automation macOS",
     "title": "Building a Privacy-First Voice Automation Framework for macOS with BYOK",
     "category": "Privacy & Security",
+    "published": true,
+    "published_date": "October 28, 2026"
+  },
+  {
+    "slug": "voice-automation-macos-terminal-shortcuts",
+    "keyword": "macOS voice automation terminal shortcuts",
+    "title": "Master macOS Terminal Shortcuts with Voice Automation for Faster DevOps",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-analysis-macos",
+    "keyword": "hands-free PDF analysis macOS",
+    "title": "Hands-Free PDF Analysis and Summarization on macOS Using AI Voice Commands",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "spreadsheet-math-voice-macos",
+    "keyword": "voice-driven spreadsheet calculations macOS",
+    "title": "Perform Complex Spreadsheet Math on macOS Hands-Free with Voice AI",
+    "category": "Spreadsheet Automation",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Desktop AI Agents vs Cloud Chatbots: Which Boosts macOS Productivity More?",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "byok-privacy-macos-voice-scripts",
+    "keyword": "BYOK privacy macOS voice scripts",
+    "title": "Implement BYOK Privacy for macOS Voice Scripts: A Complete Guide",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-playback-macos",
+    "keyword": "voice controlled Spotify playback macOS",
+    "title": "Control Spotify Playback on macOS Entirely by Voice for Seamless Listening",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-macos",
+    "keyword": "automated web scraping voice macOS",
+    "title": "Build Automated Web Scraping Workflows on macOS Using Voice Prompts",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-window-management-macos",
+    "keyword": "voice-driven window management macOS",
+    "title": "Voice-Driven Multi-Display Window Management for macOS Power Users",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "hands-free-document-drafting-macos",
+    "keyword": "hands-free document drafting macOS",
+    "title": "Draft Professional Documents on macOS Hands-Free with AI Voice Assistance",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "secure-voice-automation-byo-key-macos",
+    "keyword": "secure voice automation BYO key macOS",
+    "title": "Secure Voice Automation on macOS with Bring-Your-Own-Key Encryption",
+    "category": "Privacy & Security",
     "published": false
   }
 ]
