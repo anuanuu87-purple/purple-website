@@ -996,7 +996,8 @@
     "keyword": "hands-free PDF analysis macOS",
     "title": "Hands-Free PDF Analysis and Summarization on macOS Using AI Voice Commands",
     "category": "Document Management",
-    "published": false
+    "published": true,
+    "published_date": "October 29, 2026"
   },
   {
     "slug": "spreadsheet-math-voice-macos",
