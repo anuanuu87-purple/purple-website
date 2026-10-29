@@ -1004,7 +1004,8 @@
     "keyword": "voice-driven spreadsheet calculations macOS",
     "title": "Perform Complex Spreadsheet Math on macOS Hands-Free with Voice AI",
     "category": "Spreadsheet Automation",
-    "published": false
+    "published": true,
+    "published_date": "October 29, 2026"
   },
   {
     "slug": "desktop-ai-agents-vs-cloud-chatbots-macos",
