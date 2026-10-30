@@ -1020,7 +1020,8 @@
     "keyword": "BYOK privacy macOS voice scripts",
     "title": "Implement BYOK Privacy for macOS Voice Scripts: A Complete Guide",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "October 30, 2026"
   },
   {
     "slug": "voice-controlled-spotify-playback-macos",
