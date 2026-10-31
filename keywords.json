@@ -1028,7 +1028,8 @@
     "keyword": "voice controlled Spotify playback macOS",
     "title": "Control Spotify Playback on macOS Entirely by Voice for Seamless Listening",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "October 31, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-macos",
