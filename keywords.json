@@ -1052,7 +1052,8 @@
     "keyword": "hands-free document drafting macOS",
     "title": "Draft Professional Documents on macOS Hands-Free with AI Voice Assistance",
     "category": "Document Management",
-    "published": false
+    "published": true,
+    "published_date": "November 01, 2026"
   },
   {
     "slug": "secure-voice-automation-byo-key-macos",
