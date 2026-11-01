@@ -1044,7 +1044,8 @@
     "keyword": "voice-driven window management macOS",
     "title": "Voice-Driven Multi-Display Window Management for macOS Power Users",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "November 01, 2026"
   },
   {
     "slug": "hands-free-document-drafting-macos",
