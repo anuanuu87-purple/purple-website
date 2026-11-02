@@ -1060,6 +1060,77 @@
     "keyword": "secure voice automation BYO key macOS",
     "title": "Secure Voice Automation on macOS with Bring-Your-Own-Key Encryption",
     "category": "Privacy & Security",
+    "published": true,
+    "published_date": "November 02, 2026"
+  },
+  {
+    "slug": "voice-activated-mac-terminal-git-merge-workflow",
+    "keyword": "voice activated mac terminal git merge",
+    "title": "Voice-Activated macOS Terminal Git Merge Workflow for Developers",
+    "category": "Voice Automation & DevOps",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-contract-review-mac",
+    "keyword": "hands free pdf contract review mac",
+    "title": "Hands-Free PDF Contract Review and Annotation on macOS Using Voice AI",
+    "category": "Document Automation",
+    "published": false
+  },
+  {
+    "slug": "byok-encrypted-voice-scripts-mac-data-sync",
+    "keyword": "BYOK encrypted voice scripts mac data sync",
+    "title": "BYOK Encrypted Voice Scripts for Secure macOS Data Synchronization",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agent-vs-cloud-chatbot-mac-productivity-study",
+    "keyword": "desktop AI agent vs cloud chatbot mac productivity",
+    "title": "Desktop AI Agent vs Cloud Chatbot: A macOS Productivity Comparison Study",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-multi-monitor-arrangement-mac",
+    "keyword": "voice controlled multi monitor arrangement mac",
+    "title": "Voice-Controlled Multi-Monitor Arrangement for macOS Power Users",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-with-voice-and-shortcuts-mac",
+    "keyword": "automated web scraping voice shortcuts mac",
+    "title": "Automated Web Scraping on macOS Using Voice Prompts and Keyboard Shortcuts",
+    "category": "Automation",
+    "published": false
+  },
+  {
+    "slug": "spreadsheet-math-voice-commands-numbers-mac",
+    "keyword": "spreadsheet math voice commands numbers mac",
+    "title": "Perform Complex Spreadsheet Math in Numbers on macOS with Voice Commands",
+    "category": "Spreadsheet Automation",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-spotify-party-mode-mac",
+    "keyword": "voice driven spotify party mode mac",
+    "title": "Voice-Driven Spotify Party Mode Control on macOS for Seamless Group Listening",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "secure-voice-automation-byo-keys-mac-workflows",
+    "keyword": "secure voice automation BYO keys mac",
+    "title": "Building Secure Voice Automation Workflows on macOS with BYO Keys",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "hands-free-document-drafting-with-templates-mac",
+    "keyword": "hands free document drafting templates mac",
+    "title": "Hands-Free Document Drafting on macOS Using Voice AI and Template Libraries",
+    "category": "Document Automation",
     "published": false
   }
 ]
