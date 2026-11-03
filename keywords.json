@@ -1084,7 +1084,8 @@
     "keyword": "BYOK encrypted voice scripts mac data sync",
     "title": "BYOK Encrypted Voice Scripts for Secure macOS Data Synchronization",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 03, 2026"
   },
   {
     "slug": "desktop-ai-agent-vs-cloud-chatbot-mac-productivity-study",
