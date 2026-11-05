@@ -1100,7 +1100,8 @@
     "keyword": "voice controlled multi monitor arrangement mac",
     "title": "Voice-Controlled Multi-Monitor Arrangement for macOS Power Users",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "November 05, 2026"
   },
   {
     "slug": "automated-web-scraping-with-voice-and-shortcuts-mac",
