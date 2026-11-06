@@ -1116,7 +1116,8 @@
     "keyword": "spreadsheet math voice commands numbers mac",
     "title": "Perform Complex Spreadsheet Math in Numbers on macOS with Voice Commands",
     "category": "Spreadsheet Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 06, 2026"
   },
   {
     "slug": "voice-driven-spotify-party-mode-mac",
