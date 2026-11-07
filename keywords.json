@@ -1132,7 +1132,8 @@
     "keyword": "secure voice automation BYO keys mac",
     "title": "Building Secure Voice Automation Workflows on macOS with BYO Keys",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 07, 2026"
   },
   {
     "slug": "hands-free-document-drafting-with-templates-mac",
