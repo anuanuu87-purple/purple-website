@@ -1140,6 +1140,77 @@
     "keyword": "hands free document drafting templates mac",
     "title": "Hands-Free Document Drafting on macOS Using Voice AI and Template Libraries",
     "category": "Document Automation",
+    "published": true,
+    "published_date": "November 07, 2026"
+  },
+  {
+    "slug": "voice-first-macos-terminal-automation-git-docker-kubernetes",
+    "keyword": "macOS terminal voice automation",
+    "title": "Voice-First macOS Terminal Automation: Chain Git, Docker, and Kubernetes Commands Hands-Free",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-legal-clause-extraction-macos-voice",
+    "keyword": "PDF analysis voice macOS",
+    "title": "Hands-Free PDF Legal Clause Extraction on macOS Using AI Voice Prompts",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-scripts-sync-spreadsheets-macos",
+    "keyword": "BYOK voice scripts macOS spreadsheet",
+    "title": "Secure BYOK-Enabled Voice Scripts for Syncing Sensitive Spreadsheets Across macOS Devices",
+    "category": "Privacy",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agent-vs-cloud-chatbot-macos-benchmark",
+    "keyword": "desktop AI agent vs cloud chatbot macOS",
+    "title": "Desktop AI Agent vs Cloud Chatbot: Real-Time macOS Productivity Benchmark with Voice Commands",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-multi-display-window-tiling-macos",
+    "keyword": "voice multi-display window tiling macOS",
+    "title": "Voice-Controlled Multi-Display Window Tiling for macOS Developers Using AppleScript",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "automated-web-scraping-voice-guided-selenium-macos",
+    "keyword": "voice guided web scraping macOS selenium",
+    "title": "Automated Web Scraping on macOS with Voice-Guided Selenium Scripts and Secure Credential Storage",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spreadsheet-forecasting-voice-numbers-macos",
+    "keyword": "voice spreadsheet forecasting numbers macOS",
+    "title": "Hands-Free Spreadsheet Forecasting in Numbers: Voice-Driven Regression and Trend Analysis",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "voice-activated-spotify-queue-management-macos",
+    "keyword": "voice Spotify queue macOS",
+    "title": "Voice-Activated Spotify Queue Management for macOS: Create, Reorder, and Share Playlists Without Hands",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-automation-framework-macos-byok",
+    "keyword": "privacy first voice automation macOS BYOK",
+    "title": "Building a Privacy-First Voice Automation Framework on macOS with BYOK and Local LLM Inference",
+    "category": "Privacy",
+    "published": false
+  },
+  {
+    "slug": "macos-terminal-shortcut-generator-voice-commands",
+    "keyword": "voice terminal shortcut generator macOS",
+    "title": "macOS Terminal Shortcut Generator: Voice Commands to Create Custom Keyboard Macros Instantly",
+    "category": "Voice Automation",
     "published": false
   }
 ]
