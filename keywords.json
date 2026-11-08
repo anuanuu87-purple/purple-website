@@ -1156,7 +1156,8 @@
     "keyword": "PDF analysis voice macOS",
     "title": "Hands-Free PDF Legal Clause Extraction on macOS Using AI Voice Prompts",
     "category": "Document Drafting",
-    "published": false
+    "published": true,
+    "published_date": "November 08, 2026"
   },
   {
     "slug": "secure-byok-voice-scripts-sync-spreadsheets-macos",
