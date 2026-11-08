@@ -1148,7 +1148,8 @@
     "keyword": "macOS terminal voice automation",
     "title": "Voice-First macOS Terminal Automation: Chain Git, Docker, and Kubernetes Commands Hands-Free",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 08, 2026"
   },
   {
     "slug": "hands-free-pdf-legal-clause-extraction-macos-voice",
