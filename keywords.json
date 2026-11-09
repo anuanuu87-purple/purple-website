@@ -1164,7 +1164,8 @@
     "keyword": "BYOK voice scripts macOS spreadsheet",
     "title": "Secure BYOK-Enabled Voice Scripts for Syncing Sensitive Spreadsheets Across macOS Devices",
     "category": "Privacy",
-    "published": false
+    "published": true,
+    "published_date": "November 09, 2026"
   },
   {
     "slug": "desktop-ai-agent-vs-cloud-chatbot-macos-benchmark",
