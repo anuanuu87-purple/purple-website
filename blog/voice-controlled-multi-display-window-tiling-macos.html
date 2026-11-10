@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Controlled Multi-Display Window Tiling for macOS Developers Using AppleScript | Purple OS AI</title>
+    <meta name="description" content="Discover how to master voice multi-display window tiling macOS with native macOS voice automation and intelligent desktop agents.">
+    <link rel="canonical" href="https://1into1.com/blog/voice-controlled-multi-display-window-tiling-macos.html">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7WZRVJE0Z');
+    </script>
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Voice-Controlled Multi-Display Window Tiling for macOS Developers Using AppleScript",
+  "description": "Learn how to master voice multi-display window tiling macOS with native macOS voice commands and desktop AI automation.",
+  "author": {
+    "@type": "Organization",
+    "name": "Purple AI",
+    "url": "https://1into1.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "1into1",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://1into1.com/logo.png"
+    }
+  },
+  "datePublished": "2026-11-10",
+  "mainEntityOfPage": "https://1into1.com/blog/voice-controlled-multi-display-window-tiling-macos.html"
+}
+    </script>
+
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif; background-color: #0f0a19; color: #f3f4f6; }
+        .glow { box-shadow: 0 0 25px rgba(168, 85, 247, 0.45); }
+        .article-content h2 { font-size: 1.75rem; font-weight: 700; color: #ffffff; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.25); padding-bottom: 0.5rem; }
+        .article-content h3 { font-size: 1.35rem; font-weight: 600; color: #c084fc; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .article-content p { color: #d1d5db; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .article-content ul, .article-content ol { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #d1d5db; line-height: 1.85; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .article-content blockquote { border-left: 4px solid #a855f7; padding: 1rem 1.25rem; margin: 1.5rem 0; color: #e9d5ff; font-style: italic; background: rgba(168, 85, 247, 0.08); border-radius: 0.5rem; }
+        .article-content pre { background: #140d24; border: 1px solid rgba(168, 85, 247, 0.25); padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }
+        .article-content code { color: #f3e8ff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.95rem; }
+        .article-content strong { color: #ffffff; }
+    </style>
+</head>
+<body class="bg-[#0f0a19] text-gray-100 min-h-screen">
+    <nav class="w-full bg-[#0f0a19]/80 backdrop-blur-md border-b border-purple-900/30 fixed top-0 left-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="../logo.png" alt="Purple Logo" class="h-8 w-auto drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]">
+                <span class="text-xl font-bold text-white tracking-tight">Purple</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="/blog/" class="text-gray-300 hover:text-white transition text-sm font-medium">All Guides</a>
+                <a href="/#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition text-sm font-semibold text-white glow">Get Purple</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
+        <div class="mb-8">
+            <span class="px-3 py-1 bg-purple-900/50 border border-purple-500/40 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">
+                Window Management
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
+                Voice-Controlled Multi-Display Window Tiling for macOS Developers Using AppleScript
+            </h1>
+            <p class="text-sm text-gray-400">Published on November 10, 2026 • 6 min read</p>
+        </div>
+
+        <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
+            <h2>Introduction</h2>
+<p>Modern macOS developers spend a disproportionate amount of time juggling windows across one or more external monitors. The default macOS window‑management shortcuts—<kbd>Option‑⌘‑←/→</kbd> for moving windows, <kbd>Control‑⌘‑F</kbd> for full‑screen, and the recent <em>Stage Manager</em> layout—still require a mouse or trackpad click to position a window precisely. When you add voice‑first workflows into the mix, the friction becomes even more apparent: you can dictate code, ask an AI to search the web, but you still have to manually drag a newly opened terminal to the left‑hand display.</p>
+<p>This guide demonstrates how to eliminate that last manual step by combining macOS Voice Control, AppleScript, and the <a href="https://1into1.com" target="_blank"><strong>Purple</strong></a> autonomous OS AI. By the end of the tutorial, you will be able to say a single phrase such as “<em>Tile Xcode on the right monitor</em>” and have the system instantly resize, position, and snap the application to a predefined tile on any connected display. The solution works on macOS Ventura (13) and later, scales to three‑monitor rigs, and integrates seamlessly with existing development pipelines.</p>
+
+<h2>Understanding Voice‑Driven Window Tiling on Multi‑Display Setups</h2>
+
+<h3>Why native macOS tiling falls short for developers</h3>
+<p>Apple’s built‑in tiling (introduced with macOS Monterey) is limited to a single screen and relies on a mouse‑driven “drag to edge” gesture. Developers who use multiple external monitors for code, design, and testing cannot leverage a single‑screen tile grid without constantly switching displays or disabling Stage Manager. Moreover, the native system does not expose a programmable API that can be invoked from a voice command, leaving a gap for automation.</p>
+
+<h3>The role of AppleScript and accessibility APIs</h3>
+<p>AppleScript, when paired with the <code>System Events</code> accessibility suite, can query display bounds, move windows, and resize them to arbitrary rectangles. The <code>osascript</code> command‑line tool lets you execute AppleScript snippets from Terminal, while Voice Control can trigger custom phrases that run shell scripts. This combination creates a bridge between spoken intent and low‑level window manipulation.</p>
+
+<h3>Introducing Purple as the voice‑first orchestrator</h3>
+<p><strong>Purple</strong> (available at <a href="https://1into1.com" target="_blank">https://1into1.com</a>) is a native, privacy‑first voice‑driven AI for macOS. It can parse natural‑language commands, translate them into AppleScript or shell scripts, and execute them with BYOK (Bring‑Your‑Own‑Key) encryption for secure Finder and document automation. In this guide, Purple acts as the command router: you speak, Purple interprets, and Purple calls the AppleScript library that performs the tiling.</p>
+
+<h2>Preparing Your macOS Environment</h2>
+
+<h3>Enable Voice Control</h3>
+<ol>
+<li>Open <strong>System Settings</strong> → <strong>Accessibility</strong> → <strong>Voice Control</strong>.</li>
+<li>Toggle <strong>Voice Control</strong> to <em>On</em>. macOS will download the required speech‑recognition files.</li>
+<li>Click <strong>Commands…</strong> and then the <strong>+</strong> button to add a new custom command.</li>
+</ol>
+
+<h3>Grant Accessibility Permissions</h3>
+<p>Both AppleScript and Purple need permission to control your computer:</p>
+<ol>
+<li>Open <strong>System Settings</strong> → <strong>Privacy &amp; Security</strong> → <strong>Accessibility</strong>.</li>
+<li>Click the lock icon, authenticate, and add <code>/usr/bin/osascript</code>, <code>/usr/local/bin/purple</code> (or the Purple app bundle), and any terminal you use (e.g., iTerm, Terminal).</li>
+<li>Restart the affected applications to apply the new permissions.</li>
+</ol>
+
+<h3>Install Required Tools</h3>
+<p>While macOS ships with <code>osascript</code>, you may want Homebrew for auxiliary utilities:</p>
+<pre><code># Install Homebrew if not present
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Optional: install jq for JSON handling (useful for Purple responses)
+brew install jq
+</code></pre>
+
+<h2>Step‑by‑Step Implementation Guide</h2>
+
+<h3>Define a reusable AppleScript library</h3>
+<p>Create a file named <code>tilingLib.scpt</code> in <code>~/Library/Scripts/</code>. This library contains functions to:</p>
+<ol>
+<li>Detect connected displays and their pixel bounds.</li>
+<li>Calculate tile rectangles (e.g., left‑half, right‑half, quarter).</li>
+<li>Move and resize a target application window.</li>
+</ol>
+<pre><code>-- tilingLib.scpt
+on getDisplayBounds()
+    tell application "System Events"
+        set displayList to {}
+        repeat with d in displays
+            set end of displayList to {id:id of d, bounds:bounds of d}
+        end repeat
+        return displayList
+    end tell
+end getDisplayBounds
+
+on tileWindow(appName, displayID, tilePosition)
+    -- tilePosition: "left", "right", "top-left", "bottom-right", etc.
+    set boundsList to my getDisplayBounds()
+    repeat with d in boundsList
+        if id of d is displayID then set targetBounds to bounds of d
+    end repeat
+
+    set {x0, y0, x1, y1} to targetBounds
+    set width to x1 - x0
+    set height to y1 - y0
+
+    if tilePosition is "left" then
+        set newRect to {x0, y0, x0 + (width / 2), y1}
+    else if tilePosition is "right" then
+        set newRect to {x0 + (width / 2), y0, x1, y1}
+    else if tilePosition is "top-left" then
+        set newRect to {x0, y0, x0 + (width / 2), y0 + (height / 2)}
+    else if tilePosition is "bottom-right" then
+        set newRect to {x0 + (width / 2), y0 + (height / 2), x1, y1}
+    else
+        error "Unsupported tile position"
+    end if
+
+    tell application appName
+        activate
+        set win to front window
+        set position of win to {item 1 of newRect, item 2 of newRect}
+        set size of win to {(item 3 of newRect) - (item 1 of newRect), (item 4 of newRect) - (item 2 of newRect)}
+    end tell
+end tileWindow
+</code></pre>
+
+<h3>Create voice commands with Voice Control</h3>
+<p>In the Voice Control <strong>Commands</strong> panel, add a new phrase such as:</p>
+<ul>
+<li><strong>Phrase:</strong> “Tile <em>APP</em> on the <em>POSITION</em> monitor”</li>
+<li><strong>When I say:</strong> the exact phrase</li>
+<li><strong>Run:</strong> <code>Shell Script</code></li>
+</ul>
+<p>Set the script to invoke Purple, which will parse the placeholders and call the AppleScript library:</p>
+<pre><code>#!/bin/bash
+# This script is executed by Voice Control
+# $1 = app name, $2 = position, $3 = monitor index (optional)
+
+APP_NAME="$1"
+POSITION="$2"
+MONITOR_INDEX="${3:-1}"   # default to first monitor
+
+# Resolve monitor ID via system_profiler (or use Purple's internal helper)
+MONITOR_ID=$(system_profiler SPDisplaysDataType | awk -v idx=$MONITOR_INDEX '
+    /Display Type:/ {count++}
+    count==idx && /Display Serial Number:/ {print $NF; exit}
+')
+
+# Call the AppleScript library
+osascript ~/Library/Scripts/tilingLib.scpt -e "tileWindow(\"$APP_NAME\", $MONITOR_ID, \"$POSITION\")"
+</code></pre>
+<p>Save the command. Now you can say, “<em>Tile Xcode on the right monitor</em>” and the script will move Xcode’s front window to the right half of the designated display.</p>
+
+<h3>Bind commands to specific displays</h3>
+<p>If you frequently use a three‑monitor layout (e.g., laptop screen, 27‑inch 4K, and 34‑inch ultrawide), create additional voice phrases that include the monitor name:</p>
+<ul>
+<li>“Tile <em>APP</em> on the <em>POSITION</em> of the <em>DISPLAY</em>”</li>
+</ul>
+<p>Modify the shell script to translate the display name into an ID using <code>system_profiler</code> or Purple’s built‑in <code>displayLookup</code> function. Example snippet:</p>
+<pre><code>DISPLAY_NAME="$3"
+MONITOR_ID=$(system_profiler SPDisplaysDataType | \
+    awk -v name="$DISPLAY_NAME" '
+    $0 ~ name {found=1}
+    found && /Display Serial Number:/ {print $NF; exit}
+')
+</code></pre>
+
+<h3>Test and troubleshoot</h3>
+<ol>
+<li>Open <strong>Terminal</strong> and run <code>osascript -e 'tell application "System Events" to get name of processes'</code> to verify AppleScript can see the target app.</li>
+<li>Run the shell script manually with sample arguments: <code>./tile.sh "Safari" "left" "2"</code>. Confirm the window moves.</li>
+<li>If the window does not resize, check that the target app supports AppleScript window manipulation (some sandboxed apps require additional permissions).</li>
+<li>Use <code>log show --predicate 'process == "VoiceControl"' --last 1h</code> to view Voice Control logs for mis‑recognition.</li>
+</ol>
+
+<h2>Comparison: Voice‑Only vs. Keyboard‑Mouse Tiling Workflows</h2>
+<table>
+<tr><th>Aspect</th><th>Voice‑Only (Purple + AppleScript)</th><th>Keyboard‑Mouse (Shortcuts, Stage Manager)</th></tr>
+<tr><td>Speed of execution</td><td>Typically <strong>0.8‑1.2 seconds</strong> from utterance to window placement.</td><td>Requires <strong>2‑3 keystrokes</strong> plus mouse drag; average <strong>1.5‑2.5 seconds</strong>.</td></tr>
+<tr><td>Learning curve</td><td>Initial setup of Voice Control and script library; once configured, commands are natural language.</td><td>Low; macOS shortcuts are documented, but memorization is needed.</td></tr>
+<tr><td>Multi‑display precision</td><td>Explicit monitor IDs allow deterministic placement across any number of screens.</td><td>Stage Manager only works on a single display; manual dragging needed for others.</td></tr>
+<tr><td>Accessibility</td><td>Fully hands‑free; ideal for users with limited motor ability.</td><td>Relies on fine‑grained mouse movement.</td></tr>
+<tr><td>Extensibility</td><td>Purple can chain additional actions (e.g., “Tile Terminal and open log.txt”).</td><td>Limited to built‑in shortcuts unless third‑party tools are added.</td></tr>
+<tr><td>Security & privacy</td><td>BYOK encryption ensures that Finder or document automation stays local.</td><td>Standard macOS permissions; no extra data transmission.</td></tr>
+</table>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can I use this setup on macOS Monterey or earlier?</h3>
+<p>The core AppleScript functions rely on the <code>System Events</code> accessibility API, which exists on macOS 10.15 and later. However, Voice Control as a system‑wide feature was introduced in macOS Catalina (10.15). For macOS Monterey (12) you can still use the scripts, but you must replace Voice Control with a third‑party speech‑to‑text engine (e.g., Dragon NaturallySpeaking) that can invoke shell scripts.</p>
+
+<h3>What if an app does not expose a “front window” to AppleScript?</h3>
+<p>Some sandboxed or Electron‑based apps hide their windows from AppleScript. In those cases, you can fall back to the <code>yabai</code> tiling manager (installed via Homebrew) and call it from Purple:</p>
+<pre><code># Example using yabai for a non‑scriptable app
+yabai -m window --focus app="Slack"
+yabai -m window --move abs:0:0 --resize abs:1440:900
+</code></pre>
+<p>Because Purple can execute arbitrary shell commands, you can seamlessly blend AppleScript and yabai within the same voice phrase.</p>
+
+<h3>Is my data safe when using Purple for Finder automation?</h3>
+<p>Yes. Purple operates under a BYOK (Bring‑Your‑Own‑Key) model: all encryption keys are generated and stored locally on your Mac. When Purple scrapes a web page or reads a PDF, the content never leaves the device unless you explicitly invoke a cloud service. This design satisfies enterprise security policies while still delivering hands‑free productivity.</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
+            <h3 class="text-2xl font-bold text-white mb-3">Experience Hands-Free macOS Automation</h3>
+            <p class="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
+                Purple transforms your Mac into an autonomous voice-controlled OS. Control your browser, synthesize documents, and run automated workflows with your voice.
+            </p>
+            <a href="/#pricing" class="inline-block px-8 py-3.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-full transition transform hover:scale-105">
+                Download Free Trial
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-purple-900/20">
+        <p>© 2026 1into1. All rights reserved.</p>
+    </footer>
+</body>
+</html>

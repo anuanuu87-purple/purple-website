@@ -1180,7 +1180,8 @@
     "keyword": "voice multi-display window tiling macOS",
     "title": "Voice-Controlled Multi-Display Window Tiling for macOS Developers Using AppleScript",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "November 10, 2026"
   },
   {
     "slug": "automated-web-scraping-voice-guided-selenium-macos",
