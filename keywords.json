@@ -1196,7 +1196,8 @@
     "keyword": "voice spreadsheet forecasting numbers macOS",
     "title": "Hands-Free Spreadsheet Forecasting in Numbers: Voice-Driven Regression and Trend Analysis",
     "category": "Spreadsheet Math",
-    "published": false
+    "published": true,
+    "published_date": "November 11, 2026"
   },
   {
     "slug": "voice-activated-spotify-queue-management-macos",
