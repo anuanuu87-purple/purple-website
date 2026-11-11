@@ -1204,7 +1204,8 @@
     "keyword": "voice Spotify queue macOS",
     "title": "Voice-Activated Spotify Queue Management for macOS: Create, Reorder, and Share Playlists Without Hands",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "November 11, 2026"
   },
   {
     "slug": "privacy-first-voice-automation-framework-macos-byok",
