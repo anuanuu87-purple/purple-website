@@ -1220,6 +1220,77 @@
     "keyword": "voice terminal shortcut generator macOS",
     "title": "macOS Terminal Shortcut Generator: Voice Commands to Create Custom Keyboard Macros Instantly",
     "category": "Voice Automation",
+    "published": true,
+    "published_date": "November 12, 2026"
+  },
+  {
+    "slug": "voice-powered-macos-terminal-shortcut-builder-devops",
+    "keyword": "macOS voice terminal shortcuts devops",
+    "title": "Voice-Powered macOS Terminal Shortcut Builder for DevOps Pipelines",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-legal-document-summarization-pdf-macos",
+    "keyword": "macOS hands-free PDF legal summarization",
+    "title": "Hands-Free Legal Document Summarization in PDF on macOS Using AI Voice Prompts",
+    "category": "Document Management",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-scripts-macos-web-data-extraction",
+    "keyword": "BYOK voice automation macOS web scraping",
+    "title": "Secure BYOK-Encrypted Voice Scripts for Automated macOS Web Data Extraction",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "comparative-study-desktop-ai-agents-vs-cloud-chatbots-macos",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Comparative Study: Desktop AI Agents vs Cloud Chatbots for macOS Voice-Driven Productivity",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-multi-monitor-tiling-macos-developers",
+    "keyword": "macOS voice multi-monitor tiling",
+    "title": "Voice-Controlled Multi-Monitor Tiling Layouts for macOS Developers Using AppleScript",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "automated-spreadsheet-forecasting-numbers-voice-macos",
+    "keyword": "macOS voice spreadsheet forecasting Numbers",
+    "title": "Automated Spreadsheet Forecasting in Numbers via Voice Commands on macOS",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "hands-free-spotify-podcast-queue-management-macos",
+    "keyword": "macOS voice Spotify podcast control",
+    "title": "Hands-Free Spotify Podcast Queue Management on macOS with Voice AI",
+    "category": "Media Control",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-automation-framework-macos-local-llm",
+    "keyword": "macOS privacy voice automation BYOK",
+    "title": "Building a Privacy-First Voice Automation Framework on macOS with Local LLMs and BYOK",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-driven-macos-terminal-git-rebase-workflow",
+    "keyword": "macOS voice git rebase automation",
+    "title": "Voice-Driven macOS Terminal Git Rebase Workflow for Advanced Developers",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-invoice-data-extraction-numbers-voice-macos",
+    "keyword": "macOS voice PDF invoice extraction Numbers",
+    "title": "Hands-Free PDF Invoice Data Extraction and Entry into Numbers Using Voice AI on macOS",
+    "category": "Document Management",
     "published": false
   }
 ]
