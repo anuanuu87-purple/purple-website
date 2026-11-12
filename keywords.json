@@ -1212,7 +1212,8 @@
     "keyword": "privacy first voice automation macOS BYOK",
     "title": "Building a Privacy-First Voice Automation Framework on macOS with BYOK and Local LLM Inference",
     "category": "Privacy",
-    "published": false
+    "published": true,
+    "published_date": "November 12, 2026"
   },
   {
     "slug": "macos-terminal-shortcut-generator-voice-commands",
