@@ -1228,7 +1228,8 @@
     "keyword": "macOS voice terminal shortcuts devops",
     "title": "Voice-Powered macOS Terminal Shortcut Builder for DevOps Pipelines",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 13, 2026"
   },
   {
     "slug": "hands-free-legal-document-summarization-pdf-macos",
