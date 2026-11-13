@@ -1236,7 +1236,8 @@
     "keyword": "macOS hands-free PDF legal summarization",
     "title": "Hands-Free Legal Document Summarization in PDF on macOS Using AI Voice Prompts",
     "category": "Document Management",
-    "published": false
+    "published": true,
+    "published_date": "November 13, 2026"
   },
   {
     "slug": "secure-byok-voice-scripts-macos-web-data-extraction",
