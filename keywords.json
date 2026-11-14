@@ -1244,7 +1244,8 @@
     "keyword": "BYOK voice automation macOS web scraping",
     "title": "Secure BYOK-Encrypted Voice Scripts for Automated macOS Web Data Extraction",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 14, 2026"
   },
   {
     "slug": "comparative-study-desktop-ai-agents-vs-cloud-chatbots-macos",
