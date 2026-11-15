@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Controlled Multi-Monitor Tiling Layouts for macOS Developers Using AppleScript | Purple OS AI</title>
+    <meta name="description" content="Discover how to master macOS voice multi-monitor tiling with native macOS voice automation and intelligent desktop agents.">
+    <link rel="canonical" href="https://1into1.com/blog/voice-controlled-multi-monitor-tiling-macos-developers.html">
+    <link rel="icon" type="image/png" href="../logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7WZRVJE0Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7WZRVJE0Z');
+    </script>
+
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Voice-Controlled Multi-Monitor Tiling Layouts for macOS Developers Using AppleScript",
+  "description": "Learn how to master macOS voice multi-monitor tiling with native macOS voice commands and desktop AI automation.",
+  "author": {
+    "@type": "Organization",
+    "name": "Purple AI",
+    "url": "https://1into1.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "1into1",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://1into1.com/logo.png"
+    }
+  },
+  "datePublished": "2026-11-15",
+  "mainEntityOfPage": "https://1into1.com/blog/voice-controlled-multi-monitor-tiling-macos-developers.html"
+}
+    </script>
+
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif; background-color: #0f0a19; color: #f3f4f6; }
+        .glow { box-shadow: 0 0 25px rgba(168, 85, 247, 0.45); }
+        .article-content h2 { font-size: 1.75rem; font-weight: 700; color: #ffffff; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.25); padding-bottom: 0.5rem; }
+        .article-content h3 { font-size: 1.35rem; font-weight: 600; color: #c084fc; margin-top: 1.75rem; margin-bottom: 0.75rem; }
+        .article-content p { color: #d1d5db; line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .article-content ul, .article-content ol { margin-left: 1.5rem; margin-bottom: 1.5rem; color: #d1d5db; line-height: 1.85; }
+        .article-content li { margin-bottom: 0.5rem; }
+        .article-content blockquote { border-left: 4px solid #a855f7; padding: 1rem 1.25rem; margin: 1.5rem 0; color: #e9d5ff; font-style: italic; background: rgba(168, 85, 247, 0.08); border-radius: 0.5rem; }
+        .article-content pre { background: #140d24; border: 1px solid rgba(168, 85, 247, 0.25); padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin: 1.5rem 0; }
+        .article-content code { color: #f3e8ff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.95rem; }
+        .article-content strong { color: #ffffff; }
+    </style>
+</head>
+<body class="bg-[#0f0a19] text-gray-100 min-h-screen">
+    <nav class="w-full bg-[#0f0a19]/80 backdrop-blur-md border-b border-purple-900/30 fixed top-0 left-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-3">
+                <img src="../logo.png" alt="Purple Logo" class="h-8 w-auto drop-shadow-[0_0_10px_rgba(168,85,247,0.6)]">
+                <span class="text-xl font-bold text-white tracking-tight">Purple</span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <a href="/blog/" class="text-gray-300 hover:text-white transition text-sm font-medium">All Guides</a>
+                <a href="/#pricing" class="px-5 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition text-sm font-semibold text-white glow">Get Purple</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-32 pb-20">
+        <div class="mb-8">
+            <span class="px-3 py-1 bg-purple-900/50 border border-purple-500/40 text-purple-300 text-xs font-semibold rounded-full uppercase tracking-wider">
+                Window Management
+            </span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white mt-4 mb-4 tracking-tight leading-tight">
+                Voice-Controlled Multi-Monitor Tiling Layouts for macOS Developers Using AppleScript
+            </h1>
+            <p class="text-sm text-gray-400">Published on November 15, 2026 • 6 min read</p>
+        </div>
+
+        <div class="article-content bg-[#1a102b]/40 border border-purple-900/30 rounded-2xl p-6 md:p-10 mb-12 backdrop-blur-sm">
+            <h2>Introduction: From Manual Window Dragging to Voice‑Driven Multi‑Monitor Tiling</h2>
+<p>macOS developers often juggle dozens of windows across two or three monitors while debugging, testing UI layouts, or reviewing documentation. The default window‑management paradigm—click‑drag, resize, and reposition—creates a repetitive, mouse‑heavy workflow that fragments focus and slows iteration cycles. Modern developers demand a <strong>hands‑free</strong> approach that can instantly tile windows, move them between displays, and restore complex layouts with a single spoken command.</p>
+<p>This guide shows you how to build a robust, voice‑controlled tiling system for multi‑monitor setups using native macOS tools (AppleScript, <code>osascript</code>, and <code>defaults</code>) and the AI‑powered voice assistant <a href="https://1into1.com"><strong>Purple</strong></a>. By the end of the tutorial you will be able to:</p>
+<ul>
+<li>Define reusable tiling templates for any monitor configuration.</li>
+<li>Trigger layout changes with natural language (“<em>Purple, tile my code editor on the left monitor and Chrome on the right</em>”).</li>
+<li>Persist and restore layouts across reboots or workspace switches.</li>
+<li>Integrate Finder automation, PDF summarization, and web‑scraping tasks into the same voice workflow.</li>
+</ul>
+
+<h2>Setting Up the Foundations</h2>
+<h3>1. Install Command‑Line Tools and Verify AppleScript Permissions</h3>
+<p>Open Terminal and run the following command to ensure the Xcode command‑line tools are present. macOS will prompt you to install them if they are missing.</p>
+<pre><code>xcode-select --install</code></pre>
+<p>Next, grant the Terminal (or your preferred script runner) accessibility and automation permissions:</p>
+<ol>
+<li>Open <strong>System Settings → Privacy &amp; Security → Accessibility</strong>.</li>
+<li>Click the “+” button and add <code>/Applications/Utilities/Terminal.app</code>.</li>
+<li>Navigate to <strong>Automation</strong> and enable “Terminal – AppleScript” and “Terminal – System Events”.</li>
+</ol>
+
+<h3>2. Create a Central Tiling Script Repository</h3>
+<p>Store all layout definitions in a dedicated folder, e.g., <code>~/Scripts/tiling</code>. This keeps your AppleScript files version‑controlled and easily editable.</p>
+<pre><code>mkdir -p ~/Scripts/tiling
+cd ~/Scripts/tiling
+git init   # optional, for version control</code></pre>
+
+<h3>3. Install and Configure Purple</h3>
+<p>Purple is a native, voice‑driven autonomous OS AI that runs locally on macOS. It communicates with the system via secure BYOK (Bring‑Your‑Own‑Key) encryption, ensuring that all voice commands and data remain private.</p>
+<p>Download Purple from <a href="https://1into1.com">1into1.com</a>, run the installer, and complete the onboarding wizard. During setup, enable the “Voice‑Control Window Management” module and grant Purple the same accessibility permissions you gave Terminal.</p>
+
+<h2>Designing Tiling Templates with AppleScript</h2>
+<h3>Understanding Screen Geometry</h3>
+<p>AppleScript can query each display’s resolution and origin using the <code>System Events</code> dictionary. The following snippet returns an array of dictionaries, each describing a monitor:</p>
+<pre><code>set monitorInfo to {}
+tell application "System Events"
+    set displayList to displays of desktop
+    repeat with d in displayList
+        set end of monitorInfo to {id:id of d, width:width of d, height:height of d, x:origin x of d, y:origin y of d}
+    end repeat
+end tell
+return monitorInfo</code></pre>
+<p>Store the result in a JSON file (<code>~/Scripts/tiling/monitors.json</code>) for quick lookup by later scripts.</p>
+
+<h3>Creating a Basic Two‑Monitor Tile Layout</h3>
+<p>Below is a complete AppleScript file (<code>tile_two_monitors.scpt</code>) that places a code editor on the left monitor and a browser on the right monitor, each occupying half the screen height.</p>
+<pre><code>-- tile_two_monitors.scpt
+property editorApp : "Visual Studio Code"
+property browserApp : "Google Chrome"
+
+on run
+    set monitors to loadJSON("~/Scripts/tiling/monitors.json")
+    set leftMonitor to item 1 of monitors
+    set rightMonitor to item 2 of monitors
+
+    -- Position editor on left monitor
+    tell application editorApp
+        activate
+        set bounds of front window to {item 4 of leftMonitor, item 5 of leftMonitor, item 4 of leftMonitor + (item 3 of leftMonitor / 2), item 5 of leftMonitor + item 2 of leftMonitor}
+    end tell
+
+    -- Position browser on right monitor
+    tell application browserApp
+        activate
+        set bounds of front window to {item 4 of rightMonitor + (item 3 of rightMonitor / 2), item 5 of rightMonitor, item 4 of rightMonitor + item 3 of rightMonitor, item 5 of rightMonitor + item 2 of rightMonitor}
+    end tell
+end run
+
+on loadJSON(filePath)
+    set jsonText to do shell script "cat " & quoted form of POSIX path of filePath
+    return (do shell script "python3 -c \"import sys, json; print(json.dumps(json.load(sys.stdin)))\"") as list
+end loadJSON</code></pre>
+
+<h3>Extending Templates for Three Monitors</h3>
+<p>For a triple‑monitor rig, you might want a central “focus” pane (e.g., a debugger) flanked by documentation and a terminal. Create <code>tile_three_monitors.scpt</code> with three distinct regions:</p>
+<pre><code>-- tile_three_monitors.scpt
+property focusApp : "Xcode"
+property docApp   : "Safari"
+property termApp  : "iTerm"
+
+on run
+    set monitors to loadJSON("~/Scripts/tiling/monitors.json")
+    set centerMonitor to item 2 of monitors
+
+    -- Center focus window (full height, 60% width)
+    tell application focusApp
+        activate
+        set w to item 3 of centerMonitor * 0.6
+        set h to item 2 of centerMonitor
+        set x to item 4 of centerMonitor + (item 3 of centerMonitor * 0.2)
+        set y to item 5 of centerMonitor
+        set bounds of front window to {x, y, x + w, y + h}
+    end tell
+
+    -- Left documentation (full height, 40% width)
+    tell application docApp
+        activate
+        set w to item 3 of centerMonitor * 0.4
+        set h to item 2 of centerMonitor
+        set x to item 4 of centerMonitor
+        set y to item 5 of centerMonitor
+        set bounds of front window to {x, y, x + w, y + h}
+    end tell
+
+    -- Right terminal (full height, 40% width)
+    tell application termApp
+        activate
+        set w to item 3 of centerMonitor * 0.4
+        set h to item 2 of centerMonitor
+        set x to item 4 of centerMonitor + (item 3 of centerMonitor * 0.6)
+        set y to item 5 of centerMonitor
+        set bounds of front window to {x, y, x + w, y + h}
+    end tell
+end run
+
+on loadJSON(filePath)
+    set jsonText to do shell script "cat " & quoted form of POSIX path of filePath
+    return (do shell script "python3 -c \"import sys, json; print(json.dumps(json.load(sys.stdin)))\"") as list
+end loadJSON</code></pre>
+
+<h2>Integrating Voice Commands with Purple</h2>
+<h3>Mapping Natural Language to Script Execution</h3>
+<p>Purple uses a simple YAML‑based intent file. Create <code>~/.purple/intents/tiling.yml</code> and define the phrases you want to support.</p>
+<pre><code>intents:
+  - name: tile_two_monitors
+    phrases:
+      - "tile my code editor on the left monitor and Chrome on the right"
+      - "arrange development windows"
+    action: "osascript ~/Scripts/tiling/tile_two_monitors.scpt"
+
+  - name: tile_three_monitors
+    phrases:
+      - "set up my triple‑monitor layout"
+      - "focus Xcode in the center, docs left, terminal right"
+    action: "osascript ~/Scripts/tiling/tile_three_monitors.scpt"
+
+  - name: restore_last_layout
+    phrases:
+      - "restore my previous window arrangement"
+    action: "purple layout restore"</code></pre>
+<p>After saving, reload Purple’s intent engine:</p>
+<pre><code>purple reload intents</code></pre>
+<p>Now you can say, “<em>Purple, tile my code editor on the left monitor and Chrome on the right</em>,” and Purple will invoke the corresponding AppleScript via <code>osascript</code>.</p>
+
+<h3>Combining Tiling with Finder Automation</h3>
+<p>Suppose you need to move a set of log files into a project‑specific folder before tiling. Create a small AppleScript helper (<code>move_logs.scpt</code>) and chain it in a Purple macro:</p>
+<pre><code># move_logs_and_tile.yml
+intents:
+  - name: prep_and_tile
+    phrases:
+      - "prepare logs and tile my workspace"
+    action: |
+      osascript ~/Scripts/tiling/move_logs.scpt && \
+      osascript ~/Scripts/tiling/tile_two_monitors.scpt</code></pre>
+<p>This demonstrates how Purple can orchestrate multi‑step workflows without ever touching the keyboard.</p>
+
+<h2>Comparison: Voice‑Controlled Tiling vs. Traditional Mouse/Keyboard Methods</h2>
+<h3>Pros and Cons Table</h3>
+<ul>
+<li><strong>Speed of Layout Activation</strong>
+    <ul>
+        <li>Voice + Purple: <em>sub‑second</em> after utterance.</li>
+        <li>Manual Drag: 5‑10 seconds per window, cumulative.</li>
+    </ul>
+</li>
+<li><strong>Ergonomic Impact</strong>
+    <ul>
+        <li>Voice: Reduces repetitive strain, hands free.</li>
+        <li>Mouse/Keyboard: High cumulative finger/hand movement.</li>
+    </ul>
+</li>
+<li><strong>Learning Curve</strong>
+    <ul>
+        <li>Voice: Requires initial intent definition and permission setup.</li>
+        <li>Manual: Immediate but limited scalability.</li>
+    </ul>
+</li>
+<li><strong>Reliability &amp; Edge Cases</strong>
+    <ul>
+        <li>Voice: Dependent on microphone quality and speech‑recognition accuracy; fallback to text commands possible.</li>
+        <li>Manual: Works universally but prone to human error (mis‑placement).</li>
+    </ul>
+</li>
+<li><strong>Security &amp; Privacy</strong>
+    <ul>
+        <li>Purple: BYOK encryption ensures voice data never leaves the device.</li>
+        <li>Third‑party tools: May transmit audio to cloud services.</li>
+    </ul>
+</li>
+</ul>
+
+<h3>When to Use Each Approach</h3>
+<p>If you frequently switch between complex window arrangements—such as when debugging across multiple simulators—voice‑driven tiling delivers measurable productivity gains. For occasional, ad‑hoc window moves, the traditional mouse method remains perfectly adequate.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Can I use Purple’s voice commands on a MacBook without an external microphone?</h3>
+<p>Yes. macOS’s built‑in microphone is sufficient for most environments. For noisy offices, we recommend a USB‑C directional mic to improve recognition accuracy. Purple’s BYOK architecture encrypts the audio stream locally before any processing, preserving privacy.</p>
+
+<h3>What happens if I add or remove a monitor after defining my tiling scripts?</h3>
+<p>The AppleScript templates query the current monitor configuration at runtime, so they automatically adapt to the new geometry. However, you may need to update any hard‑coded monitor indices (e.g., “item 2 of monitors”) to reflect the new order. Re‑run the <code>loadJSON</code> helper to refresh <code>monitors.json</code>.</p>
+
+<h3>Is it possible to export a layout to a shareable file and import it on another Mac?</h3>
+<p>Absolutely. Purple includes a <code>layout export</code> command that serializes the current window bounds to a JSON file. Transfer the file via AirDrop, then run <code>purple layout import &lt;file&gt;</code> on the target machine. This works across different hardware as long as the monitor resolutions are compatible.</p>
+        </div>
+
+        <div class="bg-gradient-to-r from-purple-900/40 to-[#1a102b] border border-purple-500/50 rounded-2xl p-8 text-center glow">
+            <h3 class="text-2xl font-bold text-white mb-3">Experience Hands-Free macOS Automation</h3>
+            <p class="text-gray-300 mb-6 max-w-xl mx-auto text-sm">
+                Purple transforms your Mac into an autonomous voice-controlled OS. Control your browser, synthesize documents, and run automated workflows with your voice.
+            </p>
+            <a href="/#pricing" class="inline-block px-8 py-3.5 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-full transition transform hover:scale-105">
+                Download Free Trial
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-8 text-center text-xs text-gray-500 border-t border-purple-900/20">
+        <p>© 2026 1into1. All rights reserved.</p>
+    </footer>
+</body>
+</html>

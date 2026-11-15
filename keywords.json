@@ -1260,7 +1260,8 @@
     "keyword": "macOS voice multi-monitor tiling",
     "title": "Voice-Controlled Multi-Monitor Tiling Layouts for macOS Developers Using AppleScript",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "November 15, 2026"
   },
   {
     "slug": "automated-spreadsheet-forecasting-numbers-voice-macos",
