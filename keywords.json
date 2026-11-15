@@ -1268,7 +1268,8 @@
     "keyword": "macOS voice spreadsheet forecasting Numbers",
     "title": "Automated Spreadsheet Forecasting in Numbers via Voice Commands on macOS",
     "category": "Spreadsheet Math",
-    "published": false
+    "published": true,
+    "published_date": "November 15, 2026"
   },
   {
     "slug": "hands-free-spotify-podcast-queue-management-macos",
