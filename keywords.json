@@ -1276,7 +1276,8 @@
     "keyword": "macOS voice Spotify podcast control",
     "title": "Hands-Free Spotify Podcast Queue Management on macOS with Voice AI",
     "category": "Media Control",
-    "published": false
+    "published": true,
+    "published_date": "November 16, 2026"
   },
   {
     "slug": "privacy-first-voice-automation-framework-macos-local-llm",
