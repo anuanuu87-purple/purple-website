@@ -1284,7 +1284,8 @@
     "keyword": "macOS privacy voice automation BYOK",
     "title": "Building a Privacy-First Voice Automation Framework on macOS with Local LLMs and BYOK",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 16, 2026"
   },
   {
     "slug": "voice-driven-macos-terminal-git-rebase-workflow",
