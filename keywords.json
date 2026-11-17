@@ -1292,7 +1292,8 @@
     "keyword": "macOS voice git rebase automation",
     "title": "Voice-Driven macOS Terminal Git Rebase Workflow for Advanced Developers",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 17, 2026"
   },
   {
     "slug": "hands-free-pdf-invoice-data-extraction-numbers-voice-macos",
