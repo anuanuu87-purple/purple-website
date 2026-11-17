@@ -1300,6 +1300,77 @@
     "keyword": "macOS voice PDF invoice extraction Numbers",
     "title": "Hands-Free PDF Invoice Data Extraction and Entry into Numbers Using Voice AI on macOS",
     "category": "Document Management",
+    "published": true,
+    "published_date": "November 17, 2026"
+  },
+  {
+    "slug": "voice-terminal-docker-kubernetes-automation",
+    "keyword": "voice terminal docker kubernetes macos",
+    "title": "Voice-Enabled macOS Terminal Orchestration: Automate Docker Compose and Kubernetes Deployments Hands-Free",
+    "category": "Terminal Automation",
+    "published": false
+  },
+  {
+    "slug": "byok-voice-pdf-extraction-to-numbers",
+    "keyword": "byok voice pdf extraction macos numbers",
+    "title": "Secure BYOK-Powered Voice Scripts for Real-Time PDF Data Extraction and Sync to Numbers on macOS",
+    "category": "Document & Data Extraction",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-vs-cloud-chatbot-code-review-voice",
+    "keyword": "desktop AI agents vs cloud chatbots code review voice macos",
+    "title": "Comparing Desktop AI Agents and Cloud Chatbots for Voice-Driven macOS Code Review Automation",
+    "category": "AI Agents Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-spreadsheet-monte-carlo-simulations-numbers",
+    "keyword": "voice spreadsheet monte carlo simulations numbers macos",
+    "title": "Hands-Free Spreadsheet Monte Carlo Simulations in Numbers Using Voice Prompts on macOS",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "voice-macos-window-grid-manager",
+    "keyword": "voice macos window grid manager",
+    "title": "Voice-Controlled macOS Window Grid Manager: Dynamic Tiling for Multi-App Workflows",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-automation-local-llm-byok",
+    "keyword": "privacy first voice automation local LLM BYOK macos",
+    "title": "Privacy-First Voice Automation for macOS: Encrypting Voice Commands with Local LLMs and BYOK",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "voice-spotify-collaborative-playlist-mac",
+    "keyword": "voice spotify collaborative playlist macos",
+    "title": "Voice-Driven Spotify Collaborative Playlist Curation for Remote Teams on macOS",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "voice-puppeteer-web-scraping-secure-vault",
+    "keyword": "voice puppeteer web scraping secure vault macos",
+    "title": "Automated Web Data Harvesting with Voice-Guided Puppeteer Scripts and Secure Credential Vault on macOS",
+    "category": "Web Scraping",
+    "published": false
+  },
+  {
+    "slug": "voice-legal-contract-drafting-mac-pages",
+    "keyword": "voice legal contract drafting mac pages",
+    "title": "Voice-Powered Legal Contract Drafting Templates Integrated with macOS Pages and AI Suggestions",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "voice-devops-dashboard-ci-cd-shortcuts",
+    "keyword": "voice devops dashboard ci cd shortcuts macos",
+    "title": "Building a Voice-First macOS DevOps Dashboard: Trigger CI/CD Pipelines via Terminal Shortcuts",
+    "category": "DevOps Automation",
     "published": false
   }
 ]
