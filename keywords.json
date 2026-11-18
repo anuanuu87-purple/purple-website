@@ -1316,7 +1316,8 @@
     "keyword": "byok voice pdf extraction macos numbers",
     "title": "Secure BYOK-Powered Voice Scripts for Real-Time PDF Data Extraction and Sync to Numbers on macOS",
     "category": "Document & Data Extraction",
-    "published": false
+    "published": true,
+    "published_date": "November 18, 2026"
   },
   {
     "slug": "desktop-ai-vs-cloud-chatbot-code-review-voice",
