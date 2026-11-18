@@ -1308,7 +1308,8 @@
     "keyword": "voice terminal docker kubernetes macos",
     "title": "Voice-Enabled macOS Terminal Orchestration: Automate Docker Compose and Kubernetes Deployments Hands-Free",
     "category": "Terminal Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 18, 2026"
   },
   {
     "slug": "byok-voice-pdf-extraction-to-numbers",
