@@ -1332,7 +1332,8 @@
     "keyword": "voice spreadsheet monte carlo simulations numbers macos",
     "title": "Hands-Free Spreadsheet Monte Carlo Simulations in Numbers Using Voice Prompts on macOS",
     "category": "Spreadsheet Math",
-    "published": false
+    "published": true,
+    "published_date": "November 19, 2026"
   },
   {
     "slug": "voice-macos-window-grid-manager",
