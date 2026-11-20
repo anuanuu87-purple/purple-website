@@ -1348,7 +1348,8 @@
     "keyword": "privacy first voice automation local LLM BYOK macos",
     "title": "Privacy-First Voice Automation for macOS: Encrypting Voice Commands with Local LLMs and BYOK",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 20, 2026"
   },
   {
     "slug": "voice-spotify-collaborative-playlist-mac",
