@@ -1340,7 +1340,8 @@
     "keyword": "voice macos window grid manager",
     "title": "Voice-Controlled macOS Window Grid Manager: Dynamic Tiling for Multi-App Workflows",
     "category": "Window Management",
-    "published": false
+    "published": true,
+    "published_date": "November 20, 2026"
   },
   {
     "slug": "privacy-first-voice-automation-local-llm-byok",
