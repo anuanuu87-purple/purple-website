@@ -1364,7 +1364,8 @@
     "keyword": "voice puppeteer web scraping secure vault macos",
     "title": "Automated Web Data Harvesting with Voice-Guided Puppeteer Scripts and Secure Credential Vault on macOS",
     "category": "Web Scraping",
-    "published": false
+    "published": true,
+    "published_date": "November 21, 2026"
   },
   {
     "slug": "voice-legal-contract-drafting-mac-pages",
