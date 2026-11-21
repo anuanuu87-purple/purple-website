@@ -1356,7 +1356,8 @@
     "keyword": "voice spotify collaborative playlist macos",
     "title": "Voice-Driven Spotify Collaborative Playlist Curation for Remote Teams on macOS",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "November 21, 2026"
   },
   {
     "slug": "voice-puppeteer-web-scraping-secure-vault",
