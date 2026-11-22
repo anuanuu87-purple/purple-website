@@ -1380,6 +1380,77 @@
     "keyword": "voice devops dashboard ci cd shortcuts macos",
     "title": "Building a Voice-First macOS DevOps Dashboard: Trigger CI/CD Pipelines via Terminal Shortcuts",
     "category": "DevOps Automation",
+    "published": true,
+    "published_date": "November 22, 2026"
+  },
+  {
+    "slug": "voice-activated-macos-terminal-kubernetes-shortcuts",
+    "keyword": "macOS voice terminal Kubernetes shortcuts",
+    "title": "Voice-Activated macOS Terminal Shortcut Generator for Kubernetes Cluster Management",
+    "category": "Voice Automation",
+    "published": false
+  },
+  {
+    "slug": "hands-free-pdf-contract-extraction-numbers-macos",
+    "keyword": "hands-free PDF contract extraction macOS",
+    "title": "Hands-Free PDF Contract Clause Extraction to Numbers Using Local LLMs on macOS",
+    "category": "Document Drafting",
+    "published": false
+  },
+  {
+    "slug": "privacy-first-voice-web-scraping-byok-macos",
+    "keyword": "BYOK voice web scraping macOS",
+    "title": "Privacy-First Voice Scripts for Secure Web Scraping with BYOK Encryption on macOS",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-devops",
+    "keyword": "desktop AI agents vs cloud chatbots macOS",
+    "title": "Comparative Analysis: Desktop AI Agents vs Cloud Chatbots for Voice-Driven macOS DevOps",
+    "category": "AI Comparison",
+    "published": false
+  },
+  {
+    "slug": "voice-controlled-spotify-collaborative-playlist-macos",
+    "keyword": "voice controlled Spotify playlist macOS",
+    "title": "Voice-Controlled Spotify Collaborative Playlist Creation for Remote Teams on macOS",
+    "category": "Media Playback",
+    "published": false
+  },
+  {
+    "slug": "dynamic-window-grid-voice-macos",
+    "keyword": "voice window grid macOS",
+    "title": "Dynamic Window Grid Management via Voice Commands in macOS for Multi-Project Workflows",
+    "category": "Window Management",
+    "published": false
+  },
+  {
+    "slug": "automated-financial-forecasting-voice-numbers-macos",
+    "keyword": "voice Monte Carlo forecasting macOS",
+    "title": "Automated Financial Forecasting in Numbers Using Voice-Driven Monte Carlo Simulations on macOS",
+    "category": "Spreadsheet Math",
+    "published": false
+  },
+  {
+    "slug": "secure-byok-voice-email-summarization-macos",
+    "keyword": "BYOK voice email summarization macOS",
+    "title": "Secure BYOK-Powered Voice Automation for Real-Time Email Summarization in macOS Mail",
+    "category": "Privacy & Security",
+    "published": false
+  },
+  {
+    "slug": "hands-free-code-refactoring-xcode-voice-macos",
+    "keyword": "voice code refactoring Xcode macOS",
+    "title": "Hands-Free Code Refactoring in Xcode via Voice-Activated AI Agents on macOS",
+    "category": "Developer Tools",
+    "published": false
+  },
+  {
+    "slug": "voice-enabled-github-issue-triage-macos",
+    "keyword": "voice GitHub issue triage macOS",
+    "title": "Voice-Enabled macOS Terminal Shortcut Builder for Automating GitHub Issue Triage",
+    "category": "Developer Workflow",
     "published": false
   }
 ]
