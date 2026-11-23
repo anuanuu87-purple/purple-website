@@ -1388,7 +1388,8 @@
     "keyword": "macOS voice terminal Kubernetes shortcuts",
     "title": "Voice-Activated macOS Terminal Shortcut Generator for Kubernetes Cluster Management",
     "category": "Voice Automation",
-    "published": false
+    "published": true,
+    "published_date": "November 23, 2026"
   },
   {
     "slug": "hands-free-pdf-contract-extraction-numbers-macos",
