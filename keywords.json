@@ -1396,7 +1396,8 @@
     "keyword": "hands-free PDF contract extraction macOS",
     "title": "Hands-Free PDF Contract Clause Extraction to Numbers Using Local LLMs on macOS",
     "category": "Document Drafting",
-    "published": false
+    "published": true,
+    "published_date": "November 24, 2026"
   },
   {
     "slug": "privacy-first-voice-web-scraping-byok-macos",
