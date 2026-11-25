@@ -1404,7 +1404,8 @@
     "keyword": "BYOK voice web scraping macOS",
     "title": "Privacy-First Voice Scripts for Secure Web Scraping with BYOK Encryption on macOS",
     "category": "Privacy & Security",
-    "published": false
+    "published": true,
+    "published_date": "November 25, 2026"
   },
   {
     "slug": "desktop-ai-agents-vs-cloud-chatbots-macos-devops",
