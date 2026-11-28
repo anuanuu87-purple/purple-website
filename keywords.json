@@ -1420,7 +1420,8 @@
     "keyword": "voice controlled Spotify playlist macOS",
     "title": "Voice-Controlled Spotify Collaborative Playlist Creation for Remote Teams on macOS",
     "category": "Media Playback",
-    "published": false
+    "published": true,
+    "published_date": "November 28, 2026"
   },
   {
     "slug": "dynamic-window-grid-voice-macos",
